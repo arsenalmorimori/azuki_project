@@ -1,7 +1,9 @@
 
 using System;
+
+using System.Management;
 public class Frontend_Setup {
-    
+
     // -------------- VARIABLES --------------
     public static int Pointer = 0;
     public static ConsoleKey Cursor;
@@ -15,44 +17,72 @@ public class Frontend_Setup {
 
     // -------------- METHODS --------------
     public static void Load() {
-        fa.MHA_Wallpaper();
+        Console.Clear();
+        Console.Write(Style_Root.RESET);
+        fa.Screen();
+        fa.Box(1, 3, 304, 3);
         while (true) {
-            Load_Gui();    
+            Load_Gui();
             User_Cursor();
         }
     }
 
     public static void Load_Gui() {
         // ICONS
-        fa.Icon(Style_Root.file_icoH, Style_Root.file_icoUH, 1, 60, 10 + 5);
-        fa.Icon(Style_Root.file_icoH, Style_Root.file_icoUH, 2, 60, 29 + 5);
-        fa.Icon(Style_Root.file_icoH, Style_Root.file_icoUH, 3, 60, 48 + 5);
-        fa.Icon(Style_Root.file_icoH, Style_Root.file_icoUH, 4, 60, 67 + 5);
-        fa.Icon(Style_Root.file_icoH, Style_Root.file_icoUH, 5, 67, 10 + 5);
-        fa.Icon(Style_Root.file_icoH, Style_Root.file_icoUH, 6, 67, 29 + 5);
-        fa.Icon(Style_Root.file_icoH, Style_Root.file_icoUH, 7, 67, 48 + 5);
-        fa.Icon(Style_Root.file_icoH, Style_Root.file_icoUH, 8, 67, 67 + 5);
-        fa.Icon(Style_Root.file_icoH, Style_Root.file_icoUH, 9, 67, 86 + 5);
+        int col = 10;
+        fa.Icon(Style_Root.terminal_ico, 1, 60, col);
+        col += 21;
+        fa.Icon(Style_Root.file_ico, 2, 60, col);
+        col += 21;
+        fa.Icon(Style_Root.file_ico, 3, 60, col);
+        col += 21;
+        fa.Icon(Style_Root.file_ico, 4, 60, col);
+        col += 21;
+        
+        col = 10;
+        fa.Icon(Style_Root.file_ico, 5, 67, col);
+        col += 21;
+        fa.Icon(Style_Root.file_ico, 6, 67, col);
+        col += 21;
+        fa.Icon(Style_Root.file_ico, 7, 67, col);
+        col += 21;
+        fa.Icon(Style_Root.file_ico, 8, 67, col);
+        col += 21;
+        fa.Icon(Style_Root.file_ico, 9, 67, col);
+        col += 21;
+        // fa.Icon(Style_Root.file_ico, 2, 60, 29);
+        // fa.Icon(Style_Root.file_ico, 3, 60, 48);
+        // fa.Icon(Style_Root.file_ico, 4, 60, 67);
+        // fa.Icon(Style_Root.file_ico, 5, 67, 10);
+        // fa.Icon(Style_Root.file_ico, 6, 67, 29);
+        // fa.Icon(Style_Root.file_ico, 7, 67, 48);
+        // fa.Icon(Style_Root.file_ico, 8, 67, 67);
+        // fa.Icon(Style_Root.file_ico, 9, 67, 86);
 
         Widget_Clock();
 
+        fa.TextBox(3, 150, Style_Root.WHITE_BG + Style_Root.BLACK + "AZUKI OS" + Style_Root.RESET);
+        fa.TextBox(3, 8, Style_Root.WHITE_BG + Style_Root.BLACK + "SUN   NOV 11" + Style_Root.RESET);
+        Widget_Battery();
+
+        
 
     }
-    
+
 
     public static void Widget_Clock() {
-        
-        string hour= DateTime.Now.ToString("HH");
+
+        string hour = DateTime.Now.ToString("HH");
         string minute = DateTime.Now.ToString("mm");
-        
+
         string select = "";
         int line = 0;
         int col = 0;
         for (int a = 0; a <= 3; a++) {
-            
+
             switch (a) {
                 case 0:
-                    select = hour.Substring(0,1);
+                    select = hour.Substring(0, 1);
                     line = 13;
                     col = 15;
                     break;
@@ -62,7 +92,7 @@ public class Frontend_Setup {
                     col = 15 + 27;
                     break;
                 case 2:
-                    select = minute.Substring(0,1);
+                    select = minute.Substring(0, 1);
                     line = 13 + 18;
                     col = 15;
                     break;
@@ -103,8 +133,49 @@ public class Frontend_Setup {
                 case "9":
                     fa.Graphics(Style_Root.t_9, line, col);
                     break;
-                }     
+            }
         }
+    }
+
+    public static void Widget_Battery() {
+        var searcher = new ManagementObjectSearcher("SELECT * FROM Win32_Battery");
+        short battery_ = 0;
+        string battery_ico = "";
+        foreach (ManagementObject battery in searcher.Get()) {
+            battery_ =  Convert.ToSByte(battery["EstimatedChargeRemaining"]);
+        }
+        if (battery_ >= 98) {
+            battery_ico = "[██████████]";
+        }
+        else if (battery_ >= 90) {
+            battery_ico = "[█████████░]";
+        }
+        else if (battery_ >= 80) {
+            battery_ico = "[████████░░]";
+        }
+        else if (battery_ >= 70) {
+            battery_ico = "[███████░░░]";
+        }
+        else if (battery_ >= 60) {
+            battery_ico = "[██████░░░░]";
+        }
+        else if (battery_ >= 50) {
+            battery_ico = "[█████░░░░░]";
+        }
+        else if (battery_ >= 40) {
+            battery_ico = "[████░░░░░░]";
+        }
+        else if (battery_ >= 30) {
+            battery_ico = "[███░░░░░░░]";
+        }
+        else if (battery_ >= 20) {
+            battery_ico = "[██░░░░░░░░]";
+        }
+        else if (battery_ >= 10) {
+            battery_ico = "[█░░░░░░░░░]";
+        }
+        fa.TextBox(3, 290, Style_Root.WHITE_BG + Style_Root.BLACK + battery_ico + Style_Root.RESET);
+        
     }
 
 
@@ -119,7 +190,7 @@ public class Frontend_Setup {
             Pointer--;
         }
     }
-    
+
     public static void console_log(int line, string text) {
         Console.SetCursorPosition(0, line);
         Console.WriteLine(text);

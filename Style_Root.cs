@@ -15,6 +15,7 @@ public class Style_Root {
     // -- background color
     public static string PRIMARY_BG = "\u001b[47m";
     public static string WHITE_BG = "\u001b[47m";
+    public static string BLACK_BG = "\u001b[0m";
 
 
 
@@ -37,19 +38,22 @@ public class Style_Root {
 
 
     // ------------------- ICONS
-    public static string[] file_icoH = {
-        PRIMARY_ + PRIMARY_BG + @"..._________......." + RESET,
-        PRIMARY_ + PRIMARY_BG + @"...\        \___..." + RESET,
-        PRIMARY_ + PRIMARY_BG + @"....\        \ |..." + RESET,
-        PRIMARY_ + PRIMARY_BG + @".....\________\|..." + RESET,
-        PRIMARY_ + PRIMARY_BG + @"........file 1....." + RESET
+    public static string[] file_ico = {
+        @"..___________.......",
+        @"..\          \‾‾‾|..",
+        @"...\          \  |..",
+        @"....\          \ |..",
+        @".....\__________\|..",
+        @".......file 1......."
+        
     };
-    public static string[] file_icoUH = {
-        @"..._________.......",
-        @"...\        \___...",
-        @"....\        \ |...",
-        @".....\________\|...",
-        @"........file 1....."
+    public static string[] terminal_ico = {
+        @"...______________...",
+        @"..|              |..",
+        @"..|  >/          |..",
+        @"..|              |..",
+        @"..|______________|..",
+        @"......terminal......"
     };
 
     public static string[] t_0 = {

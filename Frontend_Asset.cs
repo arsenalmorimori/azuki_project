@@ -266,22 +266,24 @@ public class Frontend_Asset {
     }
 
     // ---------------   Assets   ---------------
-    public void Icon(string[] icon_hover, string[] icon_unhover, int selector, int line, int col) {
-        if (selector == Frontend_Setup.Pointer) {
-            foreach (var printline in icon_hover) {
+    public void Icon(string[] icon, int selector, int line, int col) {
+        
+        if(Frontend_Setup.Pointer == selector) {
+            Console.Write(Style_Root.BLACK+Style_Root.WHITE_BG);
+            foreach (var printline in icon) {
                 Console.SetCursorPosition(col, line);
                 Console.Write(printline);
                 line++;
             }
+            Console.Write(Style_Root.RESET);
         }
         else {
-            foreach (var printline in icon_unhover) {
+            foreach (var printline in icon) {
                 Console.SetCursorPosition(col, line);
                 Console.Write(printline);
                 line++;
             }
         }
-
     }
     
     public void Graphics(string[] graphics, int line, int col) {
@@ -296,6 +298,46 @@ public class Frontend_Asset {
     public void TextBox(int line, int col, string text) {
         Console.SetCursorPosition(col, line);
         Console.WriteLine(text);
+    }
+    public void Box(int line, int col, int width, int height) {
+        Console.SetCursorPosition(col, line);
+        int end = 0;
+
+        for (int a = 0; a <= width + 2; a++) {
+            if (a == width + 2) {
+                Console.Write("\n");
+            }else if (a == 0) {
+                Console.Write(" ");
+            }else {
+                Console.Write(".");
+            }
+        }
+
+        for (int a2 = 0; a2 <= height; a2++) {
+            Console.SetCursorPosition(col, line + a2+1);
+            Console.Write("|");
+            for (int b = 0; b <= width; b++) {
+                Console.Write(Style_Root.WHITE_BG + " ");
+            }
+            if (a2 == height) {
+                Console.Write(Style_Root.RESET + "\n");                
+            }else {
+                Console.Write(Style_Root.RESET + "|\n");                
+            }
+            end = a2+1;
+        }
+        
+        Console.SetCursorPosition(col, line + end);
+         for (int a = 0; a <= width + 2; a++) {
+            if (a == width + 2) {
+                Console.Write("\n");
+            }else if (a == 0) {
+                Console.Write(" ");
+            }else {
+                Console.Write(".");
+            }
+        }
+        
     }
 
 

@@ -40,17 +40,17 @@ public class Gui_sim {
 
     // }
 
-    // public void Icon(string[] icon, int selector, int line, int col) {
-    //     // program
-    //     // List<string> icon_ = new List<string>();
-    //     foreach (var printline in icon) {
-    //         Console.SetCursorPosition(col, line);
-    //         Console.Write(Program.Pointer == selector ? Program.BLACK_ON_WHITE : Program.WHITE_ON_BLACK);
-    //         Console.Write(printline);
-    //         Console.Write(Program.WHITE_ON_BLACK);
-    //         line++;
-    //     }
-    // }
+        // public void Icon(string[] icon, int selector, int line, int col) {
+        //     // program
+        //     // List<string> icon_ = new List<string>();
+        //     foreach (var printline in icon) {
+        //         Console.SetCursorPosition(col, line);
+        //         Console.Write(Program.Pointer == selector ? Program.BLACK_ON_WHITE : Program.WHITE_ON_BLACK);
+        //         Console.Write(printline);
+        //         Console.Write(Program.WHITE_ON_BLACK);
+        //         line++;
+        //     }
+        // }
     
     
     // public void Window(string[] window, int line, int col) {
