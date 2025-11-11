@@ -1,0 +1,15 @@
+C:\Users\Nesty\Programming\C#\azuki_proj\official\bin\Debug\net9.0\azuki_project.exe
+C:\Users\Nesty\Programming\C#\azuki_proj\official\bin\Debug\net9.0\azuki_project.deps.json
+C:\Users\Nesty\Programming\C#\azuki_proj\official\bin\Debug\net9.0\azuki_project.runtimeconfig.json
+C:\Users\Nesty\Programming\C#\azuki_proj\official\bin\Debug\net9.0\azuki_project.dll
+C:\Users\Nesty\Programming\C#\azuki_proj\official\bin\Debug\net9.0\azuki_project.pdb
+C:\Users\Nesty\Programming\C#\azuki_proj\official\obj\Debug\net9.0\azuki_project.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Nesty\Programming\C#\azuki_proj\official\obj\Debug\net9.0\azuki_project.AssemblyInfoInputs.cache
+C:\Users\Nesty\Programming\C#\azuki_proj\official\obj\Debug\net9.0\azuki_project.AssemblyInfo.cs
+C:\Users\Nesty\Programming\C#\azuki_proj\official\obj\Debug\net9.0\azuki_project.csproj.CoreCompileInputs.cache
+C:\Users\Nesty\Programming\C#\azuki_proj\official\obj\Debug\net9.0\azuki_project.sourcelink.json
+C:\Users\Nesty\Programming\C#\azuki_proj\official\obj\Debug\net9.0\azuki_project.dll
+C:\Users\Nesty\Programming\C#\azuki_proj\official\obj\Debug\net9.0\refint\azuki_project.dll
+C:\Users\Nesty\Programming\C#\azuki_proj\official\obj\Debug\net9.0\azuki_project.pdb
+C:\Users\Nesty\Programming\C#\azuki_proj\official\obj\Debug\net9.0\azuki_project.genruntimeconfig.cache
+C:\Users\Nesty\Programming\C#\azuki_proj\official\obj\Debug\net9.0\ref\azuki_project.dll
