@@ -4,6 +4,8 @@ using System;
 namespace azuki_project {
     public class Program {
 
+        public static string User = "Mashiro";
+
 
         // public static readonly string BLACK_ON_WHITE = "\u001b[30;47m";
         // public static readonly string WHITE_ON_BLACK = "\u001b[37;40m\u001b[0m";

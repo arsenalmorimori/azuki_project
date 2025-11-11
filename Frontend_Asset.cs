@@ -286,10 +286,11 @@ public class Frontend_Asset {
         }
     }
     
-    public void Graphics(string[] graphics, int line, int col) {
+    public void Graphics(string[] graphics, int line, int col, string color, string background) {
+        
         foreach (var printline in graphics) {
             Console.SetCursorPosition(col, line);
-            Console.Write(printline);
+            Console.Write(color + background + printline + Style_Root.RESET);
             line++;
         }
         
@@ -297,9 +298,10 @@ public class Frontend_Asset {
 
     public void TextBox(int line, int col, string text) {
         Console.SetCursorPosition(col, line);
-        Console.WriteLine(text);
+        Console.Write(text);
     }
-    public void Box(int line, int col, int width, int height) {
+
+    public void Box(int line, int col, int width, int height, string bgColor) {
         Console.SetCursorPosition(col, line);
         int end = 0;
 
@@ -317,7 +319,7 @@ public class Frontend_Asset {
             Console.SetCursorPosition(col, line + a2+1);
             Console.Write("|");
             for (int b = 0; b <= width; b++) {
-                Console.Write(Style_Root.WHITE_BG + " ");
+                Console.Write(bgColor + " ");
             }
             if (a2 == height) {
                 Console.Write(Style_Root.RESET + "\n");                

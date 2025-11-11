@@ -8,7 +8,7 @@ public class Frontend_Setup {
     public static int Pointer = 0;
     public static ConsoleKey Cursor;
     static Frontend_Asset fa = new Frontend_Asset();
-    static Style_Root style = new Style_Root();
+    public static bool program_running = true;
 
     // -------------- MAIN METHOD --------------
     public static void Run() {
@@ -20,9 +20,15 @@ public class Frontend_Setup {
         Console.Clear();
         Console.Write(Style_Root.RESET);
         fa.Screen();
-        fa.Box(1, 3, 304, 3);
+        fa.Box(1, 3, 304, 3,Style_Root.WHITE_BG);
         while (true) {
-            Load_Gui();
+            Load_Taskbar();
+            if (program_running) {
+                App_Terminal.Run();
+            }
+            else {
+                Load_Gui();
+            }
             User_Cursor();
         }
     }
@@ -30,43 +36,34 @@ public class Frontend_Setup {
     public static void Load_Gui() {
         // ICONS
         int col = 10;
-        fa.Icon(Style_Root.terminal_ico, 1, 60, col);
-        col += 21;
-        fa.Icon(Style_Root.file_ico, 2, 60, col);
-        col += 21;
-        fa.Icon(Style_Root.file_ico, 3, 60, col);
-        col += 21;
-        fa.Icon(Style_Root.file_ico, 4, 60, col);
-        col += 21;
-        
+        fa.Icon(Style_Root.terminal_ico, 1, 58, col);
+        col += 20;
+        fa.Icon(Style_Root.file_ico, 2, 58, col);
+        col += 20;
+        fa.Icon(Style_Root.file_ico, 3, 58, col);
+        col += 20;
+        fa.Icon(Style_Root.file_ico, 4, 58, col);
+        col += 20;
+
         col = 10;
-        fa.Icon(Style_Root.file_ico, 5, 67, col);
-        col += 21;
-        fa.Icon(Style_Root.file_ico, 6, 67, col);
-        col += 21;
-        fa.Icon(Style_Root.file_ico, 7, 67, col);
-        col += 21;
-        fa.Icon(Style_Root.file_ico, 8, 67, col);
-        col += 21;
-        fa.Icon(Style_Root.file_ico, 9, 67, col);
-        col += 21;
-        // fa.Icon(Style_Root.file_ico, 2, 60, 29);
-        // fa.Icon(Style_Root.file_ico, 3, 60, 48);
-        // fa.Icon(Style_Root.file_ico, 4, 60, 67);
-        // fa.Icon(Style_Root.file_ico, 5, 67, 10);
-        // fa.Icon(Style_Root.file_ico, 6, 67, 29);
-        // fa.Icon(Style_Root.file_ico, 7, 67, 48);
-        // fa.Icon(Style_Root.file_ico, 8, 67, 67);
-        // fa.Icon(Style_Root.file_ico, 9, 67, 86);
+        fa.Icon(Style_Root.file_ico, 5, 66, col);
+        col += 20;
+        fa.Icon(Style_Root.file_ico, 6, 66, col);
+        col += 20;
+        fa.Icon(Style_Root.file_ico, 7, 66, col);
+        col += 20;
+        fa.Icon(Style_Root.file_ico, 8, 66, col);
+        col += 20;
+        fa.Icon(Style_Root.file_ico, 9, 66, col);
+        col += 20;
 
         Widget_Clock();
-
+    }
+    
+    public static void Load_Taskbar() {
         fa.TextBox(3, 150, Style_Root.WHITE_BG + Style_Root.BLACK + "AZUKI OS" + Style_Root.RESET);
         fa.TextBox(3, 8, Style_Root.WHITE_BG + Style_Root.BLACK + "SUN   NOV 11" + Style_Root.RESET);
         Widget_Battery();
-
-        
-
     }
 
 
@@ -104,34 +101,34 @@ public class Frontend_Setup {
             }
             switch (select) {
                 case "0":
-                    fa.Graphics(Style_Root.t_0, line, col);
+                    fa.Graphics(Style_Root.t_0, line, col, "","");
                     break;
                 case "1":
-                    fa.Graphics(Style_Root.t_1, line, col);
+                    fa.Graphics(Style_Root.t_1, line, col, "","");
                     break;
                 case "2":
-                    fa.Graphics(Style_Root.t_2, line, col);
+                    fa.Graphics(Style_Root.t_2, line, col, "","");
                     break;
                 case "3":
-                    fa.Graphics(Style_Root.t_3, line, col);
+                    fa.Graphics(Style_Root.t_3, line, col, "","");
                     break;
                 case "4":
-                    fa.Graphics(Style_Root.t_4, line, col);
+                    fa.Graphics(Style_Root.t_4, line, col, "","");
                     break;
                 case "5":
-                    fa.Graphics(Style_Root.t_5, line, col);
+                    fa.Graphics(Style_Root.t_5, line, col, "","");
                     break;
                 case "6":
-                    fa.Graphics(Style_Root.t_6, line, col);
+                    fa.Graphics(Style_Root.t_6, line, col, "","");
                     break;
                 case "7":
-                    fa.Graphics(Style_Root.t_7, line, col);
+                    fa.Graphics(Style_Root.t_7, line, col, "","");
                     break;
                 case "8":
-                    fa.Graphics(Style_Root.t_8, line, col);
+                    fa.Graphics(Style_Root.t_8, line, col, "","");
                     break;
                 case "9":
-                    fa.Graphics(Style_Root.t_9, line, col);
+                    fa.Graphics(Style_Root.t_9, line, col, "","");
                     break;
             }
         }
