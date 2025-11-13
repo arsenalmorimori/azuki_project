@@ -8,7 +8,7 @@ public class Frontend_Setup {
     public static int Pointer = 0;
     public static ConsoleKey Cursor;
     static Frontend_Asset fa = new Frontend_Asset();
-    public static bool program_running = true;
+    public static bool program_running = false;
 
     // -------------- MAIN METHOD --------------
     public static void Run() {
@@ -19,12 +19,12 @@ public class Frontend_Setup {
     public static void Load() {
         Console.Clear();
         Console.Write(Style_Root.RESET);
-        fa.Screen();
-        fa.Box(1, 3, 304, 3,Style_Root.WHITE_BG);
+        fa.MHA_Wallpaper2();
+        fa.Box(1, 3, 304, 1,"");
         while (true) {
             Load_Taskbar();
             if (program_running) {
-                App_Terminal.Run();
+                // App_Terminal.Run();
             }
             else {
                 Load_Gui();
@@ -61,8 +61,10 @@ public class Frontend_Setup {
     }
     
     public static void Load_Taskbar() {
-        fa.TextBox(3, 150, Style_Root.WHITE_BG + Style_Root.BLACK + "AZUKI OS" + Style_Root.RESET);
-        fa.TextBox(3, 8, Style_Root.WHITE_BG + Style_Root.BLACK + "SUN   NOV 11" + Style_Root.RESET);
+        fa.TextBox(2, 150, "AZUKI OS");
+        fa.TextBox(2, 8,  "SUN   NOV 11");
+        // fa.TextBox(2, 150, Style_Root.WHITE_BG + Style_Root.BLACK + "AZUKI OS" + Style_Root.RESET);
+        // fa.TextBox(2, 8, Style_Root.WHITE_BG + Style_Root.BLACK + "SUN   NOV 11" + Style_Root.RESET);
         Widget_Battery();
     }
 
@@ -171,7 +173,8 @@ public class Frontend_Setup {
         else if (battery_ >= 10) {
             battery_ico = "[█░░░░░░░░░]";
         }
-        fa.TextBox(3, 290, Style_Root.WHITE_BG + Style_Root.BLACK + battery_ico + Style_Root.RESET);
+        fa.TextBox(2, 290,  battery_ico );
+        // fa.TextBox(3, 290, Style_Root.WHITE_BG + Style_Root.BLACK + battery_ico + Style_Root.RESET);
         
     }
 
