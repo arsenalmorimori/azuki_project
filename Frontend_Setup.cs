@@ -19,7 +19,7 @@ public class Frontend_Setup {
     public static void Load() {
         Console.Clear();
         Console.Write(Style_Root.RESET);
-        fa.MHA_Wallpaper2();
+        Wallpaper.Arch();
         fa.Box(1, 3, 304, 1,"");
         while (true) {
             Load_Taskbar();
