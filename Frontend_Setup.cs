@@ -17,20 +17,19 @@ public class Frontend_Setup {
 
     // -------------- METHODS --------------
     public static void Load() {
-        Console.Clear();
-        Console.Write(Style_Root.RESET);
-        Wallpaper.Arch();
-        fa.Box(1, 3, 304, 1,"");
         while (true) {
+            Console.SetCursorPosition(0,0);
+            Console.Clear();
+            Console.Write(Style_Root.RESET);
+            Wallpaper.Luffy();
+            fa.Box(1, 3, 304, 1,"");
             Load_Taskbar();
-            if (program_running) {
-                // App_Terminal.Run();
-            }
-            else {
-                Load_Gui();
-            }
+            Load_Gui();
             User_Cursor();
+            
+            
         }
+        
     }
 
     public static void Load_Gui() {
@@ -188,6 +187,12 @@ public class Frontend_Setup {
         }
         else if (Cursor == ConsoleKey.A) {
             Pointer--;
+        }else if (Cursor == ConsoleKey.Enter) {
+            switch (Pointer) {
+                case 1:
+                    App_Terminal.Run();
+                    break;
+            }
         }
     }
 

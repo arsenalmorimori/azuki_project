@@ -1,24 +1,47 @@
+
 using System;
+using System.Text;
+using WindowsInput;
+using WindowsInput.Native;
+
 class App_Terminal {
     static Frontend_Asset fa = new Frontend_Asset();
+    public static InputSimulator sim = new InputSimulator();
     public static void Run() {
         Load();
     }
     static string command;
     public static void Load() {
+        Frontend_Setup.program_running = true;
+        Console.Clear();
+        sim.Keyboard.ModifiedKeyStroke(VirtualKeyCode.CONTROL, VirtualKeyCode.OEM_PLUS);          
+        sim.Keyboard.ModifiedKeyStroke(VirtualKeyCode.CONTROL, VirtualKeyCode.OEM_PLUS);          
+        sim.Keyboard.ModifiedKeyStroke(VirtualKeyCode.CONTROL, VirtualKeyCode.OEM_PLUS);
 
-        fa.Box(5, 3, 304, 72, Style_Root.BLACK_BG);
-        fa.TextBox(6, 5, "Terminal");
-        fa.TextBox(6, 299, Style_Root.MAGENTA_BG + Style_Root.BLACK +  @"         " + Style_Root.RESET);
-        fa.TextBox(7, 299, Style_Root.MAGENTA_BG + Style_Root.BLACK +  @"  \‾\‾/  " + Style_Root.RESET);
-        fa.TextBox(8, 299, Style_Root.MAGENTA_BG + Style_Root.BLACK +  @"  /_\_\  " + Style_Root.RESET);
-        fa.TextBox(9, 299, Style_Root.MAGENTA_BG + Style_Root.BLACK +  @"         " + Style_Root.RESET);
+        StringBuilder cli = new StringBuilder();
+        cli.Append(@"C:\Azuki\User\Mashiro\");
 
-        fa.TextBox(12, 10, @"C:\Azuki\User\Mashiro\");
-        command = Console.ReadLine();
+        while (true) {
+            Console.SetCursorPosition(0,0);
+            Console.Write(cli);
+            String command = Console.ReadLine();
+            cli.Append(command+ "\n\n");
+            Console.Clear();
 
-        // fa.Graphics(Style_Root.azuki_illus, 10, 50,Style_Root.MAGENTA,"");
-        // fa.Graphics(Style_Root.Terminal_Hello, 10, 130,Style_Root.MAGENTA,"");
+            if(command == "--close") {
+                sim.Keyboard.ModifiedKeyStroke(VirtualKeyCode.CONTROL, VirtualKeyCode.OEM_MINUS);          
+                sim.Keyboard.ModifiedKeyStroke(VirtualKeyCode.CONTROL, VirtualKeyCode.OEM_MINUS);   
+                sim.Keyboard.ModifiedKeyStroke(VirtualKeyCode.CONTROL, VirtualKeyCode.OEM_MINUS);
+                Console.Clear();
+                // erroring at bringing back
+                Frontend_Setup.program_running = false;   
+                break;
+            }
+            // fa.TextBox(6, 299, Style_Root.MAGENTA_BG + Style_Root.BLACK +  @"         " + Style_Root.RESET);
+            // fa.TextBox(7, 299, Style_Root.MAGENTA_BG + Style_Root.BLACK +  @"  \‾\‾/  " + Style_Root.RESET);
+            // fa.TextBox(8, 299, Style_Root.MAGENTA_BG + Style_Root.BLACK +  @"  /_\_\  " + Style_Root.RESET);
+            // fa.TextBox(9, 299, Style_Root.MAGENTA_BG + Style_Root.BLACK +  @"         " + Style_Root.RESET)
+        }
 
     }
 }

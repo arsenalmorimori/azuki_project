@@ -18,3 +18,4 @@ C:\Users\Nesty\Programming\C#\azuki_proj\official\obj\Debug\net9.0-windows\refin
 C:\Users\Nesty\Programming\C#\azuki_proj\official\obj\Debug\net9.0-windows\azuki_project.pdb
 C:\Users\Nesty\Programming\C#\azuki_proj\official\obj\Debug\net9.0-windows\azuki_project.genruntimeconfig.cache
 C:\Users\Nesty\Programming\C#\azuki_proj\official\obj\Debug\net9.0-windows\ref\azuki_project.dll
+C:\Users\Nesty\Programming\C#\azuki_proj\official\bin\Debug\net9.0-windows\WindowsInput.dll
