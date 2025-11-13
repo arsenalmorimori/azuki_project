@@ -1,14 +1,11 @@
     using System.Text;
 
 public class Frontend_Asset {
-
-    // ---------------   Wallpaper   --------------- 
     
     // ╭─Status────────────╮
     // │ System Booting... │
     // ╰───────────────────╯
     
-
     // ---------------   Assets   ---------------
     public void Icon(string[] icon, int selector, int line, int col) {
         
@@ -84,6 +81,29 @@ public class Frontend_Asset {
             }
         }
         
+    }
+
+
+    public void ClearCmd(){
+        // Code by deepseek
+            try
+            {
+                // Method 1: Standard escape sequences
+                Console.Write("\u001b[2J\u001b[H");
+                
+                // Method 2: Alternative escape sequences
+                Console.Write("\x1b[2J\x1b[H");
+                
+                // Method 3: Even more thorough
+                Console.Write("\u001b[3J\u001b[H\u001b[2J");
+                
+                Console.SetCursorPosition(0, 0);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine($"Clear failed: {e.Message}");
+                Console.Clear(); // Fallback
+            }
     }
 
 

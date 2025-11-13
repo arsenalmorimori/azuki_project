@@ -8,7 +8,7 @@ public class Frontend_Setup {
     public static int Pointer = 0;
     public static ConsoleKey Cursor;
     static Frontend_Asset fa = new Frontend_Asset();
-    public static bool program_running = false;
+    public static bool program_running = true;
 
     // -------------- MAIN METHOD --------------
     public static void Run() {
@@ -18,11 +18,19 @@ public class Frontend_Setup {
     // -------------- METHODS --------------
     public static void Load() {
         while (true) {
-            Console.SetCursorPosition(0,0);
-            Console.Clear();
-            Console.Write(Style_Root.RESET);
-            Wallpaper.Luffy();
-            fa.Box(1, 3, 304, 1,"");
+            if(program_running){
+                fa.ClearCmd();
+                Console.Clear();
+                Wallpaper.Arch();
+                Console.SetCursorPosition(0,0);
+                fa.Box(1, 3, 304, 1,"");
+                fa.ClearCmd();
+                Console.Clear();
+                Wallpaper.Arch();
+                Console.SetCursorPosition(0,0);
+                fa.Box(1, 3, 304, 1,"");
+                program_running = false;
+            }
             Load_Taskbar();
             Load_Gui();
             User_Cursor();
@@ -179,7 +187,6 @@ public class Frontend_Setup {
 
 
     public static void User_Cursor() {
-        Console.SetCursorPosition(0, 0);
         Cursor = Console.ReadKey().Key;
 
         if (Cursor == ConsoleKey.D) {
