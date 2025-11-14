@@ -22,12 +22,6 @@ public class Frontend_Setup {
                 fa.ClearCmd();
                 Console.Clear();
                 Wallpaper.Arch();
-                Console.SetCursorPosition(0,0);
-                fa.Box(1, 3, 304, 1,"");
-                fa.ClearCmd();
-                Console.Clear();
-                Wallpaper.Arch();
-                Console.SetCursorPosition(0,0);
                 fa.Box(1, 3, 304, 1,"");
                 program_running = false;
             }

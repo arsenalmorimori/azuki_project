@@ -3,7 +3,7 @@ using System.Text;
 
 class Wallpaper{
     
-    static StringBuilder cwln = new StringBuilder();
+    public static StringBuilder cwln = new StringBuilder();
     public static void Screen() {
         
         cwln.Clear();
