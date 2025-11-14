@@ -21,7 +21,7 @@ public class Frontend_Setup {
             if(program_running){
                 fa.ClearCmd();
                 Console.Clear();
-                Wallpaper.Arch();
+                Wallpaper.LoadWallpaper();
                 fa.Box(1, 3, 304, 1,"");
                 program_running = false;
             }
@@ -37,25 +37,25 @@ public class Frontend_Setup {
     public static void Load_Gui() {
         // ICONS
         int col = 10;
-        fa.Icon(Style_Root.terminal_ico, 1, 58, col);
+        fa.Icon(Style_Root.terminal_ico, 1, 58+7, col);
         col += 20;
-        fa.Icon(Style_Root.file_ico, 2, 58, col);
+        fa.Icon(Style_Root.file_ico, 2, 58+7, col);
         col += 20;
-        fa.Icon(Style_Root.file_ico, 3, 58, col);
+        fa.Icon(Style_Root.file_ico, 3, 58+7, col);
         col += 20;
-        fa.Icon(Style_Root.file_ico, 4, 58, col);
+        fa.Icon(Style_Root.file_ico, 4, 58+7, col);
         col += 20;
 
         col = 10;
-        fa.Icon(Style_Root.file_ico, 5, 66, col);
+        fa.Icon(Style_Root.file_ico, 5, 66+7, col);
         col += 20;
-        fa.Icon(Style_Root.file_ico, 6, 66, col);
+        fa.Icon(Style_Root.file_ico, 6, 66+7, col);
         col += 20;
-        fa.Icon(Style_Root.file_ico, 7, 66, col);
+        fa.Icon(Style_Root.file_ico, 7, 66+7, col);
         col += 20;
-        fa.Icon(Style_Root.file_ico, 8, 66, col);
+        fa.Icon(Style_Root.file_ico, 8, 66+7, col);
         col += 20;
-        fa.Icon(Style_Root.file_ico, 9, 66, col);
+        fa.Icon(Style_Root.file_ico, 9, 66+7, col);
         col += 20;
 
         Widget_Clock();

@@ -19,3 +19,8 @@ C:\Users\Nesty\Programming\C#\azuki_proj\official\obj\Debug\net9.0-windows\azuki
 C:\Users\Nesty\Programming\C#\azuki_proj\official\obj\Debug\net9.0-windows\azuki_project.genruntimeconfig.cache
 C:\Users\Nesty\Programming\C#\azuki_proj\official\obj\Debug\net9.0-windows\ref\azuki_project.dll
 C:\Users\Nesty\Programming\C#\azuki_proj\official\bin\Debug\net9.0-windows\WindowsInput.dll
+C:\Users\Nesty\Programming\C#\azuki_proj\official\bin\Debug\net9.0-windows\Google.Apis.dll
+C:\Users\Nesty\Programming\C#\azuki_proj\official\bin\Debug\net9.0-windows\Google.Apis.Auth.dll
+C:\Users\Nesty\Programming\C#\azuki_proj\official\bin\Debug\net9.0-windows\Google.Apis.Core.dll
+C:\Users\Nesty\Programming\C#\azuki_proj\official\bin\Debug\net9.0-windows\Google.GenAI.dll
+C:\Users\Nesty\Programming\C#\azuki_proj\official\bin\Debug\net9.0-windows\Newtonsoft.Json.dll

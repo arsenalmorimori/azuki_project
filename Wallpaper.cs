@@ -4,6 +4,39 @@ using System.Text;
 class Wallpaper{
     
     public static StringBuilder cwln = new StringBuilder();
+    
+
+    public static void LoadWallpaper() {
+        switch(env.wallpaper) {
+            case 0:
+                Screen();
+            break;
+            case 1:
+                Arch();
+            break;
+            case 2:
+                Circle();
+            break;
+            case 3:
+                StrawHat();
+            break;
+            case 4:
+                Starry();
+            break;
+            case 5:
+                MHA();
+            break;
+            case 6:
+                Luffy();
+            break;
+            case 7:
+                Charizard();
+            break;
+            
+        }
+    }
+
+
     public static void Screen() {
         
         cwln.Clear();
@@ -766,7 +799,7 @@ class Wallpaper{
 
 
 
-
+    
 
 
 

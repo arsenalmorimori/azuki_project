@@ -5,6 +5,8 @@ then dotnet build
 
 dotnet add package InputSimulatorPlus
 
+dotnet add package Google.GenAI
+
 
 
 // credits

@@ -8,6 +8,7 @@ public class Style_Root {
     public static string MAGENTA = "\u001b[35m";
     public static string BLUE = "\u001b[34m";
     public static string RED = "\u001b[31m";
+    public static string GREEN = "\u001b[32m";
     public static string CYAN = "\u001b[36m";
     public static string WHITE = "\u001b[37m";
     public static string BLACK = "\u001b[30m";
