@@ -17,72 +17,76 @@ class App_Terminal {
     public static async Task Load() {
         // -- Setting  Environment
         if (!Frontend_Setup.program_running) {
-             Frontend_Setup.program_running = true;
+            Frontend_Setup.program_running = true;
             fa.ClearCmd();
-            App_Setup.Zoom_In(5);
 
-            // -- Loading 
-            App_Setup.OpeningAppScreen("LOADING","STARTING SOFTWARE","PREPARING ENVIRONMENT","PROCESSING DISPLAY");
+            if((env.dev & 1) == 1) {
+            }else {
+                App_Setup.Zoom_In(5);
+                // -- Loading 
+                App_Setup.OpeningAppScreen("LOADING","STARTING SOFTWARE","PREPARING ENVIRONMENT","PROCESSING DISPLAY");
+            }
+
         }
        
         
 
-        // -- Processing Display
-        while (true) {
         
         fa.ClearCmd();    
         Wallpaper.Window_5();
-        fa.TextBox(0,3,"Terminal");
-        fa.TextBox(0,164, Style_Root.MAGENTA +" X " + Style_Root.RESET  );
+        App_Setup.LoadTaskbarBox_5();
+        App_Setup.LoadTaskbar_5("Terminal",69);
+        App_Setup.AppWindow_5();
+        
         
         // -- Program Loop
-        while (true) {
+        // while (true) {
 
-            // -- New thread
-            cli.Append(@"C:\Azuki\User\Mashiro\");
-            int line = 2;
-            Console.SetCursorPosition(4,2);
+            // // -- New thread
+            // cli.Append(@"C:\Azuki\User\Mashiro\");
+            // int line = 2;
+            // Console.SetCursorPosition(4,2);
 
-            // -- Display
-            foreach (string line_print in cli.ToString().Split(new[] { "\r\n", "\n" }, StringSplitOptions.None)){
-                if(line >= 40) {
-                    cli.Clear();
-                    Load();
-                }else {
-                    Console.SetCursorPosition(4,line);
-                    Console.Write(line_print);
-                    line++;
-                }
-            }
-
-            
-            // -- User Input
-            String command = Console.ReadLine();
-            Thread.Sleep(500);
+            // // -- Display
+            // foreach (string line_print in cli.ToString().Split(new[] { "\r\n", "\n" }, StringSplitOptions.None)){
+            //     if(line >= 40) {
+            //         cli.Clear();
+            //         Load();
+            //     }else {
+            //         Console.SetCursorPosition(4,line);
+            //         Console.Write(line_print);
+            //         line++;
+            //     }
+            // }
 
             
-            // -- Add to thread
-            cli.Append(command + "\n\n");
+            // // -- User Input
+            // String command = Console.ReadLine();
+            // Thread.Sleep(500);
+
+            
+            // // -- Add to thread
+            // cli.Append(command + "\n\n");
 
 
-            // -- Commands
-            if(command == "-x") {
-                // CLOSE
-                fa.ClearCmd();
-                cli.Clear();
-                App_Setup.Zoom_Out(5);
-                App_Setup.ClosingAppScreen("LOADING","RESETTING CONSOLE","CLEARING DATA","ENDING TASK","PROCESSING DISPLAY","SETTING UP ENVIRONMENT");
-                break;
+            // // -- Commands
+            // if(command == "-x") {
+            //     // CLOSE
+            //     fa.ClearCmd();
+            //     cli.Clear();
+            //     App_Setup.Zoom_Out(5);
+            //     App_Setup.ClosingAppScreen("LOADING","RESETTING CONSOLE","CLEARING DATA","ENDING TASK","PROCESSING DISPLAY","SETTING UP ENVIRONMENT");
+            //     break;
 
-            }else if(command.Substring(0,2) == "-w"){
-                // WALLPAPER
-                CommandWallpaper(command);
-            }else {
-                cli.Append("\n"+ Style_Root.RED + "Unrecognizable command... enter \"-h\" to see the lists of commands"+ Style_Root.RESET +"\n");   
-            }
-        }
+            // }else if(command.Substring(0,2) == "-w"){
+            //     // WALLPAPER
+            //     CommandWallpaper(command);
+            // }else {
+            //     cli.Append("\n"+ Style_Root.RED + "Unrecognizable command... enter \"-h\" to see the lists of commands"+ Style_Root.RESET +"\n");   
+            // }
+        // }
 
-        }
+        // }
     }
 
 

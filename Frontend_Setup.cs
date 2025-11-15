@@ -18,18 +18,21 @@ public class Frontend_Setup {
     // -------------- METHODS --------------
     public static void Load() {
         while (true) {
-            if(program_running){
-                fa.ClearCmd();
-                Console.Clear();
-                Wallpaper.LoadWallpaper();
-                fa.Box(1, 3, 304, 1,"");
-                program_running = false;
+            if((env.dev & 1) == 1) {
+                App_Terminal.Run();
+                User_Cursor();
+            }else {
+                if(program_running){
+                    fa.ClearCmd();
+                    Wallpaper.LoadWallpaper();
+                    fa.Box(1, 3, 304, 1,"");
+                    program_running = false;
+                }
+                    Load_Taskbar();
+                    Load_Gui();
+                    User_Cursor();
             }
-            Load_Taskbar();
-            Load_Gui();
-            User_Cursor();
-            
-            
+          
         }
         
     }
@@ -66,7 +69,7 @@ public class Frontend_Setup {
         fa.TextBox(2, 8,  "SUN   NOV 11");
         // fa.TextBox(2, 150, Style_Root.WHITE_BG + Style_Root.BLACK + "AZUKI OS" + Style_Root.RESET);
         // fa.TextBox(2, 8, Style_Root.WHITE_BG + Style_Root.BLACK + "SUN   NOV 11" + Style_Root.RESET);
-        Widget_Battery();
+        fa.Widget_Battery(2,290);
     }
 
 
@@ -136,49 +139,6 @@ public class Frontend_Setup {
             }
         }
     }
-
-    public static void Widget_Battery() {
-        var searcher = new ManagementObjectSearcher("SELECT * FROM Win32_Battery");
-        short battery_ = 0;
-        string battery_ico = "";
-        foreach (ManagementObject battery in searcher.Get()) {
-            battery_ =  Convert.ToSByte(battery["EstimatedChargeRemaining"]);
-        }
-        if (battery_ >= 98) {
-            battery_ico = "[██████████]";
-        }
-        else if (battery_ >= 90) {
-            battery_ico = "[█████████░]";
-        }
-        else if (battery_ >= 80) {
-            battery_ico = "[████████░░]";
-        }
-        else if (battery_ >= 70) {
-            battery_ico = "[███████░░░]";
-        }
-        else if (battery_ >= 60) {
-            battery_ico = "[██████░░░░]";
-        }
-        else if (battery_ >= 50) {
-            battery_ico = "[█████░░░░░]";
-        }
-        else if (battery_ >= 40) {
-            battery_ico = "[████░░░░░░]";
-        }
-        else if (battery_ >= 30) {
-            battery_ico = "[███░░░░░░░]";
-        }
-        else if (battery_ >= 20) {
-            battery_ico = "[██░░░░░░░░]";
-        }
-        else if (battery_ >= 10) {
-            battery_ico = "[█░░░░░░░░░]";
-        }
-        fa.TextBox(2, 290,  battery_ico );
-        // fa.TextBox(3, 290, Style_Root.WHITE_BG + Style_Root.BLACK + battery_ico + Style_Root.RESET);
-        
-    }
-
 
     public static void User_Cursor() {
         Cursor = Console.ReadKey().Key;

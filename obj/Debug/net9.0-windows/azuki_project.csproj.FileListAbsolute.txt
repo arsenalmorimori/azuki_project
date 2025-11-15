@@ -24,3 +24,8 @@ C:\Users\Nesty\Programming\C#\azuki_proj\official\bin\Debug\net9.0-windows\Googl
 C:\Users\Nesty\Programming\C#\azuki_proj\official\bin\Debug\net9.0-windows\Google.Apis.Core.dll
 C:\Users\Nesty\Programming\C#\azuki_proj\official\bin\Debug\net9.0-windows\Google.GenAI.dll
 C:\Users\Nesty\Programming\C#\azuki_proj\official\bin\Debug\net9.0-windows\Newtonsoft.Json.dll
+C:\Users\Nesty\Programming\C#\azuki_proj\official\bin\Debug\net9.0-windows\NStack.dll
+C:\Users\Nesty\Programming\C#\azuki_proj\official\bin\Debug\net9.0-windows\Terminal.Gui.dll
+C:\Users\Nesty\Programming\C#\azuki_proj\official\bin\Debug\net9.0-windows\fr-FR\Terminal.Gui.resources.dll
+C:\Users\Nesty\Programming\C#\azuki_proj\official\bin\Debug\net9.0-windows\ja-JP\Terminal.Gui.resources.dll
+C:\Users\Nesty\Programming\C#\azuki_proj\official\bin\Debug\net9.0-windows\pt-PT\Terminal.Gui.resources.dll

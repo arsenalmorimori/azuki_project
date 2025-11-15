@@ -4,10 +4,13 @@ using System;
 using System.Threading.Tasks;
 using Google.GenAI;
 using Google.GenAI.Types;
+using Terminal.Gui;
+using System.Linq;
 
 class App_Setup{
 
     
+    public static Frontend_Asset fa = new Frontend_Asset();
     public static InputSimulator sim = new InputSimulator();
 
     public static void Zoom_In(int scroll){
@@ -60,6 +63,60 @@ class App_Setup{
         );
 
         App_Terminal.cli.Append(response.Candidates[0].Content.Parts[0].Text);
+    }
+
+    public static void LoadTaskbarBox_5(){
+        fa.Box(1, 2, 163, 1,"");
+    }
+
+    public static void LoadTaskbar_5(string app,int center_col){
+        fa.TextBox(2, center_col, "AZUKI OS  :  "+ Style_Root.MAGENTA + app + Style_Root.RESET);
+        fa.TextBox(2, 6,  "SUN   NOV 11");
+        fa.Widget_Battery(2,152);
+    }
+
+
+
+    // SCROLLABLE WINDOW using console key UP and DOWN
+    // CODE by AI 
+    public static void AppWindow_5(){
+        int windowX = 5, windowY = 5, width = 50, height = 10;
+        string[] lines = Enumerable.Range(1, 100).Select(i => $"Line {i}").ToArray();
+        int scroll = 0;
+
+        ConsoleKey key;
+
+        do
+        {
+    // Draw window border
+    for (int y = 0; y <= height; y++)
+    {
+        Console.SetCursorPosition(windowX, windowY + y);
+        if (y == 0 || y == height)
+            Console.Write("+" + new string('-', width - 2) + "+");
+        else
+            Console.Write("|" + new string(' ', width - 2) + "|");
+    }
+
+    // Draw visible content
+    for (int y = 0; y < height - 2; y++)
+    {
+        int lineIndex = scroll + y;
+        if (lineIndex >= lines.Length) break;
+        Console.SetCursorPosition(windowX + 1, windowY + 1 + y);
+        string text = lines[lineIndex].PadRight(width - 2);
+        Console.Write(text);
+    }
+
+    key = Console.ReadKey(true).Key;
+
+    if (key == ConsoleKey.DownArrow && scroll < lines.Length - (height - 2))
+        scroll++;
+    else if (key == ConsoleKey.UpArrow && scroll > 0)
+        scroll--;
+
+} while (key != ConsoleKey.Escape);
+
     }
 
 

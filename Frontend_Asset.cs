@@ -1,4 +1,6 @@
-    using System.Text;
+using System;
+using System.Management;
+using System.Text;
 
 public class Frontend_Asset {
     
@@ -82,6 +84,50 @@ public class Frontend_Asset {
         }
         
     }
+
+
+    public void Widget_Battery(int line, int col) {
+        var searcher = new ManagementObjectSearcher("SELECT * FROM Win32_Battery");
+        short battery_ = 0;
+        string battery_ico = "";
+        foreach (ManagementObject battery in searcher.Get()) {
+            battery_ =  Convert.ToSByte(battery["EstimatedChargeRemaining"]);
+        }
+        if (battery_ >= 98) {
+            battery_ico = "[██████████]";
+        }
+        else if (battery_ >= 90) {
+            battery_ico = "[█████████░]";
+        }
+        else if (battery_ >= 80) {
+            battery_ico = "[████████░░]";
+        }
+        else if (battery_ >= 70) {
+            battery_ico = "[███████░░░]";
+        }
+        else if (battery_ >= 60) {
+            battery_ico = "[██████░░░░]";
+        }
+        else if (battery_ >= 50) {
+            battery_ico = "[█████░░░░░]";
+        }
+        else if (battery_ >= 40) {
+            battery_ico = "[████░░░░░░]";
+        }
+        else if (battery_ >= 30) {
+            battery_ico = "[███░░░░░░░]";
+        }
+        else if (battery_ >= 20) {
+            battery_ico = "[██░░░░░░░░]";
+        }
+        else if (battery_ >= 10) {
+            battery_ico = "[█░░░░░░░░░]";
+        }
+        TextBox(line, col,  battery_ico );
+        // fa.TextBox(3, 290, Style_Root.WHITE_BG + Style_Root.BLACK + battery_ico + Style_Root.RESET);
+        
+    }
+
 
 
     public void ClearCmd(){
