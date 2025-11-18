@@ -7,25 +7,26 @@ class App_Terminal {
     // -------------------------- DECLARATION --------------------------
     static Frontend_Asset fa = new Frontend_Asset();
     public static StringBuilder cli = new StringBuilder();
-    static string command;
+    public static string command;
         
     // -------------------------- METHOD --------------------------
     public static void Run() {
         Load();
     }
 
-    public static async Task Load() {
+    public static void Load() {
         // -- Setting  Environment
         if (!Frontend_Setup.program_running) {
             Frontend_Setup.program_running = true;
             fa.ClearCmd();
 
-            if((env.dev & 1) == 1) {
-            }else {
+            // if((env.dev & 1) == 1) {
+            // }else {
                 App_Setup.Zoom_In(5);
                 // -- Loading 
-                App_Setup.OpeningAppScreen("LOADING","STARTING SOFTWARE","PREPARING ENVIRONMENT","PROCESSING DISPLAY");
-            }
+                // App_Setup.OpeningAppScreen("LOADING","STARTING SOFTWARE","PREPARING ENVIRONMENT","PROCESSING DISPLAY");
+                App_Setup.LoadingBar_5();
+            // }
 
         }
        
@@ -40,60 +41,62 @@ class App_Terminal {
         
         
         // -- Program Loop
-        // while (true) {
+        while (true) {
 
-            // // -- New thread
-            // cli.Append(@"C:\Azuki\User\Mashiro\");
-            // int line = 2;
-            // Console.SetCursorPosition(4,2);
+            // -- New thread
+            cli.Append(@"C:\Azuki\User\Mashiro\");
+            int line = 5;
+            Console.SetCursorPosition(4,2);
 
-            // // -- Display
-            // foreach (string line_print in cli.ToString().Split(new[] { "\r\n", "\n" }, StringSplitOptions.None)){
-            //     if(line >= 40) {
-            //         cli.Clear();
-            //         Load();
-            //     }else {
-            //         Console.SetCursorPosition(4,line);
-            //         Console.Write(line_print);
-            //         line++;
-            //     }
-            // }
+            // -- Display
+            foreach (string line_print in cli.ToString().Split(new[] { "\r\n", "\n" }, StringSplitOptions.None)){
+                if(line >= 40) {
+                    cli.Clear();
+                    Load();
+                }else {
+                    Console.SetCursorPosition(4,line);
+                    Console.Write(line_print);
+                    line++;
+                }
+            }
 
             
-            // // -- User Input
-            // String command = Console.ReadLine();
+            // -- User Input
+            String command = Console.ReadLine();
             // Thread.Sleep(500);
 
             
-            // // -- Add to thread
-            // cli.Append(command + "\n\n");
+            // -- Add to thread
+            cli.Append(command + "\n");
 
 
-            // // -- Commands
-            // if(command == "-x") {
-            //     // CLOSE
-            //     fa.ClearCmd();
-            //     cli.Clear();
-            //     App_Setup.Zoom_Out(5);
-            //     App_Setup.ClosingAppScreen("LOADING","RESETTING CONSOLE","CLEARING DATA","ENDING TASK","PROCESSING DISPLAY","SETTING UP ENVIRONMENT");
-            //     break;
+            // -- Commands
+            if(command == "-x") {
+                // CLOSE
+                fa.ClearCmd();
+                cli.Clear();
+                App_Setup.LoadingBar_5();
+                App_Setup.Zoom_Out(5);
+                // App_Setup.ClosingAppScreen("LOADING","RESETTING CONSOLE","CLEARING DATA","ENDING TASK","PROCESSING DISPLAY","SETTING UP ENVIRONMENT");
+                
+                fa.ClearCmd();
+                break;
 
-            // }else if(command.Substring(0,2) == "-w"){
-            //     // WALLPAPER
-            //     CommandWallpaper(command);
-            // }else {
-            //     cli.Append("\n"+ Style_Root.RED + "Unrecognizable command... enter \"-h\" to see the lists of commands"+ Style_Root.RESET +"\n");   
-            // }
-        // }
+            }else if(command.Substring(0,2) == "-w"){
+                // WALLPAPER
+                CommandWallpaper(command);
+            }else {
+                cli.Append(Style_Root.RED + "Unrecognizable command... enter \"-h\" to see the lists of commands"+ Style_Root.RESET +"\n\n");   
+            }
+        }
 
-        // }
     }
 
 
 
     // --------------------------------------------------------- COMMANDS ---------------------------------------------------------
-    public static void CommandWallpaper(string command) {
-        switch (command) {
+    public static void CommandWallpaper(string command_) {
+        switch (command_) {
             case "-w":
                 cli.Append(Style_Root.MAGENTA + "WALLPAPER LIST\n");
                 cli.Append("-w 0 : Blank\n");
@@ -144,13 +147,13 @@ class App_Terminal {
     }
 
 
-    public static void CommandBios(string command) {
-        cli.Clear();
-    }
-
-
+    // public static void CommandBios(string command) {
+    //     cli.Clear();
+    // }
 
 }
+
+
 
 
 

@@ -150,6 +150,8 @@ public class Frontend_Asset {
                 Console.WriteLine($"Clear failed: {e.Message}");
                 Console.Clear(); // Fallback
             }
+            
+            Thread.Sleep(50);
     }
 
 

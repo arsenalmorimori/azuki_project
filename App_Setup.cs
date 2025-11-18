@@ -76,6 +76,73 @@ class App_Setup{
     }
 
 
+    public static void LoadingBar() {
+        Thread.Sleep(50);
+        Wallpaper.Loading_Blank();
+        Console.SetCursorPosition(107,40);
+        Console.Write(                   "                                            Loading                                            ");
+        
+        for(int a = 0; a <= 5 ; a++) {
+            Console.SetCursorPosition(107,42);
+            switch (a) {
+                case 0:
+                    Console.Write(Style_Root.BLACK + "────────────────────────────────────────────────────────────────────────────────────────────────" + Style_Root.RESET);
+                    break;
+                case 1:
+                    Console.Write( Style_Root.MAGENTA + "───────────────────────" + Style_Root.BLACK +"─────────────────────────────────────────────────────────────────────────" + Style_Root.RESET);
+                    break;
+                case 2:
+                    Console.Write( Style_Root.MAGENTA + "───────────────────────────────────────" + Style_Root.BLACK +"─────────────────────────────────────────────────────────" + Style_Root.RESET);
+                    break;
+                case 3:
+                    Console.Write( Style_Root.MAGENTA + "────────────────────────────────────────────────────────" + Style_Root.BLACK +"────────────────────────────────────────" + Style_Root.RESET);
+                    break;
+                case 4:
+                    Console.Write( Style_Root.MAGENTA + "─────────────────────────────────────────────────────────────────────────────────" + Style_Root.BLACK +"───────────────" + Style_Root.RESET);
+                    break;
+                case 5:
+                    Console.Write( Style_Root.MAGENTA + "────────────────────────────────────────────────────────────────────────────────────────────────" + Style_Root.RESET);
+                    break;
+            }
+            Thread.Sleep(100);
+        }
+    }
+
+
+
+    public static void LoadingBar_5() {
+        Thread.Sleep(50);
+        Wallpaper.LoadingBlank_5();
+        Console.SetCursorPosition(53,23);
+        Console.Write(                   "                           Loading                           ");
+        for(int a = 0; a <= 5 ; a++) {
+            Console.SetCursorPosition(53,25);
+            switch (a) {
+                case 0:
+                    Console.Write(Style_Root.BLACK + "─────────────────────────────────────────────────────────────" + Style_Root.RESET);
+                    break;
+                case 1:
+                    Console.Write( Style_Root.MAGENTA + "──────────────────" + Style_Root.BLACK +"───────────────────────────────────────────" + Style_Root.RESET);
+                    break;
+                case 2:
+                    Console.Write( Style_Root.MAGENTA + "────────────────────────" + Style_Root.BLACK +"─────────────────────────────────────" + Style_Root.RESET);
+                    break;
+                case 3:
+                    Console.Write( Style_Root.MAGENTA + "─────────────────────────────────────────" + Style_Root.BLACK +"────────────────────" + Style_Root.RESET);
+                    break;
+                case 4:
+                    Console.Write( Style_Root.MAGENTA + "─────────────────────────────────────────────────────" + Style_Root.BLACK +"────────" + Style_Root.RESET);
+                    break;
+                case 5:
+                    Console.Write( Style_Root.MAGENTA + "─────────────────────────────────────────────────────────────" + Style_Root.RESET);
+                    break;
+            }
+            Thread.Sleep(100);
+        }
+    }
+
+
+
 
     // SCROLLABLE WINDOW using console key UP and DOWN
     // CODE by AI 
