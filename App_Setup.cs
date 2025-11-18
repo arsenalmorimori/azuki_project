@@ -14,12 +14,14 @@ class App_Setup{
     public static InputSimulator sim = new InputSimulator();
 
     public static void Zoom_In(int scroll){
+        fa.ClearCmd();
         for(int a = 0; a < scroll; a++){
             sim.Keyboard.ModifiedKeyStroke(VirtualKeyCode.CONTROL, VirtualKeyCode.OEM_PLUS);
         }
     }
 
     public static void Zoom_Out(int scroll){
+        fa.ClearCmd();
         for(int a = 0; a < scroll; a++){
             sim.Keyboard.ModifiedKeyStroke(VirtualKeyCode.CONTROL, VirtualKeyCode.OEM_MINUS);
         }
@@ -77,6 +79,7 @@ class App_Setup{
 
 
     public static void LoadingBar() {
+        fa.ClearCmd();
         Thread.Sleep(50);
         Wallpaper.Loading_Blank();
         Console.SetCursorPosition(107,40);
@@ -111,6 +114,7 @@ class App_Setup{
 
 
     public static void LoadingBar_5() {
+        fa.ClearCmd();
         Thread.Sleep(50);
         Wallpaper.LoadingBlank_5();
         Console.SetCursorPosition(53,23);

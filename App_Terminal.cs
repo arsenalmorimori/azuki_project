@@ -18,16 +18,8 @@ class App_Terminal {
         // -- Setting  Environment
         if (!Frontend_Setup.program_running) {
             Frontend_Setup.program_running = true;
-            fa.ClearCmd();
-
-            // if((env.dev & 1) == 1) {
-            // }else {
                 App_Setup.Zoom_In(5);
-                // -- Loading 
-                // App_Setup.OpeningAppScreen("LOADING","STARTING SOFTWARE","PREPARING ENVIRONMENT","PROCESSING DISPLAY");
                 App_Setup.LoadingBar_5();
-            // }
-
         }
        
         
@@ -73,13 +65,9 @@ class App_Terminal {
             // -- Commands
             if(command == "-x") {
                 // CLOSE
-                fa.ClearCmd();
                 cli.Clear();
                 App_Setup.LoadingBar_5();
                 App_Setup.Zoom_Out(5);
-                // App_Setup.ClosingAppScreen("LOADING","RESETTING CONSOLE","CLEARING DATA","ENDING TASK","PROCESSING DISPLAY","SETTING UP ENVIRONMENT");
-                
-                fa.ClearCmd();
                 break;
 
             }else if(command.Substring(0,2) == "-w"){
