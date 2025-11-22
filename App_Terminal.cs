@@ -59,6 +59,7 @@ class App_Terminal {
 
             
             // -- Add to thread
+            // command = command + "    "; // so not will be error in substrings
             cli.Append(command + "\n");
 
 
@@ -69,11 +70,13 @@ class App_Terminal {
                 App_Setup.LoadingBar_5();
                 App_Setup.Zoom_Out(5);
                 break;
-
-            }else if(command.Substring(0,2) == "-w"){
+            }else if(command.Contains("-w")){
                 // WALLPAPER
                 CommandWallpaper(command);
-            }else {
+            }else if(command.Contains("wtf ")){
+                // WALLPAPER
+                App_Setup.Ask(command).Wait();
+            }else{
                 cli.Append(Style_Root.RED + "Unrecognizable command... enter \"-h\" to see the lists of commands"+ Style_Root.RESET +"\n\n");   
             }
         }
@@ -98,35 +101,35 @@ class App_Terminal {
                 break;
             case "-w 0":
                 env.wallpaper = 0;
-                cli.Append(Style_Root.GREEN + "WALLPAPER CHANGED!\n\n"+ Style_Root.RESET);
+                cli.Append(Style_Root.MAGENTA + "WALLPAPER CHANGED!\n\n"+ Style_Root.RESET);
                 break;
             case "-w 1":
                 env.wallpaper = 1;
-                cli.Append(Style_Root.GREEN + "WALLPAPER CHANGED!\n\n"+ Style_Root.RESET);
+                cli.Append(Style_Root.MAGENTA + "WALLPAPER CHANGED!\n\n"+ Style_Root.RESET);
                 break;
             case "-w 2":
                 env.wallpaper = 2;
-                cli.Append(Style_Root.GREEN + "WALLPAPER CHANGED!\n\n"+ Style_Root.RESET);
+                cli.Append(Style_Root.MAGENTA + "WALLPAPER CHANGED!\n\n"+ Style_Root.RESET);
                 break;
             case "-w 3":
                 env.wallpaper = 3;
-                cli.Append(Style_Root.GREEN + "WALLPAPER CHANGED!\n\n"+ Style_Root.RESET);
+                cli.Append(Style_Root.MAGENTA + "WALLPAPER CHANGED!\n\n"+ Style_Root.RESET);
                 break;
             case "-w 4":
                 env.wallpaper = 4;
-                cli.Append(Style_Root.GREEN + "WALLPAPER CHANGED!\n\n"+ Style_Root.RESET);
+                cli.Append(Style_Root.MAGENTA + "WALLPAPER CHANGED!\n\n"+ Style_Root.RESET);
                 break;
             case "-w 5":
                 env.wallpaper = 5;
-                cli.Append(Style_Root.GREEN + "WALLPAPER CHANGED!\n\n"+ Style_Root.RESET);
+                cli.Append(Style_Root.MAGENTA + "WALLPAPER CHANGED!\n\n"+ Style_Root.RESET);
                 break;
             case "-w 6":
                 env.wallpaper = 6;
-                cli.Append(Style_Root.GREEN + "WALLPAPER CHANGED!\n\n"+ Style_Root.RESET);
+                cli.Append(Style_Root.MAGENTA + "WALLPAPER CHANGED!\n\n"+ Style_Root.RESET);
                 break;
             case "-w 7":
                 env.wallpaper = 7;
-                cli.Append(Style_Root.GREEN + "WALLPAPER CHANGED!\n\n"+ Style_Root.RESET);
+                cli.Append(Style_Root.MAGENTA + "WALLPAPER CHANGED!\n\n"+ Style_Root.RESET);
                 break;
             default:
                 cli.Append(Style_Root.RED + "WALLPAPER UNRECOGNIZED\n\n"+ Style_Root.RESET);

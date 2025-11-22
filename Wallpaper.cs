@@ -32,6 +32,8 @@ class Wallpaper{
             case 7:
                 Charizard();
             break;
+            default:
+                break;
             
         }
     }

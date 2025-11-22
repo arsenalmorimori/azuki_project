@@ -56,17 +56,17 @@ class App_Setup{
 
 
 
-    public static async Task Ask(){
-        var client = new Client(apiKey: "AIzaSyDuoIzXFjrIFzAAnUnnaiIvFxDGG-LziOA");
+
+    public static async Task Ask(string question){
+        var client = new Client(apiKey: env_private.gemini_api);
 
         var response = await client.Models.GenerateContentAsync(
             model: "gemini-2.0-flash",
-            contents: "Explain how AI works in a few words"
+            contents: question + ". Answer in only one short sentence."
         );
 
-        App_Terminal.cli.Append(response.Candidates[0].Content.Parts[0].Text);
+        App_Terminal.cli.Append(Style_Root.MAGENTA + "   > " + response.Candidates[0].Content.Parts[0].Text + Style_Root.RESET +"\n");
     }
-
     public static void LoadTaskbarBox_5(){
         fa.Box(1, 2, 163, 1,"");
     }
