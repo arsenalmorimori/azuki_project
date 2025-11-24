@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Drawing.Drawing2D;
 using System.Text;
 using System.Threading.Tasks;
@@ -6,9 +7,11 @@ class App_Terminal {
 
     // -------------------------- DECLARATION --------------------------
     static Frontend_Asset fa = new Frontend_Asset();
+    static App_Terminal_Pet pet = new App_Terminal_Pet();
     public static StringBuilder cli = new StringBuilder();
     public static string command;
     static int line = 0;
+    public static List<string> unlocked_pet = new List<string>();
         
     // -------------------------- METHOD --------------------------
     public static void Run() {
@@ -44,7 +47,7 @@ class App_Terminal {
             foreach (string line_print in cli.ToString().Split(new[] { "\r\n", "\n" }, StringSplitOptions.None)){
                     Console.SetCursorPosition(4,line_);
                     Console.Write(line_print);
-                    if(env.dev == 1) {
+                    if(env.dev == 0) {
                         Console.Write(" : " + line);
                     }
                     line_++;
@@ -82,6 +85,9 @@ class App_Terminal {
             }else if(command.Contains("-w")){
                 // WALLPAPER
                 CommandWallpaper(command);
+            }else if(command.Contains("-pet")){
+                // WALLPAPER
+                CommandPet(command);
             }else if(command.Contains("wtf ")){
                 // WALLPAPER
                 App_Setup.Ask(command).Wait();
@@ -158,6 +164,73 @@ class App_Terminal {
                 line +=2;
                 break;
         }
+    }
+
+    public static void CommandPet(string command_) {
+        string pet_name;
+        switch (command_) {
+            case "-pet raichu":
+                Pet("raichu", App_Terminal_Pet.raichu);
+            break;
+            case "-pet teddy":
+                Pet("teddy", App_Terminal_Pet.teddy);
+            break;
+            case "-pet rattah":
+                Pet("rattah", App_Terminal_Pet.rattah);
+            break;
+            case "-pet vulpix":
+                Pet("vulpix", App_Terminal_Pet.vulpix);
+            break;
+            case "-pet jgs":
+                Pet("jgs", App_Terminal_Pet.jgs);
+            break;
+            case "-pet evee":
+                Pet("evee", App_Terminal_Pet.evee);
+            break;
+            case "-pet sandslash":
+                Pet("sandslash", App_Terminal_Pet.sandslash);
+            break;
+            case "-pet poliwag":
+                Pet("poliwag", App_Terminal_Pet.poliwag);
+            break;
+            case "-pet luffy":
+                Pet("luffy", App_Terminal_Pet.luffy);
+            break;
+            case "-pet sandshrew":
+                Pet("sandshrew", App_Terminal_Pet.sandshrew);
+            break;
+            default: 
+                cli.Append(Style_Root.RED + "no pet found"+ Style_Root.RESET +"\n\n"); 
+                line +=2;  
+            break;
+        }
+    }
+
+    public static void Pet(string petname, string[] pet){
+        bool isNew = true;
+        for(int a = 0; a < unlocked_pet.Count ; a++) {
+            if(unlocked_pet[a] == petname) {
+                isNew = false;
+                a+= 40;
+            }
+        }
+
+        if (isNew) {
+            unlocked_pet.Add(petname);
+            cli.Append(Style_Root.MAGENTA +"A NEW PET ACQUIRED!"+Style_Root.RESET+ "\n\n");   
+            line+= 2;
+        }
+        else {
+            cli.Append(Style_Root.MAGENTA +"Pet Acquire ("+ unlocked_pet.Count + "/40)"+Style_Root.RESET+ "\n\n");
+            line+=2;    
+        }
+        
+        foreach(var pet_line in pet) {
+            cli.Append(Style_Root.MAGENTA + pet_line+ Style_Root.RESET+ "\n");
+            line++;
+        }
+        cli.Append("\n");
+        line++;
     }
 
 
