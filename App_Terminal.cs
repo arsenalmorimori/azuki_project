@@ -8,6 +8,7 @@ class App_Terminal {
     static Frontend_Asset fa = new Frontend_Asset();
     public static StringBuilder cli = new StringBuilder();
     public static string command;
+    static int line = 0;
         
     // -------------------------- METHOD --------------------------
     public static void Run() {
@@ -29,7 +30,6 @@ class App_Terminal {
         Wallpaper.Window_5();
         App_Setup.LoadTaskbarBox_5();
         App_Setup.LoadTaskbar_5("Terminal",69);
-        App_Setup.AppWindow_5();
         
         
         // -- Program Loop
@@ -37,30 +37,39 @@ class App_Terminal {
 
             // -- New thread
             cli.Append(@"C:\Azuki\User\Mashiro\");
-            int line = 5;
+            int line_ = 5;
             Console.SetCursorPosition(4,2);
 
             // -- Display
             foreach (string line_print in cli.ToString().Split(new[] { "\r\n", "\n" }, StringSplitOptions.None)){
-                if(line >= 40) {
-                    cli.Clear();
-                    Load();
-                }else {
-                    Console.SetCursorPosition(4,line);
+                    Console.SetCursorPosition(4,line_);
                     Console.Write(line_print);
-                    line++;
-                }
+                    if(env.dev == 1) {
+                        Console.Write(" : " + line);
+                    }
+                    line_++;
             }
+
 
             
             // -- User Input
             String command = Console.ReadLine();
             // Thread.Sleep(500);
 
-            
+
             // -- Add to thread
             // command = command + "    "; // so not will be error in substrings
+
+            if(line >= 30) {
+                cli.Clear();
+                Clear_Terminal();
+                cli.Append(@"C:\Azuki\User\Mashiro\");
+                line = 0;
+            }
+
             cli.Append(command + "\n");
+            line ++;
+            
 
 
             // -- Commands
@@ -76,8 +85,12 @@ class App_Terminal {
             }else if(command.Contains("wtf ")){
                 // WALLPAPER
                 App_Setup.Ask(command).Wait();
+                line +=2;
+            }else if(command.Contains("cls")){
+                Clear_Terminal();
             }else{
-                cli.Append(Style_Root.RED + "Unrecognizable command... enter \"-h\" to see the lists of commands"+ Style_Root.RESET +"\n\n");   
+                cli.Append(Style_Root.RED + "Unrecognizable command... enter \"-h\" to see the lists of commands"+ Style_Root.RESET +"\n\n"); 
+                line +=2;  
             }
         }
 
@@ -98,49 +111,65 @@ class App_Terminal {
                 cli.Append("-w 5 : MHA\n");
                 cli.Append("-w 6 : Luffy\n");
                 cli.Append("-w 7 : Charizard\n\n" + Style_Root.RESET);
+                line += 10;
                 break;
             case "-w 0":
                 env.wallpaper = 0;
                 cli.Append(Style_Root.MAGENTA + "WALLPAPER CHANGED!\n\n"+ Style_Root.RESET);
+                line +=2;
                 break;
             case "-w 1":
                 env.wallpaper = 1;
                 cli.Append(Style_Root.MAGENTA + "WALLPAPER CHANGED!\n\n"+ Style_Root.RESET);
+                line +=2;
                 break;
             case "-w 2":
                 env.wallpaper = 2;
                 cli.Append(Style_Root.MAGENTA + "WALLPAPER CHANGED!\n\n"+ Style_Root.RESET);
+                line +=2;
                 break;
             case "-w 3":
                 env.wallpaper = 3;
                 cli.Append(Style_Root.MAGENTA + "WALLPAPER CHANGED!\n\n"+ Style_Root.RESET);
+                line +=2;
                 break;
             case "-w 4":
                 env.wallpaper = 4;
                 cli.Append(Style_Root.MAGENTA + "WALLPAPER CHANGED!\n\n"+ Style_Root.RESET);
+                line +=2;
                 break;
             case "-w 5":
                 env.wallpaper = 5;
                 cli.Append(Style_Root.MAGENTA + "WALLPAPER CHANGED!\n\n"+ Style_Root.RESET);
+                line +=2;
                 break;
             case "-w 6":
                 env.wallpaper = 6;
                 cli.Append(Style_Root.MAGENTA + "WALLPAPER CHANGED!\n\n"+ Style_Root.RESET);
+                line +=2;
                 break;
             case "-w 7":
                 env.wallpaper = 7;
                 cli.Append(Style_Root.MAGENTA + "WALLPAPER CHANGED!\n\n"+ Style_Root.RESET);
+                line +=2;
                 break;
             default:
                 cli.Append(Style_Root.RED + "WALLPAPER UNRECOGNIZED\n\n"+ Style_Root.RESET);
+                line +=2;
                 break;
         }
     }
 
 
-    // public static void CommandBios(string command) {
-    //     cli.Clear();
-    // }
+
+
+    public static void Clear_Terminal() {
+           for (int a = 0 ; a <= 43 ; a++){
+                cli.Clear();
+                Console.SetCursorPosition(4,5 + a);
+                Console.Write("                                                                                                                                                   ");                            
+            }
+    }
 
 }
 

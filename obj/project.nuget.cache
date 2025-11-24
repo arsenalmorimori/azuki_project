@@ -1,13 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "BS+S3iOJxfw=",
+  "dgSpecHash": "lEgmB/GvaDk=",
   "success": true,
   "projectFilePath": "C:\\Users\\Nesty\\Programming\\C#\\azuki_proj\\official\\azuki_project.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Nesty\\.nuget\\packages\\google.apis\\1.69.0\\google.apis.1.69.0.nupkg.sha512",
     "C:\\Users\\Nesty\\.nuget\\packages\\google.apis.auth\\1.69.0\\google.apis.auth.1.69.0.nupkg.sha512",
     "C:\\Users\\Nesty\\.nuget\\packages\\google.apis.core\\1.69.0\\google.apis.core.1.69.0.nupkg.sha512",
-    "C:\\Users\\Nesty\\.nuget\\packages\\google.genai\\0.5.0\\google.genai.0.5.0.nupkg.sha512",
+    "C:\\Users\\Nesty\\.nuget\\packages\\google.genai\\0.6.0\\google.genai.0.6.0.nupkg.sha512",
     "C:\\Users\\Nesty\\.nuget\\packages\\inputsimulatorplus\\1.0.7\\inputsimulatorplus.1.0.7.nupkg.sha512",
     "C:\\Users\\Nesty\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
     "C:\\Users\\Nesty\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",
@@ -78,6 +78,12 @@
     "C:\\Users\\Nesty\\.nuget\\packages\\terminal.gui\\1.19.0\\terminal.gui.1.19.0.nupkg.sha512"
   ],
   "logs": [
+    {
+      "code": "NU1900",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Error occurred while getting package vulnerability data: Unable to load the service index for source https://api.nuget.org/v3/index.json."
+    },
     {
       "code": "NU1701",
       "level": "Warning",

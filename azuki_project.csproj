@@ -9,7 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Google.GenAI" Version="0.5.0" />
+    <PackageReference Include="Google.GenAI" Version="0.6.0" />
     <PackageReference Include="InputSimulatorPlus" Version="1.0.7" />
     <PackageReference Include="System.Management" Version="9.0.10" />
     <PackageReference Include="Terminal.Gui" Version="1.19.0" />

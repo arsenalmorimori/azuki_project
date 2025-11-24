@@ -52,7 +52,7 @@
           }
         }
       },
-      "Google.GenAI/0.5.0": {
+      "Google.GenAI/0.6.0": {
         "type": "package",
         "dependencies": {
           "Google.Apis.Auth": "1.69.0",
@@ -1310,15 +1310,15 @@
         "lib/netstandard2.0/Google.Apis.Core.xml"
       ]
     },
-    "Google.GenAI/0.5.0": {
-      "sha512": "OO0Rg5OfPwbe5d+qTHi32i0W8aylmTNIm2Rx9OqvFaj5h7Oo+Sv6lvR0nOfDhXTEyTUI12ru0r05lgk1J9VPUw==",
+    "Google.GenAI/0.6.0": {
+      "sha512": "ziZsE/tlCGntOQzs3px5Sh6CFQFRVo4tUqjTRgRABuHsrJAOXDqp3xAZu3bBZeuK28ANmY1l50OvjhJ3mt2X4g==",
       "type": "package",
-      "path": "google.genai/0.5.0",
+      "path": "google.genai/0.6.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "README.md",
-        "google.genai.0.5.0.nupkg.sha512",
+        "google.genai.0.6.0.nupkg.sha512",
         "google.genai.nuspec",
         "lib/net8.0/Google.GenAI.dll",
         "lib/net8.0/Google.GenAI.xml",
@@ -4096,7 +4096,7 @@
   },
   "projectFileDependencyGroups": {
     "net9.0-windows7.0": [
-      "Google.GenAI >= 0.5.0",
+      "Google.GenAI >= 0.6.0",
       "InputSimulatorPlus >= 1.0.7",
       "System.Management >= 9.0.10",
       "Terminal.Gui >= 1.19.0"
@@ -4155,7 +4155,7 @@
         "dependencies": {
           "Google.GenAI": {
             "target": "Package",
-            "version": "[0.5.0, )"
+            "version": "[0.6.0, )"
           },
           "InputSimulatorPlus": {
             "target": "Package",
@@ -4194,6 +4194,12 @@
     }
   },
   "logs": [
+    {
+      "code": "NU1900",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Error occurred while getting package vulnerability data: Unable to load the service index for source https://api.nuget.org/v3/index.json."
+    },
     {
       "code": "NU1701",
       "level": "Warning",

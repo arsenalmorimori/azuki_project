@@ -8,7 +8,7 @@
     ".NETCoreApp,Version=v9.0": {
       "azuki_project/1.0.0": {
         "dependencies": {
-          "Google.GenAI": "0.5.0",
+          "Google.GenAI": "0.6.0",
           "InputSimulatorPlus": "1.0.7",
           "System.Management": "9.0.10",
           "Terminal.Gui": "1.19.0"
@@ -52,15 +52,15 @@
           }
         }
       },
-      "Google.GenAI/0.5.0": {
+      "Google.GenAI/0.6.0": {
         "dependencies": {
           "Google.Apis.Auth": "1.69.0",
           "System.Net.WebSockets.Client": "4.3.2"
         },
         "runtime": {
           "lib/net8.0/Google.GenAI.dll": {
-            "assemblyVersion": "0.5.0.0",
-            "fileVersion": "0.5.0.0"
+            "assemblyVersion": "0.6.0.0",
+            "fileVersion": "0.6.0.0"
           }
         }
       },
@@ -698,12 +698,12 @@
       "path": "google.apis.core/1.69.0",
       "hashPath": "google.apis.core.1.69.0.nupkg.sha512"
     },
-    "Google.GenAI/0.5.0": {
+    "Google.GenAI/0.6.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-OO0Rg5OfPwbe5d+qTHi32i0W8aylmTNIm2Rx9OqvFaj5h7Oo+Sv6lvR0nOfDhXTEyTUI12ru0r05lgk1J9VPUw==",
-      "path": "google.genai/0.5.0",
-      "hashPath": "google.genai.0.5.0.nupkg.sha512"
+      "sha512": "sha512-ziZsE/tlCGntOQzs3px5Sh6CFQFRVo4tUqjTRgRABuHsrJAOXDqp3xAZu3bBZeuK28ANmY1l50OvjhJ3mt2X4g==",
+      "path": "google.genai/0.6.0",
+      "hashPath": "google.genai.0.6.0.nupkg.sha512"
     },
     "InputSimulatorPlus/1.0.7": {
       "type": "package",
