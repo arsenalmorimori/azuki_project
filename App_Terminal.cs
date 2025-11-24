@@ -1,3 +1,5 @@
+using System.Management;
+
 using System;
 using System.Collections;
 using System.Drawing.Drawing2D;
@@ -10,7 +12,7 @@ class App_Terminal {
     static App_Terminal_Pet pet = new App_Terminal_Pet();
     public static StringBuilder cli = new StringBuilder();
     public static string command;
-    static int line = 0;
+    static int line = 0; // this is for automatically clearing the cli before it exceed to limit height
     public static List<string> unlocked_pet = new List<string>();
         
     // -------------------------- METHOD --------------------------
@@ -24,7 +26,9 @@ class App_Terminal {
             Frontend_Setup.program_running = true;
                 App_Setup.Zoom_In(5);
                 App_Setup.LoadingBar_5();
-        }
+    }
+
+
        
         
 
@@ -57,12 +61,8 @@ class App_Terminal {
             
             // -- User Input
             String command = Console.ReadLine();
-            // Thread.Sleep(500);
-
 
             // -- Add to thread
-            // command = command + "    "; // so not will be error in substrings
-
             if(line >= 30) {
                 cli.Clear();
                 Clear_Terminal();
@@ -83,13 +83,21 @@ class App_Terminal {
                 App_Setup.Zoom_Out(5);
                 break;
             }else if(command.Contains("-w")){
-                // WALLPAPER
                 CommandWallpaper(command);
+            }else if(command.Contains("-h")){
+                cli.Append(Style_Root.MAGENTA_BG + Style_Root.BLACK + "  COMMANDS LIST " + Style_Root.RESET + Style_Root.MAGENTA+ "▓▒░\n" + Style_Root.RESET);
+                cli.Append(Style_Root.MAGENTA + "-x  - Close\n"+ Style_Root.RESET);
+                cli.Append(Style_Root.MAGENTA + "-w  : Wallpaper\n"+ Style_Root.RESET);
+                cli.Append(Style_Root.MAGENTA + "-pet  : Collect and view ascii pets\n"+ Style_Root.RESET);
+                cli.Append(Style_Root.MAGENTA + "-bios : Display device bios\n"+ Style_Root.RESET);
+                cli.Append(Style_Root.MAGENTA +"wtf : Ask Gemini AI\n"+ Style_Root.RESET);
+                cli.Append(Style_Root.MAGENTA + "cls : Clear terminal\n\n"+ Style_Root.RESET);
+                line += 8;
             }else if(command.Contains("-pet")){
-                // WALLPAPER
                 CommandPet(command);
+            }else if(command.Contains("-bios")){
+                CommanBios();
             }else if(command.Contains("wtf ")){
-                // WALLPAPER
                 App_Setup.Ask(command).Wait();
                 line +=2;
             }else if(command.Contains("cls")){
@@ -108,7 +116,7 @@ class App_Terminal {
     public static void CommandWallpaper(string command_) {
         switch (command_) {
             case "-w":
-                cli.Append(Style_Root.MAGENTA + "WALLPAPER LIST\n");
+                cli.Append(Style_Root.MAGENTA_BG + Style_Root.BLACK + "  WALLPAPER LIST " + Style_Root.RESET + Style_Root.MAGENTA+ "▓▒░\n");
                 cli.Append("-w 0 : Blank\n");
                 cli.Append("-w 1 : Arch\n");
                 cli.Append("-w 2 : Circle\n");
@@ -217,11 +225,11 @@ class App_Terminal {
 
         if (isNew) {
             unlocked_pet.Add(petname);
-            cli.Append(Style_Root.MAGENTA +"A NEW PET ACQUIRED!"+Style_Root.RESET+ "\n\n");   
+            cli.Append(Style_Root.MAGENTA_BG + Style_Root.BLACK + "  A NEW PET ACQUIRED! " + Style_Root.RESET + Style_Root.MAGENTA+ "▓▒░\n\n");   
             line+= 2;
         }
         else {
-            cli.Append(Style_Root.MAGENTA +"Pet Acquire ("+ unlocked_pet.Count + "/40)"+Style_Root.RESET+ "\n\n");
+            cli.Append(Style_Root.MAGENTA +"Pet Acquired ("+ unlocked_pet.Count + "/40)"+Style_Root.RESET+ "\n\n");
             line+=2;    
         }
         
@@ -231,6 +239,86 @@ class App_Terminal {
         }
         cli.Append("\n");
         line++;
+    }
+
+
+    public static void CommanBios() {
+        Clear_Terminal();
+        line = 0;
+        int line_ = 5;
+        foreach (string line_print in Style_Root.azuki_illus){
+            Console.SetCursorPosition(4,line_);
+            Console.Write(line_print);
+            line_++;
+            line++;
+        }
+
+        int top = 7;
+        
+            fa.TextBox(top, 75, Style_Root.MAGENTA+ "mashiro@laptop --bios " + Style_Root.RESET);
+            top++;
+            top++;
+            fa.TextBox(top, 75, "------------------------------------------");
+            top++;
+            top++;
+            fa.TextBox(top, 75, Style_Root.MAGENTA + "OS  :  " + Style_Root.RESET + "AZUKI 0SS");
+            top++;
+            fa.TextBox(top, 75, Style_Root.MAGENTA + "OS Version  :  " + Style_Root.RESET + "azk_0.1");
+            top++;
+            fa.TextBox(top, 75, Style_Root.MAGENTA + "Prog Lang  :  " + Style_Root.RESET + "csharp");
+            top++;
+            top++;
+
+        ManagementObjectSearcher cpuSearcher = new ManagementObjectSearcher("SELECT * FROM Win32_Processor");
+        foreach (ManagementObject cpu in cpuSearcher.Get())
+        {
+            fa.TextBox(top, 75, Style_Root.MAGENTA + "CPU  : " + Style_Root.RESET + cpu["Name"]);
+            top++;
+            fa.TextBox(top, 75, Style_Root.MAGENTA + "CPU Cores  :  " + Style_Root.RESET + cpu["NumberOfCores"]);
+            top++;
+            fa.TextBox(top, 75, Style_Root.MAGENTA + "CPU Threads  :  " + Style_Root.RESET + cpu["NumberOfLogicalProcessors"]);
+            top++;
+            fa.TextBox(top, 75, Style_Root.MAGENTA + "CPU ID  :  " + Style_Root.RESET + cpu["ProcessorId"]);
+            top++;
+            top++;
+        }
+
+        ManagementObjectSearcher ramSearcher = new ManagementObjectSearcher("SELECT * FROM Win32_PhysicalMemory");
+        foreach (ManagementObject ram in ramSearcher.Get())
+        {
+            fa.TextBox(top, 75, Style_Root.MAGENTA + "RAM Capacity (GB)  :  " + Style_Root.RESET + Math.Round(Convert.ToDouble(ram["Capacity"]) / (1024*1024*1024), 2));
+            top++;
+            fa.TextBox(top, 75, Style_Root.MAGENTA + "RAM Speed (MHz)  :  " + Style_Root.RESET + ram["Speed"]);
+            top++;
+            fa.TextBox(top, 75, Style_Root.MAGENTA + "RAM Manufacturer  :  " + Style_Root.RESET + ram["Manufacturer"]);
+            top++;
+            top++;
+        }
+
+        ManagementObjectSearcher diskSearcher = new ManagementObjectSearcher("SELECT * FROM Win32_DiskDrive");
+        foreach (ManagementObject disk in diskSearcher.Get())
+        {
+            fa.TextBox(top, 75, Style_Root.MAGENTA + "Disk Model  :  " + Style_Root.RESET + disk["Model"]);
+            top++;
+            fa.TextBox(top, 75, Style_Root.MAGENTA + "Disk Size (GB)  :  " + Style_Root.RESET + Math.Round(Convert.ToDouble(disk["Size"]) / (1024*1024*1024), 2));
+            top++;
+            top++;
+            top++;
+            top++;
+            top++;
+            top++;
+            top++;
+            top++;
+            top++;
+        }
+
+
+        
+            fa.TextBox(top, 75, Style_Root.MAGENTA_BG +"       " + Style_Root.RESET + Style_Root.MAGENTA+ "▓▓▓▓▓▓▓▒▒▒▒▒▒▒░░░░░░░" + Style_Root.RESET);
+            top++;
+            fa.TextBox(top, 75, Style_Root.MAGENTA_BG +"       " + Style_Root.RESET + Style_Root.MAGENTA+ "▓▓▓▓▓▓▓▒▒▒▒▒▒▒░░░░░░░" + Style_Root.RESET);
+           
+
     }
 
 

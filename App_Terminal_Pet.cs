@@ -33,7 +33,7 @@ public class App_Terminal_Pet {
     };
 
     public static string[] vulpix = {
-    @"    _.-- ,.--.",
+    @"     _.-- ,.--.",
     @"   .'   .'    /",
     @"   | @       |'..--------._",
     @"  /      \._/              '.",
@@ -48,7 +48,7 @@ public class App_Terminal_Pet {
     }   ;  
     
     public static string[] jgs = {
-        @"   	    ,",
+        @"         ,",
         @"        |`-.__",
         @"        / ' _/",
         @"       ****` ",
@@ -75,7 +75,7 @@ public class App_Terminal_Pet {
     }  ;
     
     public static string[] sandslash = {
-        @"		 ;'-. ",
+        @"            ;'-. ",
         @"`;-._        )  '---.._",
         @"  >  `-.__.-'          `'.__",
         @" /_.-'-._         _,   ^ ---)",
@@ -83,14 +83,14 @@ public class App_Terminal_Pet {
     };
 
     public static string [] poliwag = {
-        @"    	 /*._         _",
+        @"       /*._         _",
         @"  .-*'`    `*-.._.-'/",
         @"< * ))     ,       ( ",
         @"  `*-._`._(__.--***.\    "
     } ;
 
     public static string [] luffy = {
-        @"     	      __,__",
+        @"            __,__",
         @"   .--.  .-/     \-.  .--.",
         @"  / .. \/  .-. .-.  \/ .. \",
         @" | |  '|  /   Y   \  |'  | |",
