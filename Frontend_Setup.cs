@@ -2,6 +2,7 @@
 using System;
 
 using System.Management;
+using Microsoft.VisualBasic.Devices;
 public class Frontend_Setup {
 
     // -------------- VARIABLES --------------
@@ -39,29 +40,49 @@ public class Frontend_Setup {
 
     public static void Load_Gui() {
         // ICONS
-        int col = 10;
-        fa.Icon(Style_Root.terminal_ico, 1, 58+7, col);
-        col += 20;
-        fa.Icon(Style_Root.file_ico, 2, 58+7, col);
-        col += 20;
-        fa.Icon(Style_Root.file_ico, 3, 58+7, col);
-        col += 20;
-        fa.Icon(Style_Root.file_ico, 4, 58+7, col);
-        col += 20;
+        if(env.icon_layout == 0){
+            int col = 10;
+            fa.Icon(Style_Root.terminal_ico, 1, 66+7, col);
+            col += 20;
+            fa.Icon(Style_Root.file_ico, 2, 66+7, col);
+            col += 20;
+            fa.Icon(Style_Root.file_ico, 3, 66+7, col);
+            col += 20;
+            fa.Icon(Style_Root.file_ico, 4, 66+7, col);
+            col += 20;
+            fa.Icon(Style_Root.file_ico, 5, 66+7, col);
+            col += 20;
 
-        col = 10;
-        fa.Icon(Style_Root.file_ico, 5, 66+7, col);
-        col += 20;
-        fa.Icon(Style_Root.file_ico, 6, 66+7, col);
-        col += 20;
-        fa.Icon(Style_Root.file_ico, 7, 66+7, col);
-        col += 20;
-        fa.Icon(Style_Root.file_ico, 8, 66+7, col);
-        col += 20;
-        fa.Icon(Style_Root.file_ico, 9, 66+7, col);
-        col += 20;
+            Widget_Clock();
+        }else if (env.icon_layout == 1) {
+            int line = 7;
+            fa.Icon(Style_Root.terminal_ico, 1, line, 5);
+            line += 8;
+            fa.Icon(Style_Root.file_ico, 2, line, 5);
+            line += 8;
+            fa.Icon(Style_Root.file_ico, 3, line, 5);
+            line += 8;
+            fa.Icon(Style_Root.file_ico, 4, line, 5);
+            line += 8;
+            fa.Icon(Style_Root.file_ico, 5, line, 5);
+            line += 8;
+            Widget_Clock();
+        }else if (env.icon_layout == 2) {
+            int col = 103;
+            fa.Icon(Style_Root.terminal_ico, 1, 66+7, col);
+            col += 20;
+            fa.Icon(Style_Root.file_ico, 2, 66+7, col);
+            col += 20;
+            fa.Icon(Style_Root.file_ico, 3, 66+7, col);
+            col += 20;
+            fa.Icon(Style_Root.file_ico, 4, 66+7, col);
+            col += 20;
+            fa.Icon(Style_Root.file_ico, 5, 66+7, col);
+            col += 20;
+            
+            Widget_Clock();
 
-        Widget_Clock();
+        }
     }
     
     public static void Load_Taskbar() {
@@ -83,59 +104,86 @@ public class Frontend_Setup {
         int col = 0;
         for (int a = 0; a <= 3; a++) {
 
-            switch (a) {
-                case 0:
-                    select = hour.Substring(0, 1);
-                    line = 13;
-                    col = 15;
-                    break;
-                case 1:
-                    select = hour.Substring(1);
-                    line = 13;
-                    col = 15 + 27;
-                    break;
-                case 2:
-                    select = minute.Substring(0, 1);
-                    line = 13 + 18;
-                    col = 15;
-                    break;
-                case 3:
-                    select = minute.Substring(1);
-                    line = 13 + 18;
-                    col = 15 + 27;
-                    break;
+            if (env.clock_widget == 0 ) {
+                switch (a) {
+                    case 0:
+                        select = hour.Substring(0, 1);
+                        line = 13;
+                        col = 15;
+                        break;
+                    case 1:
+                        select = hour.Substring(1);
+                        line = 13;
+                        col = 15 + 27;
+                        break;
+                    case 2:
+                        select = minute.Substring(0, 1);
+                        line = 13 + 18;
+                        col = 15;
+                        break;
+                    case 3:
+                        select = minute.Substring(1);
+                        line = 13 + 18;
+                        col = 15 + 27;
+                        break;
+                }
+            }else if (env.clock_widget == 1) {
+                switch (a) {
+                    case 0:
+                        select = hour.Substring(0, 1);
+                        line = 13;
+                        col = 240;
+                        break;
+                    case 1:
+                        select = hour.Substring(1);
+                        line = 13;
+                        col = 240 + 27;
+                        break;
+                    case 2:
+                        select = minute.Substring(0, 1);
+                        line = 13 + 18;
+                        col = 240;
+                        break;
+                    case 3:
+                        select = minute.Substring(1);
+                        line = 13 + 18;
+                        col = 240 + 27;
+                        break;
+                }
             }
-            switch (select) {
-                case "0":
-                    fa.Graphics(Style_Root.t_0, line, col, "","");
-                    break;
-                case "1":
-                    fa.Graphics(Style_Root.t_1, line, col, "","");
-                    break;
-                case "2":
-                    fa.Graphics(Style_Root.t_2, line, col, "","");
-                    break;
-                case "3":
-                    fa.Graphics(Style_Root.t_3, line, col, "","");
-                    break;
-                case "4":
-                    fa.Graphics(Style_Root.t_4, line, col, "","");
-                    break;
-                case "5":
-                    fa.Graphics(Style_Root.t_5, line, col, "","");
-                    break;
-                case "6":
-                    fa.Graphics(Style_Root.t_6, line, col, "","");
-                    break;
-                case "7":
-                    fa.Graphics(Style_Root.t_7, line, col, "","");
-                    break;
-                case "8":
-                    fa.Graphics(Style_Root.t_8, line, col, "","");
-                    break;
-                case "9":
-                    fa.Graphics(Style_Root.t_9, line, col, "","");
-                    break;
+            if(env.clock_widget != -1) {
+                switch (select) {
+                    case "0":
+                        fa.Graphics(Style_Root.t_0, line, col, "","");
+                        break;
+                    case "1":
+                        fa.Graphics(Style_Root.t_1, line, col, "","");
+                        break;
+                    case "2":
+                        fa.Graphics(Style_Root.t_2, line, col, "","");
+                        break;
+                    case "3":
+                        fa.Graphics(Style_Root.t_3, line, col, "","");
+                        break;
+                    case "4":
+                        fa.Graphics(Style_Root.t_4, line, col, "","");
+                        break;
+                    case "5":
+                        fa.Graphics(Style_Root.t_5, line, col, "","");
+                        break;
+                    case "6":
+                        fa.Graphics(Style_Root.t_6, line, col, "","");
+                        break;
+                    case "7":
+                        fa.Graphics(Style_Root.t_7, line, col, "","");
+                        break;
+                    case "8":
+                        fa.Graphics(Style_Root.t_8, line, col, "","");
+                        break;
+                    case "9":
+                        fa.Graphics(Style_Root.t_9, line, col, "","");
+                        break;
+                }
             }
         }
     }

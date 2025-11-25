@@ -79,11 +79,14 @@ class App_Terminal {
             if(command == "-x") {
                 // CLOSE
                 cli.Clear();
+                line = 0;
                 App_Setup.LoadingBar_5();
                 App_Setup.Zoom_Out(5);
                 break;
             }else if(command.Contains("-w")){
                 CommandWallpaper(command);
+            }else if(command.Contains("-l")){
+                CommandLayout(command);
             }else if(command.Contains("-h")){
                 cli.Append(Style_Root.MAGENTA_BG + Style_Root.BLACK + "  COMMANDS LIST " + Style_Root.RESET + Style_Root.MAGENTA+ "▓▒░\n" + Style_Root.RESET);
                 cli.Append(Style_Root.MAGENTA + "-x  - Close\n"+ Style_Root.RESET);
@@ -113,6 +116,57 @@ class App_Terminal {
 
 
     // --------------------------------------------------------- COMMANDS ---------------------------------------------------------
+    public static void CommandLayout(string command_) {
+        switch (command_) {
+            case "-l":
+                cli.Append(Style_Root.MAGENTA_BG + Style_Root.BLACK + "  LAYOUT COMMAND LIST " + Style_Root.RESET + Style_Root.MAGENTA+ "▓▒░\n");
+                cli.Append("-l 0  : Horizontal layout\n");
+                cli.Append("-l 1  : Vertical layuot\n");
+                cli.Append("-l 2  : Center layuot\n");
+                cli.Append("-w c0 : Hide clock widget\n");
+                cli.Append("-w c1 : Show clock widget\n\n"+Style_Root.RESET);
+                line += 7;
+                break;
+            case "-l 0":
+                env.icon_layout = 0;
+                env.clock_widget = 0;
+                cli.Append(Style_Root.MAGENTA + "LAYOUT CHANGED!\n\n"+ Style_Root.RESET);
+                line +=2;
+                break;
+            case "-l 1":
+                env.icon_layout = 1;
+                env.clock_widget = 1;
+                cli.Append(Style_Root.MAGENTA + "LAYOUT CHANGED!\n\n"+ Style_Root.RESET);
+                line +=2;
+                break;
+            case "-l 2":
+                env.icon_layout = 2;
+                env.clock_widget = 0;
+                cli.Append(Style_Root.MAGENTA + "LAYOUT CHANGED!\n\n"+ Style_Root.RESET);
+                line +=2;
+                break;
+            case "-l c0":
+                env.clock_widget = -1;
+                cli.Append(Style_Root.MAGENTA + "CLOCK WIDGET HIDE!\n\n"+ Style_Root.RESET);
+                line +=2;
+                break;
+            case "-l c1":
+                if(env.icon_layout == 2) {
+                    env.clock_widget = 0;
+                }
+                else {
+                    env.clock_widget = env.icon_layout;
+                }
+                cli.Append(Style_Root.MAGENTA + "CLOCK WIDGET UNHIDE!\n\n"+ Style_Root.RESET);
+                line +=2;
+                break;
+            default:
+                cli.Append(Style_Root.RED + "LAYOUT COMMAND UNRECOGNIZED\n\n"+ Style_Root.RESET);
+                line +=2;
+                break;
+        }
+    }
+
     public static void CommandWallpaper(string command_) {
         switch (command_) {
             case "-w":
@@ -330,6 +384,7 @@ class App_Terminal {
                 Console.SetCursorPosition(4,5 + a);
                 Console.Write("                                                                                                                                                   ");                            
             }
+            line = 0;
     }
 
 }
