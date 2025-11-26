@@ -29,3 +29,5 @@ C:\Users\Nesty\Programming\C#\azuki_proj\official\bin\Debug\net9.0-windows\Termi
 C:\Users\Nesty\Programming\C#\azuki_proj\official\bin\Debug\net9.0-windows\fr-FR\Terminal.Gui.resources.dll
 C:\Users\Nesty\Programming\C#\azuki_proj\official\bin\Debug\net9.0-windows\ja-JP\Terminal.Gui.resources.dll
 C:\Users\Nesty\Programming\C#\azuki_proj\official\bin\Debug\net9.0-windows\pt-PT\Terminal.Gui.resources.dll
+C:\Users\Nesty\Programming\C#\azuki_proj\official\bin\Debug\net9.0-windows\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\Nesty\Programming\C#\azuki_proj\official\bin\Debug\net9.0-windows\TextCopy.dll

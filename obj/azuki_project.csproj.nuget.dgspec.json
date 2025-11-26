@@ -66,6 +66,10 @@
             "Terminal.Gui": {
               "target": "Package",
               "version": "[1.19.0, )"
+            },
+            "TextCopy": {
+              "target": "Package",
+              "version": "[6.2.1, )"
             }
           },
           "imports": [

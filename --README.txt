@@ -7,6 +7,8 @@ dotnet add package InputSimulatorPlus
 
 dotnet add package Google.GenAI
 
+dotnet add package TextCopy
+
 
 
 // credits

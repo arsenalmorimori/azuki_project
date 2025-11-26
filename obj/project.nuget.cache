@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "lEgmB/GvaDk=",
+  "dgSpecHash": "0nXy7TCtITU=",
   "success": true,
   "projectFilePath": "C:\\Users\\Nesty\\Programming\\C#\\azuki_proj\\official\\azuki_project.csproj",
   "expectedPackageFiles": [
@@ -9,6 +9,7 @@
     "C:\\Users\\Nesty\\.nuget\\packages\\google.apis.core\\1.69.0\\google.apis.core.1.69.0.nupkg.sha512",
     "C:\\Users\\Nesty\\.nuget\\packages\\google.genai\\0.6.0\\google.genai.0.6.0.nupkg.sha512",
     "C:\\Users\\Nesty\\.nuget\\packages\\inputsimulatorplus\\1.0.7\\inputsimulatorplus.1.0.7.nupkg.sha512",
+    "C:\\Users\\Nesty\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\7.0.0\\microsoft.extensions.dependencyinjection.abstractions.7.0.0.nupkg.sha512",
     "C:\\Users\\Nesty\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
     "C:\\Users\\Nesty\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",
     "C:\\Users\\Nesty\\.nuget\\packages\\microsoft.win32.primitives\\4.3.0\\microsoft.win32.primitives.4.3.0.nupkg.sha512",
@@ -75,15 +76,10 @@
     "C:\\Users\\Nesty\\.nuget\\packages\\system.threading.threadpool\\4.3.0\\system.threading.threadpool.4.3.0.nupkg.sha512",
     "C:\\Users\\Nesty\\.nuget\\packages\\system.threading.timer\\4.3.0\\system.threading.timer.4.3.0.nupkg.sha512",
     "C:\\Users\\Nesty\\.nuget\\packages\\system.valuetuple\\4.5.0\\system.valuetuple.4.5.0.nupkg.sha512",
-    "C:\\Users\\Nesty\\.nuget\\packages\\terminal.gui\\1.19.0\\terminal.gui.1.19.0.nupkg.sha512"
+    "C:\\Users\\Nesty\\.nuget\\packages\\terminal.gui\\1.19.0\\terminal.gui.1.19.0.nupkg.sha512",
+    "C:\\Users\\Nesty\\.nuget\\packages\\textcopy\\6.2.1\\textcopy.6.2.1.nupkg.sha512"
   ],
   "logs": [
-    {
-      "code": "NU1900",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Error occurred while getting package vulnerability data: Unable to load the service index for source https://api.nuget.org/v3/index.json."
-    },
     {
       "code": "NU1701",
       "level": "Warning",
