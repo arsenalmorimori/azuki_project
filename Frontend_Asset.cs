@@ -75,24 +75,24 @@ public class Frontend_Asset {
 
         for (int a = 0; a <= width + 2; a++) {
             if (a == width + 2) {
-                Console.Write("╮\n");
+                Console.Write(bgColor +"╮\n"+ Style_Root.RESET);
             }else if (a == 0) {
-                Console.Write("╭");
+                Console.Write(bgColor +"╭"+ Style_Root.RESET);
             }else {
-                Console.Write("─");
+                Console.Write(bgColor +"─"+ Style_Root.RESET);
             }
         }
 
         for (int a2 = 0; a2 <= height; a2++) {
             Console.SetCursorPosition(col, line + a2+1);
-            Console.Write("│");
+            Console.Write(bgColor + "│" + Style_Root.RESET);
             for (int b = 0; b <= width; b++) {
                 Console.Write(bgColor + " ");
             }
             if (a2 == height) {
-                Console.Write(Style_Root.RESET + "\n");                
+                Console.Write("\n");                
             }else {
-                Console.Write(Style_Root.RESET + "│\n");                
+                Console.Write(bgColor + "│\n" + Style_Root.RESET);                
             }
             end = a2+1;
         }
@@ -100,11 +100,11 @@ public class Frontend_Asset {
         Console.SetCursorPosition(col, line + end);
          for (int a = 0; a <= width + 2; a++) {
             if (a == width + 2) {
-                Console.Write("╯\n");
+                Console.Write(bgColor +"╯\n"+ Style_Root.RESET);
             }else if (a == 0) {
-                Console.Write("╰");
+                Console.Write(bgColor +"╰"+ Style_Root.RESET);
             }else {
-                Console.Write("─");
+                Console.Write(bgColor +"─"+ Style_Root.RESET);
             }
         }
         

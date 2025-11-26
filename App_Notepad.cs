@@ -16,6 +16,8 @@ class App_Notepad {
     public static int box_title_end = 24;
     public static bool home = true;
     public static bool nav = true;
+    public static bool add_parent = true;
+    public static bool add = true;
     public static bool view_parent = true;
     public static bool view = true;
     public static bool edit_parent = true;
@@ -110,6 +112,8 @@ class App_Notepad {
                     view = true;
                     if (Pointer > 0) {
                         View();                        
+                    }else if (Pointer == 0) {
+                        Add();                        
                     }
                 }else if(cursor == ConsoleKey.R) {
                     home = true;
@@ -211,12 +215,14 @@ class App_Notepad {
         Console.WriteLine();
         Console.WriteLine("     ");
         Console.WriteLine("     ");
-        Console.Write("          ");
-        Console.WriteLine(Style_Root.YELLOW + "// hit \"Ctrl + V\" and watch your text appear like magic" + Style_Root.RESET);
         if (what == 0) {
+            Console.Write("          ");
+            Console.WriteLine(Style_Root.YELLOW + "// hit \"Ctrl + V\" and watch your title appear like magic" + Style_Root.RESET);
             Console.Write("          ");
             Console.WriteLine(Style_Root.YELLOW + "// Please make it short as possible (〃▽〃) " + Style_Root.RESET);
         }else {
+            Console.Write("          ");
+            Console.WriteLine(Style_Root.YELLOW + "// hit \"Ctrl + V\" and watch your text appear like magic" + Style_Root.RESET);
             Console.Write("          ");
             Console.WriteLine(Style_Root.YELLOW + "// Word cuts may appear here, but don't worry, it's fixed in view!  //•/ω/•// " + Style_Root.RESET);
         }
@@ -238,6 +244,95 @@ class App_Notepad {
         
         File.WriteAllText(filePath, update);
         json = File.ReadAllText(filePath);
+
+    }
+
+
+    public static void Add(){
+            fa.ClearCmd();
+            App_Setup.Zoom_In(4); 
+
+            fa.TextBox(3, 10, Style_Root.MAGENTA + "Title"+ Style_Root.RESET);
+            fa.Box(4, 10, 100,1, Style_Root.MAGENTA.ToString());
+            fa.TextBox(7, 10, Style_Root.MAGENTA + "// Please make it short as possible (〃▽〃) "+ Style_Root.RESET);
+            fa.TextBox(11, 10, Style_Root.RESET + "Note Content"+ Style_Root.RESET);
+            fa.Box(12, 10, 100,19, Style_Root.RESET.ToString());
+            
+            
+            Console.SetCursorPosition(12,5);
+            String title_input = Console.ReadLine();
+
+            
+            fa.Box(4, 10, 100,1, "");
+            fa.TextBox(3, 10, Style_Root.RESET + "Title"+ Style_Root.RESET);
+            fa.TextBox(5, 12, Style_Root.RESET + title_input+ Style_Root.RESET);
+            fa.TextBox(7, 10, Style_Root.RESET + "// Please make it short as possible (〃▽〃) "+ Style_Root.RESET);
+            fa.TextBox(11, 10, Style_Root.MAGENTA + "Note Content"+ Style_Root.RESET);
+            fa.Box(12, 10, 100,19, Style_Root.MAGENTA.ToString());
+            fa.TextBox(33, 10, Style_Root.MAGENTA + "// Word cuts may appear here, but it's fixed in view!  //•/ω/•// "+ Style_Root.RESET);
+
+            // Console.SetCursorPosition(12,12);
+            // String note_input = Console.ReadLine();
+
+            string sentence = ""; 
+            string sentence_line = ""; 
+            bool isTyping = true; 
+            int line = 13;
+            int col = 0;
+            bool backspace = false;
+            while (isTyping) {
+                Console.SetCursorPosition(12,line);
+                ConsoleKeyInfo typing = Console.ReadKey(intercept: true);
+                if (typing.Key == ConsoleKey.Enter) {
+                    isTyping = false;
+                    if (sentence_line.Length != 0) {
+                        sentence = sentence + sentence_line;
+                    }
+                }else if(typing.Key == ConsoleKey.Backspace){
+                    sentence_line = sentence_line.Substring(0,col-1);
+                    col --;
+                }else {
+                    sentence_line = sentence_line + typing.KeyChar;
+                    col ++;
+                }
+                if (col > 99) {
+                    line ++;
+                    col = 0;
+                    sentence = sentence + sentence_line;
+                    sentence_line = "";
+                    Console.SetCursorPosition(12,line);
+                    sentence_line = typing.KeyChar.ToString();
+                }
+                Console.Write(sentence_line);
+            }
+
+            DateTime date = DateTime.Now;
+
+            App_Notepad_Setup add_note = new App_Notepad_Setup{
+                title = title_input,
+                created = date.ToString("MM/dd/yy"),
+                content = sentence
+            };
+
+            note.Add(add_note);
+
+            string add = JsonSerializer.Serialize(add_note, new JsonSerializerOptions {
+                WriteIndented = true
+            });
+
+            File.WriteAllText(filePath, add);
+            json = File.ReadAllText(filePath);
+
+            fa.ClearCmd();
+            fa.TextBox(17, 53, Style_Root.MAGENTA + "Successfully Added!"+ Style_Root.RESET);
+            Thread.Sleep(1000);
+            fa.ClearCmd();
+            Thread.Sleep(100);
+            App_Setup.Zoom_Out(4);   
+            home = true;
+            nav = false;
+            
+        
 
     }
 
