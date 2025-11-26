@@ -20,7 +20,7 @@ public class Frontend_Setup {
     public static void Load() {
         while (true) {
             if((env.dev & 1) == 1) {
-                App_Terminal.Run();
+                App_Notepad.Run();
                 User_Cursor();
             }else {
                 if(program_running){
@@ -42,42 +42,42 @@ public class Frontend_Setup {
         // ICONS
         if(env.icon_layout == 0){
             int col = 10;
-            fa.Icon(Style_Root.terminal_ico, 1, 66+7, col);
+            fa.Icon(Style_Root.terminal_ico, 1, Pointer, 66+7, col);
             col += 20;
-            fa.Icon(Style_Root.file_ico, 2, 66+7, col);
+            fa.Icon(Style_Root.notepad_ico, 2, Pointer, 66+7, col);
             col += 20;
-            fa.Icon(Style_Root.file_ico, 3, 66+7, col);
+            fa.Icon(Style_Root.file_ico, 3, Pointer, 66+7, col);
             col += 20;
-            fa.Icon(Style_Root.file_ico, 4, 66+7, col);
+            fa.Icon(Style_Root.file_ico, 4, Pointer, 66+7, col);
             col += 20;
-            fa.Icon(Style_Root.file_ico, 5, 66+7, col);
+            fa.Icon(Style_Root.file_ico, 5, Pointer, 66+7, col);
             col += 20;
 
             Widget_Clock();
         }else if (env.icon_layout == 1) {
             int line = 7;
-            fa.Icon(Style_Root.terminal_ico, 1, line, 5);
+            fa.Icon(Style_Root.terminal_ico, 1, Pointer, line, 5);
             line += 8;
-            fa.Icon(Style_Root.file_ico, 2, line, 5);
+            fa.Icon(Style_Root.notepad_ico, Pointer, 2, line, 5);
             line += 8;
-            fa.Icon(Style_Root.file_ico, 3, line, 5);
+            fa.Icon(Style_Root.file_ico, 3, Pointer, line, 5);
             line += 8;
-            fa.Icon(Style_Root.file_ico, 4, line, 5);
+            fa.Icon(Style_Root.file_ico, 4, Pointer, line, 5);
             line += 8;
-            fa.Icon(Style_Root.file_ico, 5, line, 5);
+            fa.Icon(Style_Root.file_ico, 5, Pointer, line, 5);
             line += 8;
             Widget_Clock();
         }else if (env.icon_layout == 2) {
             int col = 103;
-            fa.Icon(Style_Root.terminal_ico, 1, 66+7, col);
+            fa.Icon(Style_Root.terminal_ico, 1, Pointer, 66+7, col);
             col += 20;
-            fa.Icon(Style_Root.file_ico, 2, 66+7, col);
+            fa.Icon(Style_Root.notepad_ico, 2, Pointer, 66+7, col);
             col += 20;
-            fa.Icon(Style_Root.file_ico, 3, 66+7, col);
+            fa.Icon(Style_Root.file_ico, 3, Pointer, 66+7, col);
             col += 20;
-            fa.Icon(Style_Root.file_ico, 4, 66+7, col);
+            fa.Icon(Style_Root.file_ico, 4, Pointer, 66+7, col);
             col += 20;
-            fa.Icon(Style_Root.file_ico, 5, 66+7, col);
+            fa.Icon(Style_Root.file_ico, 5, Pointer, 66+7, col);
             col += 20;
             
             Widget_Clock();

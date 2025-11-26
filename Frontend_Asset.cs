@@ -9,9 +9,9 @@ public class Frontend_Asset {
     // ╰───────────────────╯
     
     // ---------------   Assets   ---------------
-    public void Icon(string[] icon, int selector, int line, int col) {
+    public void Icon(string[] icon, int selector, int pointer, int line, int col) {
         
-        if(Frontend_Setup.Pointer == selector) {
+        if(pointer == selector) {
             Console.Write(Style_Root.BLACK+Style_Root.WHITE_BG);
             foreach (var printline in icon) {
                 Console.SetCursorPosition(col, line);
@@ -24,6 +24,31 @@ public class Frontend_Asset {
             foreach (var printline in icon) {
                 Console.SetCursorPosition(col, line);
                 Console.Write(printline);
+                line++;
+            }
+        }
+    }
+    public void NoteIcon(string[] icon, int selector, int pointer, int line, int col) {
+
+        if(pointer == selector) {
+            Console.Write(Style_Root.BLACK+Style_Root.WHITE_BG);
+            for (int a = 0 ; a < icon.Length; a++) {
+                Console.SetCursorPosition(col, line);
+                Console.Write(icon[a]);
+                if(a == 10) {
+                Console.Write(@"     note_"+ (selector < 10 ? "0"+selector : selector.ToString()) +@".txt     ");   
+                }
+                line++;
+            }
+            Console.Write(Style_Root.RESET);
+        }
+        else {
+            for (int a = 0 ; a < icon.Length; a++) {
+                Console.SetCursorPosition(col, line);
+                Console.Write(icon[a]);
+                if(a == 10) {
+                Console.Write(@"     note_"+ (selector < 10 ? "0"+selector : selector.ToString()) +@".txt     ");    
+                }
                 line++;
             }
         }

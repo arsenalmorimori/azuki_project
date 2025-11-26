@@ -51,7 +51,7 @@ class App_Terminal {
             foreach (string line_print in cli.ToString().Split(new[] { "\r\n", "\n" }, StringSplitOptions.None)){
                     Console.SetCursorPosition(4,line_);
                     Console.Write(line_print);
-                    if(env.dev == 0) {
+                    if(env.dev == 1) {
                         Console.Write(" : " + line);
                     }
                     line_++;
@@ -91,11 +91,12 @@ class App_Terminal {
                 cli.Append(Style_Root.MAGENTA_BG + Style_Root.BLACK + "  COMMANDS LIST " + Style_Root.RESET + Style_Root.MAGENTA+ "▓▒░\n" + Style_Root.RESET);
                 cli.Append(Style_Root.MAGENTA + "-x  - Close\n"+ Style_Root.RESET);
                 cli.Append(Style_Root.MAGENTA + "-w  : Wallpaper\n"+ Style_Root.RESET);
+                cli.Append(Style_Root.MAGENTA + "-l  : Homescreen layout\n"+ Style_Root.RESET);
                 cli.Append(Style_Root.MAGENTA + "-pet  : Collect and view ascii pets\n"+ Style_Root.RESET);
                 cli.Append(Style_Root.MAGENTA + "-bios : Display device bios\n"+ Style_Root.RESET);
                 cli.Append(Style_Root.MAGENTA +"wtf : Ask Gemini AI\n"+ Style_Root.RESET);
                 cli.Append(Style_Root.MAGENTA + "cls : Clear terminal\n\n"+ Style_Root.RESET);
-                line += 8;
+                line += 9;
             }else if(command.Contains("-pet")){
                 CommandPet(command);
             }else if(command.Contains("-bios")){
