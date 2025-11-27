@@ -19,14 +19,31 @@ class App_Notepad {
     public static int Pointer = -1;
     public static ConsoleKey cursor;
     public static int box_title_end = 24;
-    public static bool home = true;
-    public static bool nav = true;
-    public static bool add_parent = true;
-    public static bool add = true;
-    public static bool view_parent = true;
-    public static bool view = true;
-    public static bool edit_parent = true;
-    public static bool edit = true;
+    public static int loop_control = 255;
+    // bitwise loop control
+    /*
+    1       0       1          1       0           1         1           1
+
+199 1        1      0          0       0           1         1           1
+183 1        0      1          1       0           1         1           1
+247 1        1      1          1       0           1         1           1
+
+      1     1        1          1       1           1        1           1
+    home   nav   add_parent   add   view_parent   view   edit_parent   edit
+    128     64       32        16        8          4         2          1
+ 
+    ^ = false
+    | = true
+
+    // public static bool home = true;
+    // public static bool nav = true;
+    // public static bool add_parent = true;
+    // public static bool add = true;
+    // public static bool view_parent = true;
+    // public static bool view = true;
+    // public static bool edit_parent = true;
+    // public static bool edit = true;
+    */
     // -- json database
     public static string filePath = "notepad.json";
     public static string json = File.ReadAllText(filePath);
@@ -50,9 +67,12 @@ class App_Notepad {
 
 
 
-        while (home) {
-            home = false;
-            nav = true;
+        while ((loop_control & 128) == 128 ) {
+            loop_control = loop_control ^ 128;
+            // home = false;
+            loop_control = loop_control | 64;
+            // nav = true;
+
             fa.ClearCmd();    
             Wallpaper.Window_5();
             App_Setup.LoadTaskbarBox_5();
@@ -61,7 +81,7 @@ class App_Notepad {
             
             
             // -- Program Loop
-            while (nav) {
+            while ((loop_control & 64) == 64) {
                 // relead in every reload
                 json = File.ReadAllText(filePath);
                 note = JsonSerializer.Deserialize<List<App_Notepad>>(json);
@@ -113,16 +133,20 @@ class App_Notepad {
                         Pointer--;                    
                     }
                 }else if(cursor == ConsoleKey.Enter) {
-                    view_parent = true;
-                    view = true;
+                    loop_control = loop_control | 8;
+                    // view_parent = true;
+                    loop_control = loop_control | 4;
+                    // view = true;
                     if (Pointer > 0) {
                         View();                        
                     }else if (Pointer == 0) {
                         Add();                        
                     }
                 }else if(cursor == ConsoleKey.R) {
-                    home = true;
-                    nav = false;
+                    loop_control = loop_control | 128;
+                    // home = true;
+                    loop_control = loop_control ^ 64;
+                    // nav = false;
                 }
             }
 
@@ -132,17 +156,21 @@ class App_Notepad {
 
 
     public static void View(){
-        while (view_parent) {
-            view_parent = false;
-            view = true;
+        while ((loop_control & 8) == 8) {
+            loop_control = loop_control ^ 8;
+            // view_parent = false;
+            loop_control = loop_control | 4;
+            // view = true;
+
             fa.ClearCmd();
             App_Setup.Zoom_In(4);   
         
-            while (view) {
+            while ((loop_control & 4) == 4) {
                 fa.ClearCmd();
                 Wallpaper.Window_9(); 
                 Thread.Sleep(50);
                 fa.TextBox(2, 108, Style_Root.MAGENTA + "[x]"+Style_Root.RED +" [d]"+Style_Root.YELLOW +" [e]" + Style_Root.RESET);
+                fa.TextBox(1, 108, loop_control.ToString());
                 fa.TextBox(5, 10, note[Pointer-1].title);
                 fa.TextBox(6, 10, note[Pointer-1].created);
                 Thread.Sleep(50);
@@ -154,22 +182,33 @@ class App_Notepad {
                 if(cursor == ConsoleKey.X) {
                     fa.ClearCmd();
                     App_Setup.Zoom_Out(4);
-                    view_parent = false;
-                    view = false;
-                    home = true;
-                    nav = false;
+                    // loop_control = loop_control ^ 8;
+                    // view_parent = false;
+                    loop_control = loop_control ^ 4;
+                    // view = false;
+                    loop_control = loop_control | 128;
+                    // home = true;
+                    loop_control = loop_control ^ 64;
+                    // nav = false;
                 }else if (cursor == ConsoleKey.E) {
-                    edit_parent = true;
-                    edit = true;
+                    loop_control = loop_control | 2;
+                    // edit_parent = true;
+                    loop_control = loop_control | 1;
+                    // edit = true;
                     Edit();
                 }else if (cursor == ConsoleKey.D) {
                     Delete();
+                    Pointer = 0;
                     fa.ClearCmd();
                     App_Setup.Zoom_Out(4);
-                    view_parent = false;
-                    view = false;
-                    home = true;
-                    nav = false;
+                    // loop_control = loop_control ^ 8;
+                    // view_parent = false;
+                    loop_control = loop_control ^ 4;
+                    // view = false;
+                    loop_control = loop_control | 128;
+                    // home = true;
+                    loop_control = loop_control ^ 64;
+                    // nav = false;
                 }
             }   
         }
@@ -177,11 +216,13 @@ class App_Notepad {
     }
 
     public static void Edit(){
-        while (edit_parent) {
-            edit_parent = false;
-            edit = true;
+        while ((loop_control & 2) == 2) {
+            loop_control = loop_control ^ 2;
+            // edit_parent = false;
+            loop_control = loop_control | 1;
+            // edit = true;
 
-            while (edit) {
+            while ((loop_control & 1) == 1) {
                 fa.ClearCmd();
                 Wallpaper.Window_9();
                 Thread.Sleep(50);
@@ -201,16 +242,22 @@ class App_Notepad {
                 cursor = Console.ReadKey().Key;
                 
                 if(cursor == ConsoleKey.X) {
-                    view = true;
-                    edit = false;
+                    loop_control = loop_control | 4;
+                    // view = true;
+                    loop_control = loop_control ^ 1;
+                    // edit = false;
                 }else if (cursor == ConsoleKey.A) {
                     Edit_Window(0);
-                    view = true;
-                    edit = false;
+                    loop_control = loop_control | 4;
+                    // view = true;
+                    loop_control = loop_control ^ 1;
+                    // edit = false;
                 }else if (cursor == ConsoleKey.S) {
                     Edit_Window(1);
-                    view = true;
-                    edit = false;
+                    loop_control = loop_control | 4;
+                    // view = true;
+                    loop_control = loop_control ^ 1;
+                    // edit = false;
                 }
             }
         }
@@ -343,9 +390,11 @@ class App_Notepad {
             Thread.Sleep(1000);
             fa.ClearCmd();
             Thread.Sleep(100);
-            App_Setup.Zoom_Out(4);   
-            home = true;
-            nav = false;
+            App_Setup.Zoom_Out(4); 
+            loop_control = loop_control | 128;  
+            // home = true;
+            loop_control = loop_control ^ 64;
+            // nav = false;
             
         
 
