@@ -7,6 +7,11 @@ using System.Drawing.Drawing2D;
 using System.Text;
 using System.Threading.Tasks;
 class App_Notepad {
+    
+    // -------------------------- DATABASE VALUES --------------------------
+    public string title {get; set;}
+    public string created {get; set;}
+    public string content {get; set;}
 
     // -------------------------- DECLARATION --------------------------
     static Frontend_Asset fa = new Frontend_Asset();
@@ -25,7 +30,7 @@ class App_Notepad {
     // -- json database
     public static string filePath = "notepad.json";
     public static string json = File.ReadAllText(filePath);
-    public static List<json_db> note = JsonSerializer.Deserialize<List<json_db>>(json);
+    public static List<App_Notepad> note = JsonSerializer.Deserialize<List<App_Notepad>>(json);
     
         
     // -------------------------- METHOD --------------------------
@@ -59,7 +64,7 @@ class App_Notepad {
             while (nav) {
                 // relead in every reload
                 json = File.ReadAllText(filePath);
-                note = JsonSerializer.Deserialize<List<json_db>>(json);
+                note = JsonSerializer.Deserialize<List<App_Notepad>>(json);
                 
                 int line = 5;
                 int col = 5;
@@ -157,6 +162,14 @@ class App_Notepad {
                     edit_parent = true;
                     edit = true;
                     Edit();
+                }else if (cursor == ConsoleKey.D) {
+                    Delete();
+                    fa.ClearCmd();
+                    App_Setup.Zoom_Out(4);
+                    view_parent = false;
+                    view = false;
+                    home = true;
+                    nav = false;
                 }
             }   
         }
@@ -289,8 +302,10 @@ class App_Notepad {
                         sentence = sentence + sentence_line;
                     }
                 }else if(typing.Key == ConsoleKey.Backspace){
-                    sentence_line = sentence_line.Substring(0,col-1);
-                    col --;
+                    if (col > 0) {
+                        sentence_line = sentence_line.Substring(0,col-1);
+                        col --;
+                    }
                 }else {
                     sentence_line = sentence_line + typing.KeyChar;
                     col ++;
@@ -308,7 +323,7 @@ class App_Notepad {
 
             DateTime date = DateTime.Now;
 
-            App_Notepad_Setup add_note = new App_Notepad_Setup{
+            App_Notepad add_note = new App_Notepad{
                 title = title_input,
                 created = date.ToString("MM/dd/yy"),
                 content = sentence
@@ -316,7 +331,7 @@ class App_Notepad {
 
             note.Add(add_note);
 
-            string add = JsonSerializer.Serialize(add_note, new JsonSerializerOptions {
+            string add = JsonSerializer.Serialize(note, new JsonSerializerOptions {
                 WriteIndented = true
             });
 
@@ -334,6 +349,23 @@ class App_Notepad {
             
         
 
+    }
+
+
+    public static void Delete(){
+            
+            note.Remove(note[Pointer-1]);
+
+            string remove = JsonSerializer.Serialize(note, new JsonSerializerOptions {
+                WriteIndented = true
+            });
+
+            File.WriteAllText(filePath, remove);
+            json = File.ReadAllText(filePath);
+
+            fa.ClearCmd();
+            fa.TextBox(17, 52, Style_Root.RED + "Deleted Successfully!"+ Style_Root.RESET);
+            Thread.Sleep(1000);
     }
 
 
