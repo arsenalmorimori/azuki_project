@@ -201,6 +201,9 @@ public class Frontend_Setup {
                 case 1:
                     App_Terminal.Run();
                     break;
+                case 2:
+                    App_Notepad.Run();
+                    break;
             }
         }
     }

@@ -20,13 +20,8 @@ class App_Notepad {
     public static ConsoleKey cursor;
     public static int box_title_end = 24;
     public static int loop_control = 255;
-    // bitwise loop control
-    /*
-    1       0       1          1       0           1         1           1
 
-199 1        1      0          0       0           1         1           1
-183 1        0      1          1       0           1         1           1
-247 1        1      1          1       0           1         1           1
+    /*  -- bitwise loop control
 
       1     1        1          1       1           1        1           1
     home   nav   add_parent   add   view_parent   view   edit_parent   edit
@@ -44,6 +39,7 @@ class App_Notepad {
     // public static bool edit_parent = true;
     // public static bool edit = true;
     */
+    
     // -- json database
     public static string filePath = "notepad.json";
     public static string json = File.ReadAllText(filePath);
@@ -58,9 +54,11 @@ class App_Notepad {
     public static void Load() {
         // -- Setting  Environment
         if (!Frontend_Setup.program_running) {
+            fa.ClearCmd();    
             Frontend_Setup.program_running = true;
-                App_Setup.Zoom_In(5);
-                App_Setup.LoadingBar_5();
+            App_Setup.Zoom_In(5);
+            App_Setup.LoadingBar_5();
+            loop_control = 255;
         }
 
 
@@ -132,6 +130,11 @@ class App_Notepad {
                     if(Pointer > -1) {
                         Pointer--;                    
                     }
+                }else if(cursor == ConsoleKey.X) {
+                    fa.ClearCmd();
+                    App_Setup.LoadingBar_5();
+                    App_Setup.Zoom_Out(5);
+                    break;
                 }else if(cursor == ConsoleKey.Enter) {
                     loop_control = loop_control | 8;
                     // view_parent = true;
@@ -155,6 +158,20 @@ class App_Notepad {
     }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+// ----------------------------------------------- BACKEND -----------------------------------------------
+
     public static void View(){
         while ((loop_control & 8) == 8) {
             loop_control = loop_control ^ 8;
@@ -170,7 +187,6 @@ class App_Notepad {
                 Wallpaper.Window_9(); 
                 Thread.Sleep(50);
                 fa.TextBox(2, 108, Style_Root.MAGENTA + "[x]"+Style_Root.RED +" [d]"+Style_Root.YELLOW +" [e]" + Style_Root.RESET);
-                fa.TextBox(1, 108, loop_control.ToString());
                 fa.TextBox(5, 10, note[Pointer-1].title);
                 fa.TextBox(6, 10, note[Pointer-1].created);
                 Thread.Sleep(50);
@@ -214,6 +230,9 @@ class App_Notepad {
         }
 
     }
+
+
+
 
     public static void Edit(){
         while ((loop_control & 2) == 2) {
@@ -264,6 +283,9 @@ class App_Notepad {
 
     }
 
+
+
+
     public static void Edit_Window(int what) {
         fa.ClearCmd();
         if (what == 0) {
@@ -306,6 +328,9 @@ class App_Notepad {
         json = File.ReadAllText(filePath);
 
     }
+
+
+
 
 
     public static void Add(){
@@ -401,6 +426,10 @@ class App_Notepad {
     }
 
 
+
+
+
+
     public static void Delete(){
             
             note.Remove(note[Pointer-1]);
@@ -418,7 +447,10 @@ class App_Notepad {
     }
 
 
-    // ---------------------------------------------------------------------------------------------------------
+
+
+
+// ----------------------------------------------- FRONTEND -----------------------------------------------
     public static void Clear_Box() {
         for (int a = 7 ; a <= 40; a++) {
             Console.SetCursorPosition(134, a);
