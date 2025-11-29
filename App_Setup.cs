@@ -65,6 +65,15 @@ class App_Setup{
         App_Terminal.cli.Append(Style_Root.MAGENTA + "   > " + response.Candidates[0].Content.Parts[0].Text + Style_Root.RESET +"\n");
         
     }
+    public static async Task Ask_Motivation(string question){
+
+        var response = await env_private.client.Models.GenerateContentAsync(
+            model: "gemini-2.0-flash",
+            contents: question + ". Please gieve a quotation, phrase, or analogy that can help me mentally. Please dont use most common ai word like embrace, unleash, etc. Must not exceed to 145 characters, including spaces");
+        App_Terminal.cli.Append(Style_Root.MAGENTA + "   > " + response.Candidates[0].Content.Parts[0].Text + Style_Root.RESET +"\n");
+        
+    }
+
     public static void LoadTaskbarBox_5(){
         fa.Box(1, 2, 163, 1,"");
     }

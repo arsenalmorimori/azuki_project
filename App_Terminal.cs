@@ -94,7 +94,8 @@ class App_Terminal {
                 cli.Append(Style_Root.MAGENTA + "-l  : Homescreen layout\n"+ Style_Root.RESET);
                 cli.Append(Style_Root.MAGENTA + "-pet  : Collect and view ascii pets\n"+ Style_Root.RESET);
                 cli.Append(Style_Root.MAGENTA + "-bios : Display device bios\n"+ Style_Root.RESET);
-                cli.Append(Style_Root.MAGENTA +"wtf : Ask Gemini AI\n"+ Style_Root.RESET);
+                cli.Append(Style_Root.MAGENTA +"wtf : Ask Question to Gemini AI\n"+ Style_Root.RESET);
+                cli.Append(Style_Root.MAGENTA +"motivate me : Words of Encouragement by Gemini AI\n"+ Style_Root.RESET);
                 cli.Append(Style_Root.MAGENTA + "cls : Clear terminal\n\n"+ Style_Root.RESET);
                 line += 9;
             }else if(command.Contains("-pet")){
@@ -103,6 +104,9 @@ class App_Terminal {
                 CommanBios();
             }else if(command.Contains("wtf ")){
                 App_Setup.Ask(command).Wait();
+                line +=2;
+            }else if(command.Contains("motivate me ")){
+                App_Setup.Ask_Motivation(command).Wait();
                 line +=2;
             }else if(command.Contains("cls")){
                 Clear_Terminal();
