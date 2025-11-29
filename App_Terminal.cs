@@ -124,8 +124,8 @@ class App_Terminal {
                 cli.Append("-l 0  : Horizontal layout\n");
                 cli.Append("-l 1  : Vertical layuot\n");
                 cli.Append("-l 2  : Center layuot\n");
-                cli.Append("-w c0 : Hide clock widget\n");
-                cli.Append("-w c1 : Show clock widget\n\n"+Style_Root.RESET);
+                cli.Append("-l c0 : Hide clock widget\n");
+                cli.Append("-l c1 : Show clock widget\n\n"+Style_Root.RESET);
                 line += 7;
                 break;
             case "-l 0":
@@ -295,7 +295,6 @@ class App_Terminal {
         cli.Append("\n");
         line++;
     }
-
 
     public static void CommanBios() {
         Clear_Terminal();

@@ -64,7 +64,7 @@ class App_Notepad {
 
 
 
-
+        // Loading the screen
         while ((loop_control & 128) == 128 ) {
             loop_control = loop_control ^ 128;
             // home = false;
@@ -77,6 +77,7 @@ class App_Notepad {
             App_Setup.LoadTaskbar_5("Notepad",69);
             fa.Box(4,130,35,43,"");
             
+
             
             // -- Program Loop
             while ((loop_control & 64) == 64) {
@@ -103,6 +104,8 @@ class App_Notepad {
                     }
                 }
 
+
+
                 // -- Box Selector
                 if (Pointer <=-1) {
                     Clear_Box();
@@ -122,6 +125,9 @@ class App_Notepad {
                 Console.SetCursorPosition(164,49);
                 cursor = Console.ReadKey().Key;
 
+
+
+                // User Input
                 if(cursor == ConsoleKey.D) {
                     if(Pointer < note.Count) {
                         Pointer++;                    
@@ -364,7 +370,6 @@ class App_Notepad {
             bool isTyping = true; 
             int line = 13;
             int col = 0;
-            bool backspace = false;
             while (isTyping) {
                 Console.SetCursorPosition(12,line);
                 ConsoleKeyInfo typing = Console.ReadKey(intercept: true);
