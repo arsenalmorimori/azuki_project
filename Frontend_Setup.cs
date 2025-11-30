@@ -20,7 +20,7 @@ public class Frontend_Setup {
     public static void Load() {
         while (true) {
             if((env.dev & 1) == 1) {
-                App_Notepad.Run();
+                App_Thread.Run();
                 User_Cursor();
             }else {
                 if(program_running){

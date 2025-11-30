@@ -1,6 +1,7 @@
 using System;
 public class Style_Root {
 
+    // -- RESET
     public static string RESET = "\u001b[0m";
     
     // -- color
