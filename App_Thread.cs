@@ -37,7 +37,6 @@ class App_Thread{
     static Frontend_Asset fa = new Frontend_Asset();
     static App_Notepad_Setup ns = new App_Notepad_Setup();
     // public static int Pointer = -1;
-    public static ConsoleKey cursor;
     public static int current_len = 0;
     public static int isActive= 0;
 
@@ -52,6 +51,7 @@ class App_Thread{
 
         Thread load_thread = new Thread(Load_https().Wait);
         load_thread.Start();
+        
         
         
     }
@@ -104,6 +104,55 @@ class App_Thread{
     //     }
 
     // }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// ----------------------------------------------- BACKEND -----------------------------------------------
+
+
+    public static void Load() {
+        // -- Setting  Environment
+        if (!Frontend_Setup.program_running) {
+            fa.ClearCmd();    
+            Frontend_Setup.program_running = true;
+            App_Setup.Zoom_In(5);
+            App_Setup.LoadingBar_5();
+        }
+
+
+        // fa.ClearCmd();    
+        // Wallpaper.Window_5();
+
+        while (true) {
+            ConsoleKeyInfo cursor = Console.ReadKey(intercept: true);
+            if (cursor.Key == ConsoleKey.M) {
+                isActive ++;
+                    
+                Console.SetCursorPosition(0, 40);
+                string message_input = Console.ReadLine();
+                Add(message_input);
+                isActive --;
+            }else {
+                current_len = 0;
+            }
+
+        
+        }
+
+    }
 
 
 
@@ -227,9 +276,10 @@ class App_Thread{
         using HttpClient client = new HttpClient();
         client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", env_private.supabase_anonkey);
         client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
-        
-        try{
-            while (true) {
+        if (isActive == 0) {
+            bool load_ = true;
+            try{
+                while (load_) {
                     HttpResponseMessage response = await client.GetAsync(url);
                     response.EnsureSuccessStatusCode();
                     
@@ -237,49 +287,34 @@ class App_Thread{
                     var messages = JsonSerializer.Deserialize<List<App_Thread>>(json);
                     int len = messages.Count;
                     
-                    if((isActive & 1) == 1) {
-          
-                    }else {
-                        if(current_len == len) {
-                        // do nothing
-
+                    StringBuilder message_con = new StringBuilder();
+                    current_len = len;
+                    
+                    for(int a = 0; a < len ; a++) {
+                        if(messages[a].Username == env.username) {
+                            message_con.Append( Style_Root.MAGENTA + $"<{messages[a].Username}>  {messages[a].Message}" + Style_Root.RESET + "\n");
                         }else {
-                            StringBuilder message_con = new StringBuilder();
-                            current_len = len;
-
-                            message_con.Append("╭────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮\n"+
-                                               "│                                                                                                                                                                        │\n"+
-                                               "│                                                                                                                                                                        │\n"+
-                                               "│              ╭────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮                │\n");
-
-
-                            if (len < 39) {
-                                for(int a = 0 ; a < 39 - len; a++) {
-                                    message_con.Append("│              │                                                                                                                                        │                │\n");
-                                }
-                            }
-
-                            for(int a = 0; a < len ; a++) {
-                                if(messages[a].Username == env.username) {
-                                    message_con.Append("│              │ " + Style_Root.MAGENTA + $"<{messages[a].Username}>  {messages[a].Message}" + Style_Root.RESET + "\n");
-                                }else {
-                                    message_con.Append($"│              │ <{messages[a].Username}>  {messages[a].Message}" + "\n"); 
-                                }
-                            } 
-
-                            Console.SetCursorPosition(0,0);
-                            Console.Write(message_con);
-                            messages.Clear();
-
-
+                            message_con.Append($"<{messages[a].Username}>  {messages[a].Message}" + "\n"); 
                         }
+                    } 
 
-                    }
+                    Console.Clear();
+                    Console.Write(message_con);
+                    messages.Clear();
+
+                    // fa.Box(36+8,15,135,1,"");
+                    // fa.TextBox(45,17, Style_Root.MAGENTA + "  >   [m] to create a message... [↑/↓] to scroll"+Style_Root.RESET );
+                    Thread.Sleep(1000);
+                    load_ = isActive == 0 ? true : false;
+                }
+            }catch (Exception ex){
+                    // Console.WriteLine("Error fetching messages: " + ex.Message);
             }
-            
-        }catch (Exception ex){
-                // Console.WriteLine("Error fetching messages: " + ex.Message);
         }
+        else {
+            
+        }
+        
 
 
 
