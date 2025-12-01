@@ -16,6 +16,7 @@ using System.Collections;
 using System.Drawing.Drawing2D;
 using System.Text;
 using System.Threading.Tasks;
+using Google.GenAI.Types;
 class App_Thread{
 
     
@@ -39,6 +40,10 @@ class App_Thread{
     // public static int Pointer = -1;
     public static int current_len = 0;
     public static int isActive= 0;
+    public static bool loop_contorol = true;
+    public static ConsoleKeyInfo cursor;
+    public static CancellationTokenSource cts = new CancellationTokenSource();
+
 
         
 
@@ -46,11 +51,12 @@ class App_Thread{
 
     // -------------------------- METHOD --------------------------
     public static void Run() {
-        Thread input_thread = new Thread(Load);
-        input_thread.Start();
-
         Thread load_thread = new Thread(Load_https().Wait);
+        
         load_thread.Start();
+        
+        Load();
+
         
         
         
@@ -62,67 +68,6 @@ class App_Thread{
 
 
     // -- Failed attempt with GUI 
-    // public static void Load() {
-    //     // -- Setting  Environment
-    //     if (!Frontend_Setup.program_running) {
-    //         fa.ClearCmd();    
-    //         Frontend_Setup.program_running = true;
-    //         App_Setup.Zoom_In(5);
-    //         App_Setup.LoadingBar_5();
-    //     }
-
-
-    //     fa.ClearCmd();    
-    //     Wallpaper.Window_5();
-    //     // App_Setup.LoadTaskbarBox_5();
-
-
-    //     // Loading the screen
-    //     while (true) {
-    //         // App_Setup.LoadTaskbar_5("Thread",69);
-    //         fa.Box(3,15,135,39,"");
-    //         fa.Box(36+8,15,135,1,"");
-    //         fa.TextBox(45,17, Style_Root.MAGENTA + "  >   [m] to create a message... [↑/↓] to scroll"+Style_Root.RESET );
-            
-    //         Console.SetCursorPosition(0,0);
-    //         cursor = Console.ReadKey().Key;
-
-    //         if (cursor == ConsoleKey.M) {
-    //             isActive = 1;
-    //             Thread.Sleep(500);
-    //             fa.Box(36+8,15,135,1,Style_Root.MAGENTA);
-    //             Console.SetCursorPosition(17, 45);
-    //             string message_input = Console.ReadLine();
-    //             Add(message_input);
-    //             isActive = 0;
-                    
-    //         }else {
-    //             current_len = 0;
-    //         }
-
-        
-    //     }
-
-    // }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// ----------------------------------------------- BACKEND -----------------------------------------------
-
-
     public static void Load() {
         // -- Setting  Environment
         if (!Frontend_Setup.program_running) {
@@ -133,30 +78,39 @@ class App_Thread{
         }
 
 
-        // fa.ClearCmd();    
-        // Wallpaper.Window_5();
+        fa.ClearCmd();    
+        Wallpaper.Window_5();
+        App_Setup.LoadTaskbarBox_5();
+        fa.Box(5,15,135,37,"");
 
-        while (true) {
-            ConsoleKeyInfo cursor = Console.ReadKey(intercept: true);
+
+        // Loading the screen
+
+        while (loop_contorol) {
+            while (isActive == 0) {
+            App_Setup.LoadTaskbar_5("Thread",69);
+            fa.Box(36+8,15,135,1,"");
+            fa.TextBox(45,17, Style_Root.MAGENTA + "  >   [m] to create a message... press once and wait for it to reload"+Style_Root.RESET );
+            
+            cursor = Console.ReadKey(intercept: true);
+
             if (cursor.Key == ConsoleKey.M) {
                 isActive ++;
-                    
-                Console.SetCursorPosition(0, 40);
-                string message_input = Console.ReadLine();
-                Add(message_input);
-                isActive --;
+            }else if (cursor.Key == ConsoleKey.X) {
+                loop_contorol = false;
+                cts.Cancel();
+                fa.ClearCmd();
+                App_Setup.LoadingBar_5();
+                App_Setup.Zoom_Out(5);
             }else {
                 current_len = 0;
             }
 
-        
+            }
+
         }
 
     }
-
-
-
-
 
 
 
@@ -205,132 +159,58 @@ class App_Thread{
 
 
     // -- Failed attempt with GUI 
-    // public static async Task Load_https() {
-    //     string url = "https://"+env_private.supabase_project+".supabase.co/rest/v1/azuki_message?select=*&apikey="+ env_private.supabase_anonkey;
-
-    //     using HttpClient client = new HttpClient();
-    //     client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", env_private.supabase_anonkey);
-    //     client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
-        
-    //     try{
-    //         while (true) {
-    //                 HttpResponseMessage response = await client.GetAsync(url);
-    //                 response.EnsureSuccessStatusCode();
-                    
-    //                 string json = await response.Content.ReadAsStringAsync();
-    //                 var messages = JsonSerializer.Deserialize<List<App_Thread>>(json);
-    //                 int len = messages.Count;
-                    
-    //                 if((isActive & 1) == 1) {
-          
-    //                 }else {
-    //                     if(current_len == len) {
-    //                     // do nothing
-
-    //                     }else {
-    //                         StringBuilder message_con = new StringBuilder();
-    //                         current_len = len;
-
-    //                         message_con.Append("╭────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮\n"+
-    //                                            "│                                                                                                                                                                        │\n"+
-    //                                            "│                                                                                                                                                                        │\n"+
-    //                                            "│              ╭────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮                │\n");
-
-
-    //                         if (len < 39) {
-    //                             for(int a = 0 ; a < 39 - len; a++) {
-    //                                 message_con.Append("│              │                                                                                                                                        │                │\n");
-    //                             }
-    //                         }
-
-    //                         for(int a = 0; a < len ; a++) {
-    //                             if(messages[a].Username == env.username) {
-    //                                 message_con.Append("│              │ " + Style_Root.MAGENTA + $"<{messages[a].Username}>  {messages[a].Message}" + Style_Root.RESET + "\n");
-    //                             }else {
-    //                                 message_con.Append($"│              │ <{messages[a].Username}>  {messages[a].Message}" + "\n"); 
-    //                             }
-    //                         } 
-
-    //                         Console.SetCursorPosition(0,0);
-    //                         Console.Write(message_con);
-    //                         messages.Clear();
-
-
-    //                     }
-
-    //                 }
-    //         }
-            
-    //     }catch (Exception ex){
-    //             // Console.WriteLine("Error fetching messages: " + ex.Message);
-    //     }
-
-
-
-    // }
-    
-    
     public static async Task Load_https() {
         string url = "https://"+env_private.supabase_project+".supabase.co/rest/v1/azuki_message?select=*&apikey="+ env_private.supabase_anonkey;
 
         using HttpClient client = new HttpClient();
         client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", env_private.supabase_anonkey);
         client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
-        if (isActive == 0) {
-            bool load_ = true;
-            try{
-                while (load_) {
+        
+        try{
+                bool reload = true;
+                while (reload) {
                     HttpResponseMessage response = await client.GetAsync(url);
                     response.EnsureSuccessStatusCode();
                     
                     string json = await response.Content.ReadAsStringAsync();
                     var messages = JsonSerializer.Deserialize<List<App_Thread>>(json);
                     int len = messages.Count;
+                    int line = 42;
+
                     
-                    StringBuilder message_con = new StringBuilder();
-                    current_len = len;
-                    
-                    for(int a = 0; a < len ; a++) {
+                    Thread.Sleep(500);
+                    for(int a = len-1; a > 0 ; a--) {
+                        Console.SetCursorPosition(17,line);
+                        Console.Write("                                                                                                                                       │" );
+                        Console.SetCursorPosition(17,line);
+                        Thread.Sleep(50);
+                        
                         if(messages[a].Username == env.username) {
-                            message_con.Append( Style_Root.MAGENTA + $"<{messages[a].Username}>  {messages[a].Message}" + Style_Root.RESET + "\n");
+                            Console.Write(Style_Root.MAGENTA + $"<{messages[a].Username}>  {messages[a].Message}" + Style_Root.RESET );
                         }else {
-                            message_con.Append($"<{messages[a].Username}>  {messages[a].Message}" + "\n"); 
+                            Console.Write($"<{messages[a].Username}>  {messages[a].Message}" ); 
                         }
-                    } 
+                        line--;
+                    }
 
-                    Console.Clear();
-                    Console.Write(message_con);
-                    messages.Clear();
-
-                    // fa.Box(36+8,15,135,1,"");
-                    // fa.TextBox(45,17, Style_Root.MAGENTA + "  >   [m] to create a message... [↑/↓] to scroll"+Style_Root.RESET );
-                    Thread.Sleep(1000);
-                    load_ = isActive == 0 ? true : false;
+                    if (isActive == 1) {
+                        fa.Box(36+8,15,135,1,Style_Root.MAGENTA);
+                        Console.SetCursorPosition(17, 45);
+                        string message_input = Console.ReadLine();
+                        Add(message_input);
+                        Thread.Sleep(100);
+                        isActive = 0;
+                    }
                 }
-            }catch (Exception ex){
-                    // Console.WriteLine("Error fetching messages: " + ex.Message);
-            }
-        }
-        else {
             
+            
+        }catch (Exception ex){
+                // Console.WriteLine("Error fetching messages: " + ex.Message);
         }
-        
-
-
-
     }
     
     
 
-
-// ----------------------------------------------- FRONTEND -----------------------------------------------
-    // public static void Clear_ThreadBox() {
-    //     Thread.Sleep(50);
-    //     for (int a = 6 ; a <= 40; a++) {
-    //         Console.SetCursorPosition(17, a);
-    //         Console.Write("                                                                                                                                      ");
-    //     }
-    // }
 }
 
 
