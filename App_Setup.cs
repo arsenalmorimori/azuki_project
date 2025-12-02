@@ -80,7 +80,7 @@ class App_Setup{
 
     public static void LoadTaskbar_5(string app,int center_col){
         fa.TextBox(2, center_col, "AZUKI OS  :  " + Style_Root.MAGENTA + app + Style_Root.RESET);
-        fa.TextBox(2, 6,  "SUN   NOV 11");
+        fa.TextBox(2, 6,  $"{DateTime.Now.ToString("ddd")}   {DateTime.Now.ToString("MMM dd")}");
         fa.Widget_Battery(2,152);
     }
 

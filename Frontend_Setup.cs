@@ -46,7 +46,7 @@ public class Frontend_Setup {
             col += 20;
             fa.Icon(Style_Root.notepad_ico, 2, Pointer, 66+7, col);
             col += 20;
-            fa.Icon(Style_Root.file_ico, 3, Pointer, 66+7, col);
+            fa.Icon(Style_Root.thread_ico, 3, Pointer, 66+7, col);
             col += 20;
             fa.Icon(Style_Root.file_ico, 4, Pointer, 66+7, col);
             col += 20;
@@ -60,7 +60,7 @@ public class Frontend_Setup {
             line += 8;
             fa.Icon(Style_Root.notepad_ico, Pointer, 2, line, 5);
             line += 8;
-            fa.Icon(Style_Root.file_ico, 3, Pointer, line, 5);
+            fa.Icon(Style_Root.thread_ico, 3, Pointer, line, 5);
             line += 8;
             fa.Icon(Style_Root.file_ico, 4, Pointer, line, 5);
             line += 8;
@@ -73,7 +73,7 @@ public class Frontend_Setup {
             col += 20;
             fa.Icon(Style_Root.notepad_ico, 2, Pointer, 66+7, col);
             col += 20;
-            fa.Icon(Style_Root.file_ico, 3, Pointer, 66+7, col);
+            fa.Icon(Style_Root.thread_ico, 3, Pointer, 66+7, col);
             col += 20;
             fa.Icon(Style_Root.file_ico, 4, Pointer, 66+7, col);
             col += 20;
@@ -87,9 +87,8 @@ public class Frontend_Setup {
     
     public static void Load_Taskbar() {
         fa.TextBox(2, 150, "AZUKI OS");
-        fa.TextBox(2, 8,  "SUN   NOV 11");
-        // fa.TextBox(2, 150, Style_Root.WHITE_BG + Style_Root.BLACK + "AZUKI OS" + Style_Root.RESET);
-        // fa.TextBox(2, 8, Style_Root.WHITE_BG + Style_Root.BLACK + "SUN   NOV 11" + Style_Root.RESET);
+        DateTime date = new DateTime();
+        fa.TextBox(2, 8,  $"{DateTime.Now.ToString("ddd")}   {DateTime.Now.ToString("MMM  dd")}");
         fa.Widget_Battery(2,290);
     }
 
