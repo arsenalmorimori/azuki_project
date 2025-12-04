@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("azuki_project")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a50c66e94fc2a2bd7239dd723713b791a79213a2")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+280ba4613a6ebd1d1c776b1c75c9feb0c0366e9c")]
 [assembly: System.Reflection.AssemblyProductAttribute("azuki_project")]
 [assembly: System.Reflection.AssemblyTitleAttribute("azuki_project")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -9,6 +9,10 @@ dotnet add package Google.GenAI
 
 dotnet add package TextCopy
 
+dotnet add package NAudio
+
+
+
 
 
 // credits
