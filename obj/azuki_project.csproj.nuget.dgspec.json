@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\Nesty\\Programming\\C#\\azuki_proj\\official\\azuki_project.csproj": {}
+    "C:\\Users\\Nesty\\Programming\\C#\\azuki_proj\\official\\azuki_project.csproj": {}
   },
   "projects": {
-    "c:\\Users\\Nesty\\Programming\\C#\\azuki_proj\\official\\azuki_project.csproj": {
+    "C:\\Users\\Nesty\\Programming\\C#\\azuki_proj\\official\\azuki_project.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\Nesty\\Programming\\C#\\azuki_proj\\official\\azuki_project.csproj",
+        "projectUniqueName": "C:\\Users\\Nesty\\Programming\\C#\\azuki_proj\\official\\azuki_project.csproj",
         "projectName": "azuki_project",
-        "projectPath": "c:\\Users\\Nesty\\Programming\\C#\\azuki_proj\\official\\azuki_project.csproj",
+        "projectPath": "C:\\Users\\Nesty\\Programming\\C#\\azuki_proj\\official\\azuki_project.csproj",
         "packagesPath": "C:\\Users\\Nesty\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\Nesty\\Programming\\C#\\azuki_proj\\official\\obj\\",
+        "outputPath": "C:\\Users\\Nesty\\Programming\\C#\\azuki_proj\\official\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

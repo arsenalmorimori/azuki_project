@@ -20,7 +20,7 @@ public class Frontend_Setup {
     public static void Load() {
         while (true) {
             if((env.dev & 1) == 1) {
-                App_Thread.Run();
+                App_Music.Run();
                 User_Cursor();
             }else {
                 if(program_running){
@@ -87,7 +87,6 @@ public class Frontend_Setup {
     
     public static void Load_Taskbar() {
         fa.TextBox(2, 150, "AZUKI OS");
-        DateTime date = new DateTime();
         fa.TextBox(2, 8,  $"{DateTime.Now.ToString("ddd")}   {DateTime.Now.ToString("MMM  dd")}");
         fa.Widget_Battery(2,290);
     }
@@ -205,6 +204,9 @@ public class Frontend_Setup {
                     break;
                 case 3:
                     App_Thread.Run();
+                    break;
+                case 4:
+                    App_Music.Run();
                     break;
             }
         }

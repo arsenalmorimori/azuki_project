@@ -31,3 +31,10 @@ C:\Users\Nesty\Programming\C#\azuki_proj\official\bin\Debug\net9.0-windows\ja-JP
 C:\Users\Nesty\Programming\C#\azuki_proj\official\bin\Debug\net9.0-windows\pt-PT\Terminal.Gui.resources.dll
 C:\Users\Nesty\Programming\C#\azuki_proj\official\bin\Debug\net9.0-windows\Microsoft.Extensions.DependencyInjection.Abstractions.dll
 C:\Users\Nesty\Programming\C#\azuki_proj\official\bin\Debug\net9.0-windows\TextCopy.dll
+C:\Users\Nesty\Programming\C#\azuki_proj\official\bin\Debug\net9.0-windows\NAudio.dll
+C:\Users\Nesty\Programming\C#\azuki_proj\official\bin\Debug\net9.0-windows\NAudio.Asio.dll
+C:\Users\Nesty\Programming\C#\azuki_proj\official\bin\Debug\net9.0-windows\NAudio.Core.dll
+C:\Users\Nesty\Programming\C#\azuki_proj\official\bin\Debug\net9.0-windows\NAudio.Midi.dll
+C:\Users\Nesty\Programming\C#\azuki_proj\official\bin\Debug\net9.0-windows\NAudio.Wasapi.dll
+C:\Users\Nesty\Programming\C#\azuki_proj\official\bin\Debug\net9.0-windows\NAudio.WinForms.dll
+C:\Users\Nesty\Programming\C#\azuki_proj\official\bin\Debug\net9.0-windows\NAudio.WinMM.dll
