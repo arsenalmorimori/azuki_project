@@ -1,5 +1,7 @@
 using WindowsInput;
 using WindowsInput.Native;
+using System.Text;
+using System.Text.Json;
 using System;
 using System.Threading.Tasks;
 using Google.GenAI;
@@ -12,6 +14,10 @@ class App_Setup{
     
     public static Frontend_Asset fa = new Frontend_Asset();
     public static InputSimulator sim = new InputSimulator();
+
+
+
+    // ----------------- GENERAL ----------------- 
 
     public static void Zoom_In(int scroll){
         fa.ClearCmd();
@@ -27,53 +33,6 @@ class App_Setup{
         }
     }
 
-
-    public static void OpeningAppScreen(string text1, string text2,string text3,string text4) {
-        Console.WriteLine(Style_Root.MAGENTA + text1 + "....."+ Style_Root.RESET);
-        Thread.Sleep(100);
-        Console.WriteLine(Style_Root.MAGENTA + text2 + "....."+ Style_Root.RESET);
-        Thread.Sleep(200);
-        Console.WriteLine(Style_Root.MAGENTA + text3 + "....."+ Style_Root.RESET);
-        Thread.Sleep(300);
-        Console.WriteLine(Style_Root.MAGENTA + text4 + "....."+ Style_Root.RESET);
-        Thread.Sleep(400);
-    }
-    public static void ClosingAppScreen(string text1, string text2,string text3,string text4,string text5,string text6) {
-        Console.WriteLine(Style_Root.MAGENTA + text1 + "....."+ Style_Root.RESET);
-        Thread.Sleep(100);
-        Console.WriteLine(Style_Root.MAGENTA + text2 + "....."+ Style_Root.RESET);
-        Thread.Sleep(200);
-        Console.WriteLine(Style_Root.MAGENTA + text3 + "....."+ Style_Root.RESET);
-        Thread.Sleep(300);
-        Console.WriteLine(Style_Root.MAGENTA + text4 + "....."+ Style_Root.RESET);
-        Thread.Sleep(400);
-        Console.WriteLine(Style_Root.MAGENTA + text5 + "....."+ Style_Root.RESET);
-        Thread.Sleep(500);
-        Console.WriteLine(Style_Root.MAGENTA + text6 + "....."+ Style_Root.RESET);
-        Thread.Sleep(600);
-    }
-
-
-
-
-
-    public static async Task Ask(string question){
-
-        var response = await env_private.client.Models.GenerateContentAsync(
-            model: "gemini-2.0-flash",
-            contents: question + ". Answer in only one short sentence. Must not exceed to 145 characters, including spaces");
-        App_Terminal.cli.Append(Style_Root.MAGENTA + "   > " + response.Candidates[0].Content.Parts[0].Text + Style_Root.RESET +"\n");
-        
-    }
-    public static async Task Ask_Motivation(string question){
-
-        var response = await env_private.client.Models.GenerateContentAsync(
-            model: "gemini-2.0-flash",
-            contents: question + ". Please gieve a quotation, phrase, or analogy that can help me mentally. Please dont use most common ai word like embrace, unleash, etc. Must not exceed to 145 characters, including spaces");
-        App_Terminal.cli.Append(Style_Root.MAGENTA + "   > " + response.Candidates[0].Content.Parts[0].Text + Style_Root.RESET +"\n");
-        
-    }
-
     public static void LoadTaskbarBox_5(){
         fa.Box(1, 2, 163, 1,"");
     }
@@ -83,7 +42,6 @@ class App_Setup{
         fa.TextBox(2, 6,  $"{DateTime.Now.ToString("ddd")}   {DateTime.Now.ToString("MMM dd")}");
         fa.Widget_Battery(2,152);
     }
-
 
     public static void LoadingBar() {
         fa.ClearCmd();
@@ -118,8 +76,6 @@ class App_Setup{
         }
     }
 
-
-
     public static void LoadingBar_5() {
         fa.ClearCmd();
         Thread.Sleep(50);
@@ -152,6 +108,60 @@ class App_Setup{
         }
     }
 
+
+
+
+    // ----------------- GEMINI TERMINAL ----------------- 
+
+    public static async Task Ask(string question){
+
+        var response = await env_private.client.Models.GenerateContentAsync(
+            model: "gemini-2.0-flash",
+            contents: question + ". Answer in only one short sentence. Must not exceed to 145 characters, including spaces");
+        App_Terminal.cli.Append(Style_Root.MAGENTA + "   > " + response.Candidates[0].Content.Parts[0].Text + Style_Root.RESET +"\n");
+        
+    }
+
+    public static async Task Ask_Motivation(string question){
+
+        var response = await env_private.client.Models.GenerateContentAsync(
+            model: "gemini-2.0-flash",
+            contents: question + ". Please gieve a quotation, phrase, or analogy that can help me mentally. Please dont use most common ai word like embrace, unleash, etc. Must not exceed to 145 characters, including spaces");
+        App_Terminal.cli.Append(Style_Root.MAGENTA + "   > " + response.Candidates[0].Content.Parts[0].Text + Style_Root.RESET +"\n");
+        
+    }
+
+
+    // ----------------- NOTEPAD ----------------- 
+    
+    public static void Hypentext(int max, string text, int col, int line) {
+        StringBuilder sentence = new StringBuilder();
+        string[] words = text.Split(' ','\n');
+
+        int word_count = 0;
+        int box_line = 0;
+        int line_ = line;
+
+        for (int a = 0; a < words.Length; a++) {
+            if (word_count + words[a].Length >= max || a == words.Length-1) {
+                Console.SetCursorPosition(col,line_);
+                word_count+= words[a].Length+1;
+                Console.Write(sentence );
+                sentence.Clear();
+                line_++;  
+                box_line++;  
+                word_count = 0;
+            }
+            sentence.Append(words[a] + " ");
+            if (a == words.Length -1) {
+                Console.Write(sentence );
+                sentence.Clear();
+            }
+            word_count+= words[a].Length+1;
+        }
+        
+        App_Notepad.box_title_end += box_line+1;
+    }
 
 
 

@@ -15,7 +15,6 @@ class App_Notepad {
 
     // -------------------------- DECLARATION --------------------------
     static Frontend_Asset fa = new Frontend_Asset();
-    static App_Notepad_Setup ns = new App_Notepad_Setup();
     public static int Pointer = -1;
     public static ConsoleKey cursor;
     public static int box_title_end = 24;
@@ -118,7 +117,7 @@ class App_Notepad {
                     box_title_end = 24;
                     fa.NoteIcon(Style_Root.note_ico, Pointer, 0, 7, 138);
                     fa.TextBox(23,134,"Title : ");
-                    App_Notepad_Setup.Hypentext(25, note[Pointer-1].title,142,23);
+                    App_Setup.Hypentext(25, note[Pointer-1].title,142,23);
                     fa.TextBox(box_title_end,134,"Created at : " + note[Pointer-1].created);
                 }
 
@@ -196,7 +195,7 @@ class App_Notepad {
                 fa.TextBox(5, 10, note[Pointer-1].title);
                 fa.TextBox(6, 10, note[Pointer-1].created);
                 Thread.Sleep(50);
-                App_Notepad_Setup.Hypentext(100, note[Pointer-1].content, 10, 10);
+                App_Setup.Hypentext(100, note[Pointer-1].content, 10, 10);
             
                 Console.SetCursorPosition(124,35);
                 cursor = Console.ReadKey().Key;
@@ -261,7 +260,7 @@ class App_Notepad {
                 
                 fa.TextBox(10, 10, Style_Root.YELLOW + "Note" + Style_Root.RESET);
                 Thread.Sleep(50);
-                App_Notepad_Setup.Hypentext(100, note[Pointer-1].content, 10, 11);
+                App_Setup.Hypentext(100, note[Pointer-1].content, 10, 11);
             
                 Console.SetCursorPosition(124,35);
                 cursor = Console.ReadKey().Key;

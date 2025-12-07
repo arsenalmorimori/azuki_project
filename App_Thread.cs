@@ -36,7 +36,6 @@
         
         // -------------------------- DECLARATION --------------------------
         static Frontend_Asset fa = new Frontend_Asset();
-        static App_Notepad_Setup ns = new App_Notepad_Setup();
         // public static int Pointer = -1;
         public static int current_len = 0;
         public static int isActive= 0;

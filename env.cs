@@ -4,4 +4,5 @@ public class env {
     public static int dev = 1;
     public static int icon_layout = 1;
     public static int clock_widget = -1;
+    public static int mp3_wallpaper = 0;
 }
