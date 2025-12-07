@@ -2,10 +2,18 @@ using System;
 using System.Text;
 
 class Wallpaper{
+
+    /*
+        DESCRIPRION : 
+            Class for inventory / storage and printing of ASCII Wallaper global variavle
+    */
     
+    // String builder for more faster load of ASCII Art 
     public static StringBuilder cwln = new StringBuilder();
     
 
+
+    // -- HOMESCREEN
     public static void LoadWallpaper() {
         switch(env.wallpaper) {
             case 0:
@@ -37,7 +45,6 @@ class Wallpaper{
             
         }
     }
-
 
     public static void Loading_Blank() {
         cwln.Clear();
@@ -850,12 +857,7 @@ class Wallpaper{
 
 
 
-
-    
-
-
-
-     // ---------------   Windows   ---------------
+     // -- WINDOWS
     public static void LoadingBlank_5() {
         Console.Write(@"                                                                                                                                                                         ");
         Console.Write(@"                                                                                                                                                                         ");
@@ -940,8 +942,7 @@ class Wallpaper{
         Console.Write(cwln);
         cwln.Clear();
     }
-    
-           public static void Window_9() {
+    public static void Window_9() {
         cwln.Clear();
         cwln.Append(@"╭───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮");
         cwln.Append(@"│                                                                                                                           │");

@@ -1,24 +1,19 @@
 
     using System.Text;
-    using System.Net.WebSockets;
-    using System;
-    using System.Net.Http;
     using System.Net.Http.Headers;
-    using System.Threading.Tasks;
     using System.Text.Json;
-    using System.Collections.Generic;
     using System.Text.Json.Serialization;
-    using TextCopy;
-    using System.Management;
-    using System.Text.Json;
-    using System;
-    using System.Collections;
-    using System.Drawing.Drawing2D;
-    using System.Text;
-    using System.Threading.Tasks;
-    using Google.GenAI.Types;
     class App_Thread{
 
+        /*
+            DESCRIPTION :
+                - Class for THREAD APPLICATION or message / forum app
+                - It use realtime database concept but using seperate Threads and HTTPS that reload every second defined
+                - User interaction will ONLY respond after a reload... be patient <3
+            
+            API USED :
+                - SUPABASE Database
+        */
         
         // -------------------------- SETTING JSON VARIABLE --------------------------
         [JsonPropertyName("id")]
@@ -33,6 +28,7 @@
         [JsonPropertyName("created_at")]
         public string CreatedAt { get; set; }
 
+
         
         // -------------------------- DECLARATION --------------------------
         static Frontend_Asset fa = new Frontend_Asset();
@@ -43,9 +39,6 @@
         public static bool end_thread = false;
         public static bool end_main_thread = false;
         public static ConsoleKeyInfo cursor;
-
-
-            
 
 
 
@@ -63,15 +56,8 @@
             Thread load_thread = new Thread(Load_https().Wait);
             load_thread.Start();
 
-            Input_System();
-            
-            
-            
+            Input_System();    
         }
-
-
-
-        
 
 
 
@@ -98,9 +84,7 @@
 
         public static void Input_System() {
 
-
             // Loading the screen
-
             while (loop_contorol) {
                 while (isActive == 0) {
                 cursor = Console.ReadKey(intercept: true);
@@ -119,58 +103,11 @@
                 }
 
             }
-
-
-
         }
-
-
-
-
-
-
-
-
-
 
 
 
     // ----------------------------------------------- BACKEND -----------------------------------------------
-
-
-
-
-
-        public async static void Add(string message_){
-
-            string insertUrl = "https://" + env_private.supabase_project + ".supabase.co/rest/v1/azuki_message";
-
-            var newMessageJson = "{\"username\":\"" + env.username + "\",\"message\":\"" + message_ + "\"}";
-
-            using HttpClient client = new HttpClient();
-
-            // Headers
-            client.DefaultRequestHeaders.Authorization =
-                new AuthenticationHeaderValue("Bearer", env_private.supabase_anonkey);
-
-            client.DefaultRequestHeaders.Add("apikey", env_private.supabase_anonkey);
-            client.DefaultRequestHeaders.Accept.Add(
-                new MediaTypeWithQualityHeaderValue("application/json")
-            );
-
-            // Body
-            HttpContent content = new StringContent(newMessageJson, Encoding.UTF8, "application/json");
-
-            // Send POST
-            HttpResponseMessage response = await client.PostAsync(insertUrl, content);
-            response.EnsureSuccessStatusCode();
-
-            string result = await response.Content.ReadAsStringAsync();
-        }
-
-
-
-        // -- Failed attempt with GUI 
         public static async Task Load_https() {
             Thread.Sleep(1000);
             string url = "https://"+env_private.supabase_project+".supabase.co/rest/v1/azuki_message?select=*&apikey="+ env_private.supabase_anonkey;
@@ -240,8 +177,33 @@
             }
         }
         
-        
+        public async static void Add(string message_){
 
+            string insertUrl = "https://" + env_private.supabase_project + ".supabase.co/rest/v1/azuki_message";
+
+            var newMessageJson = "{\"username\":\"" + env.username + "\",\"message\":\"" + message_ + "\"}";
+
+            using HttpClient client = new HttpClient();
+
+            // Headers
+            client.DefaultRequestHeaders.Authorization =
+                new AuthenticationHeaderValue("Bearer", env_private.supabase_anonkey);
+
+            client.DefaultRequestHeaders.Add("apikey", env_private.supabase_anonkey);
+            client.DefaultRequestHeaders.Accept.Add(
+                new MediaTypeWithQualityHeaderValue("application/json")
+            );
+
+            // Body
+            HttpContent content = new StringContent(newMessageJson, Encoding.UTF8, "application/json");
+
+            // Send POST
+            HttpResponseMessage response = await client.PostAsync(insertUrl, content);
+            response.EnsureSuccessStatusCode();
+
+            string result = await response.Content.ReadAsStringAsync();
+        }
+    
     }
 
 

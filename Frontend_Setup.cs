@@ -5,16 +5,39 @@ using System.Management;
 using Microsoft.VisualBasic.Devices;
 public class Frontend_Setup {
 
+    /*
+        DESCRIPTION : 
+            - Setup or the Process of Loading the HOMESCREEN and process the navigation system between Apps and Homescreen
+        
+        PROCESS : 
+            - USER MODE
+                1   : Display the Wallpaper 
+                2   : Display the Taskbar
+                3   : Display the Icons
+                4   : Get User Input 
+                5.1 : Call Run() of the app if ENTER 
+                5.2 : Back to process 2 if OTHER
+            
+            - DEV MODE
+                1   : Run the called method only for faster load
+    */
+
+
     // -------------- VARIABLES --------------
     public static int Pointer = 0;
     public static ConsoleKey Cursor;
     static Frontend_Asset fa = new Frontend_Asset();
     public static bool program_running = true;
 
+
+
+
     // -------------- MAIN METHOD --------------
     public static void Run() {
         Load();
     }
+
+
 
     // -------------- METHODS --------------
     public static void Load() {
@@ -90,7 +113,6 @@ public class Frontend_Setup {
         fa.TextBox(2, 8,  $"{DateTime.Now.ToString("ddd")}   {DateTime.Now.ToString("MMM  dd")}");
         fa.Widget_Battery(2,290);
     }
-
 
     public static void Widget_Clock() {
 
@@ -210,11 +232,6 @@ public class Frontend_Setup {
                     break;
             }
         }
-    }
-
-    public static void console_log(int line, string text) {
-        Console.SetCursorPosition(0, line);
-        Console.WriteLine(text);
     }
 
 }

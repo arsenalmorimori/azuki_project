@@ -1,36 +1,37 @@
+
 using System;
 public class Style_Root {
+
+    /*
+        DESCRIPTION : 
+            This class is for the global inventory or storage of ASCII ARTS and ASSETS variable
+    */
 
     // -- RESET
     public static string RESET = "\u001b[0m";
     
-    // -- color
-    public static string PRIMARY_ = "\u001b[30m";
-    public static string MAGENTA = "\u001b[35m";
-    public static string BLUE = "\u001b[34m";
-    public static string YELLOW = "\u001b[33m";
+    // -- TEXT COLOR
     public static string RED = "\u001b[31m";
     public static string GREEN = "\u001b[32m";
+    public static string YELLOW = "\u001b[33m";
+    public static string BLUE = "\u001b[34m";
+    public static string MAGENTA = "\u001b[35m";
     public static string CYAN = "\u001b[36m";
     public static string WHITE = "\u001b[37m";
     public static string BLACK = "\u001b[30m";
-    public static string BLACK_WHITE = "\u001b[30;47m";
 
-    // -- background color
-    public static string PRIMARY_BG = "\u001b[47m";
-    public static string WHITE_BG = "\u001b[47m";
+    // -- BACKGROUND COLOR    
     public static string RED_BG = "\u001b[41m";
+    public static string GREEN_BG = "\u001b[42m";
+    public static string YELLOW_BG = "\u001b[43m";
     public static string BLUE_BG = "\u001b[44m";
     public static string MAGENTA_BG = "\u001b[45m";
-    public static string BLACK_BG = "\u001b[0m";
+    public static string CYAN_BG = "\u001b[46m";
+    public static string WHITE_BG = "\u001b[47m";
+    public static string BLACK_BG = "\u001b[40m";
 
+    /* COLOR NOTES:
 
-
-    /*
-    
-    NOTES:
-
-    -- color
         0 - black
         1 - red
         2 - green
@@ -44,7 +45,7 @@ public class Style_Root {
 
 
 
-    // ------------------- ICONS
+    // -- HOMESCREEN
     public static string[] file_ico = {
         @"..___________.......",
         @"..\          \‾‾‾|..",
@@ -62,7 +63,6 @@ public class Style_Root {
         @"....└───────────┘...",
         @"...... notepad......"
     };
-
     public static string[] thread_ico = {
         @"..../‾‾‾‾‾‾‾‾‾‾\....",
         @".../   ──────   \...",
@@ -71,9 +71,6 @@ public class Style_Root {
         @"............\/......",
         @".......thread......."
     };
-
-
-
     public static string[] terminal_ico = {
         @"...______________...",
         @"..|              |..",
@@ -82,6 +79,11 @@ public class Style_Root {
         @"..|______________|..",
         @"......terminal......"
     };
+
+
+
+    
+    // -- NOTEPAD
     public static string[] note_add_ico = {
         @"                     ",
         @"  ╭───────────────╮  ",
@@ -111,6 +113,9 @@ public class Style_Root {
         @"                     "
     };
 
+
+
+    // -- MP3
     public static string[] Mp3_art(int index) {
         switch (index) {
             case 0:
@@ -129,7 +134,7 @@ public class Style_Root {
                 return mp3_icon_1;
         }
     }
-   public static string[] mp3_icon_1 = {
+    public static string[] mp3_icon_1 = {
         @"...................................",
         @"......:*=..........................",
         @"......-**+-:...........:=+*+.......",
@@ -150,7 +155,6 @@ public class Style_Root {
         @"::.:+++########@@@@@@@@@@@#:.::::::",
         @":.:*++*####**##@@@@@@@@@@@*-.::::::"
     };
-    
     public static string[] mp3_icon_2 = {
         @"-----------------------------------",
         @"----------++##########+++----------",
@@ -235,7 +239,6 @@ public class Style_Root {
         @"......++-----------++------++......",
         @".....++------------++----+--++....."
     };
-    
     public static string[] mp3_icon_6 = {
         @"---------------+++++---------------",
         @"----------+++#########+------------",
@@ -259,6 +262,9 @@ public class Style_Root {
     };
 
 
+
+
+    // -- CLOCK
     public static string[] t_0 = {
         "████████████████████████",
         "████████████████████████",
@@ -325,7 +331,6 @@ public class Style_Root {
         "████████████████████████",
         "████████████████████████",
     };
-
     public static string[] t_4 = {
         "██████........██████████",
         "██████........██████████",
@@ -425,6 +430,8 @@ public class Style_Root {
     };
 
 
+
+    // -- TERMINAL (BIOS) 
     public static string[] azuki_illus = {                       
 @"C:\Azuki\User\Mashiro\                                                                                                                              " + RESET,
 @"                                                                                                                                                         " + RESET,
@@ -465,18 +472,6 @@ MAGENTA+ @".:...:=....:.:-..#-.=**::-.-.%@...*@@@@+..@=:##*=======++===         
 MAGENTA+ @"-.:.............=:-.:+:=:-..@.@*..=@@@@:-@==+===============                                                                                             " + RESET,
 MAGENTA+ @"....... ......:. .--***=*::=+%:*#=:%@@%#@-++================                                                                                             " + RESET
 
-    };
-
-
-
-
-
-    public static string[] Terminal_Hello = {
-        @"██   ██ ███████ ██      ██       ██████  ██", 
-        @"██   ██ ██      ██      ██      ██    ██ ██", 
-        @"███████ █████   ██      ██      ██    ██ ██", 
-        @"██   ██ ██      ██      ██      ██    ██   ", 
-        @"██   ██ ███████ ███████ ███████  ██████  ██" 
     };
 
 }
