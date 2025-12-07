@@ -28,6 +28,7 @@ public class Frontend_Asset {
             }
         }
     }
+    
     public void NoteIcon(string[] icon, int selector, int pointer, int line, int col) {
 
         if(pointer == selector) {
@@ -110,7 +111,6 @@ public class Frontend_Asset {
         
     }
 
-
     public void Widget_Battery(int line, int col) {
         var searcher = new ManagementObjectSearcher("SELECT * FROM Win32_Battery");
         short battery_ = 0;
@@ -152,8 +152,6 @@ public class Frontend_Asset {
         // fa.TextBox(3, 290, Style_Root.WHITE_BG + Style_Root.BLACK + battery_ico + Style_Root.RESET);
         
     }
-
-
 
     public void ClearCmd(){
         // Code by deepseek
