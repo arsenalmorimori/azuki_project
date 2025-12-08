@@ -16,9 +16,9 @@ class App_Music_Setup
     public static int current_index = 0;
     public static int play_pause = 1;
 
-    public static void GetPlaylist()
+    public static async void GetPlaylist()
     {
-        string musicFolder = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Music");
+        string musicFolder = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "music");
 
         if (!Directory.Exists(musicFolder))
         {

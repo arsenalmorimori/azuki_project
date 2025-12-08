@@ -132,6 +132,7 @@ class App_Setup{
     }
 
 
+
     // ----------------- NOTEPAD ----------------- 
     
     public static void Hypentext(int max, string text, int col, int line) {
@@ -165,4 +166,24 @@ class App_Setup{
 
 
 
+    // ----------------- MUSIC ----------------- 
+
+    public static void MusicList(string title, int col, int line, int max, int selector) {
+        if (title.Length > max) {
+            title = title.Substring(0,max-10) + "...";
+        }
+        else {
+            for (int a = 0 ; a < (max - title.Length) ; a++) {
+                title += "z";
+            }
+        }
+        
+
+        if (App_Music.Pointer == selector) {
+            fa.TextBox(line, col, Style_Root.BLACK + Style_Root.WHITE_BG + title + Style_Root.RESET);
+        }
+        else {
+            fa.TextBox(line, col, title);
+        }
+    }
 }

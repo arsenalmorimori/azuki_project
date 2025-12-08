@@ -185,4 +185,18 @@ public class Frontend_Asset {
             Thread.Sleep(50);
     }
 
+    public string CenterText(string text, int max) {
+            // fa.TextBox(33,110 + 15, "----------------------------------");
+
+            if (text.Length > max + 1) {
+                text = text.Substring(0,max -3);
+                text = text + "...";
+            }
+            
+            for(int a = 0; a < (max - text.Length) ; a++) {
+                text = " " + text;
+            }
+
+            return text;
+    }
 }
