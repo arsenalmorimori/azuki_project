@@ -58,7 +58,7 @@ class App_Music{
             App_Music_Setup.GetPlaylist();
             int line = 0;
             foreach(var file in App_Music_Setup.playlist) {
-                App_Setup.MusicList(file.Substring(file.IndexOf(@"Debug\net9.0-windows\music") + 27, file.Length - (file.IndexOf(@"Debug\net9.0-windows\music") + 27)), 5, 5 + line, 178, line);
+                App_Setup.MusicList(file.Substring(file.IndexOf(@"Debug\net9.0-windows\music") + 27, file.Length - (file.IndexOf(@"Debug\net9.0-windows\music") + 27)), 5, 5 + line, 112, line);
                 line ++;
             }
 
