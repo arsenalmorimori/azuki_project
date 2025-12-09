@@ -8,13 +8,81 @@ class App_Music_Setup
 {
 
     public static string[] playlist;    
-    private static AudioFileReader audioFile;
+    public static AudioFileReader audioFile;
 
     private static IWavePlayer outputDevice;
     private static int playing;
     public static int index_request = 0;
     public static int current_index = 0;
     public static int play_pause = 1;
+    public static float volume = 0.05f;
+
+
+    public static void Music_Activity() {
+        while (true)
+            {
+                
+            if (play_pause == 1) {
+                
+                if (current_index != index_request)
+                {
+                    Stop();
+                    Play();
+                    current_index = index_request;
+                    PlaySong(playlist[current_index]);
+                    
+                  
+                }
+
+            }
+
+            if (audioFile != null){
+                audioFile.Volume = volume; // this can change in real-time
+                
+                // if(audioFile.CurrentTime >= audioFile.TotalTime) {
+                //     // if (current_index == playlist.Length - 1) {
+                //     //     index_request = 0;
+                //     //     current_index = 0;
+                //     // }else {
+                //         index_request++;
+                //         current_index++;
+                //         Stop();
+                //         Play();
+                //         PlaySong(playlist[current_index]);
+                //         // App_Music.current_song = playlist[current_index].Substring(playlist[current_index].IndexOf(@"Debug\net9.0-windows\music") + 27, playlist[current_index].Length - (playlist[current_index].IndexOf(@"Debug\net9.0-windows\music") + 27));
+            
+                //     // }
+                // }
+            }
+
+
+            Thread.Sleep(1000);
+            }
+            
+    }
+
+    public static void PlaySong(string file)
+    {
+
+        try
+        {
+            audioFile = new AudioFileReader(file);
+            outputDevice = new WaveOutEvent();
+            audioFile.Volume = volume; 
+            outputDevice.Init(audioFile);
+            outputDevice.Play();
+
+            // Console.WriteLine("Playing: " + Path.GetFileName(file));
+            App_Music.current_song = playlist[App_Music.Pointer].Substring(playlist[App_Music.Pointer].IndexOf(@"Debug\net9.0-windows\music") + 27, playlist[App_Music.Pointer].Length - (playlist[App_Music.Pointer].IndexOf(@"Debug\net9.0-windows\music") + 27));
+            
+
+
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine("Error: " + ex.Message);
+        }
+    }
 
     public static async void GetPlaylist()
     {
@@ -31,42 +99,6 @@ class App_Music_Setup
                      || f.EndsWith(".wav", StringComparison.OrdinalIgnoreCase))
             .ToArray();
     }
-
-
-
-    public static void PlaySong(string file)
-    {
-
-        try
-        {
-            audioFile = new AudioFileReader(file);
-            outputDevice = new WaveOutEvent();
-            outputDevice.Init(audioFile);
-            outputDevice.Play();
-
-            Console.WriteLine("Playing: " + Path.GetFileName(file));
-
-            while (true)
-            {
-                if (current_index != index_request)
-                {
-                    Stop();
-                    Play();
-                    current_index = index_request;
-                    PlaySong(playlist[current_index]);
-                    Console.WriteLine("PLAYING   :   " + playlist[current_index]);   
-                }
-
-            }
-
-
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine("Error: " + ex.Message);
-        }
-    }
-
 
     public static void Stop()
     {

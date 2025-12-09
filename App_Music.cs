@@ -10,14 +10,25 @@ class App_Music{
     
     // -------------------------- DECLARATION --------------------------
     static Frontend_Asset fa = new Frontend_Asset();
-    public static ConsoleKey cursor;
+    public static ConsoleKeyInfo cursor;
     public static bool loop_control = true;
     public static int Pointer = -1;
+    public static int p = 0;
+    public static string current_song = "---------------------------------";
     
         
     // -------------------------- METHOD --------------------------
     public static void Run() {
-        Load();
+        Load();     
+               
+        Thread music_background = new Thread(App_Music_Setup.Music_Activity);
+        music_background.IsBackground = true;
+        music_background.Start();
+
+        InputSystem();
+
+        Console.WriteLine("LOAD LOADEDDD : "+ p);
+        p++;  
     }
 
     public static void Load() {
@@ -37,46 +48,67 @@ class App_Music{
         fa.Box(4,117,35+13,43,"");
         fa.Box(4,3,123-13,43,"");
 
+    }
 
+    public static void UI() {
+        // ART
+        fa.Graphics(Style_Root.Mp3_art(env.mp3_wallpaper),10, 125,"","");
+        // CENTER MUSIC TITLE DISPLAY             
+        fa.TextBox(32,110 + 15, "                                  ");
+        fa.TextBox(32,110 + 15, fa.CenterText(current_song, 34));
+
+        // MP3 UI
+        fa.TextBox(34,135,"၊၊||၊|။||။|။၊|။");
+        if (App_Music_Setup.play_pause == 0) {
+            fa.TextBox(38,117 + 17,"◀◀      ❚❚      ▶︎▶︎");
+        }else {
+            fa.TextBox(38,117 + 17,"◀◀      ▶︎      ▶︎▶︎");
+        }
+        fa.TextBox(40,117+1 + 16, Style_Root.MAGENTA + "[n]   [space]   [m]" + Style_Root.RESET);
+        fa.TextBox(45,111 + 15, Style_Root.MAGENTA + "[j] Vol -    [k] Vol +    [l]  Art" + Style_Root.RESET);
+        
+        // MUSIC FILE LIST
+        App_Music_Setup.GetPlaylist();
+        int line = 0;
+        foreach(var file in App_Music_Setup.playlist) {
+            App_Setup.MusicList(file.Substring(file.IndexOf(@"Debug\net9.0-windows\music") + 27, file.Length - (file.IndexOf(@"Debug\net9.0-windows\music") + 27)), 5, 5 + line, 112, line);
+            line ++;
+        }
+    }
+
+    public static void InputSystem() {
 
         // LOOP SYSTEM
         while (loop_control) {
+            UI();
 
-            // ART
-            fa.Graphics(Style_Root.Mp3_art(env.mp3_wallpaper),10, 125,"","");
+           // USER INPUT
+            // Console.SetCursorPosition(164,49);
+            cursor = Console.ReadKey(intercept: true);
 
-            // CENTER MUSIC TITLE DISPLAY             
-            fa.TextBox(32,110 + 15, fa.CenterText("Do I cross the line", 34));
-
-            // MP3 UI
-            fa.TextBox(34,135,"၊၊||၊|။||။|။၊|။");
-            fa.TextBox(38,117 + 17,"◀◀      ❚❚      ▶︎▶︎");
-            fa.TextBox(40,117+1 + 16, Style_Root.MAGENTA + "[n]   [space]   [m]" + Style_Root.RESET);
-            fa.TextBox(45,111 + 15, Style_Root.MAGENTA + "[j] Vol -    [j] Vol +    [l]  Art" + Style_Root.RESET);
-            
-            // MUSIC FILE LIST
-            App_Music_Setup.GetPlaylist();
-            int line = 0;
-            foreach(var file in App_Music_Setup.playlist) {
-                App_Setup.MusicList(file.Substring(file.IndexOf(@"Debug\net9.0-windows\music") + 27, file.Length - (file.IndexOf(@"Debug\net9.0-windows\music") + 27)), 5, 5 + line, 112, line);
-                line ++;
-            }
-
-            // USER INPUT
-            Console.SetCursorPosition(164,49);
-            cursor = Console.ReadKey().Key;
-
-            if (cursor == ConsoleKey.L) {
+            if (cursor.Key == ConsoleKey.L) {
                 if(env.mp3_wallpaper == 5) {
                     env.mp3_wallpaper = 0;
                 }
                 else {
                     env.mp3_wallpaper++;                    
                 }
-            }else if (cursor == ConsoleKey.S) {
+            }else if (cursor.Key == ConsoleKey.S) {
                 Pointer++;
-            }else if (cursor == ConsoleKey.W) {
+            }else if (cursor.Key == ConsoleKey.W) {
                 Pointer--;
+            }else if (cursor.Key == ConsoleKey.Enter) {
+                if (Pointer >= 0 && Pointer < App_Music_Setup.playlist.Length) {
+                    App_Music_Setup.index_request = Pointer;
+                    App_Music_Setup.Stop();
+                    App_Music_Setup.PlaySong(App_Music_Setup.playlist[App_Music_Setup.index_request]);
+                }
+            }else if (cursor.Key == ConsoleKey.Spacebar) {
+                App_Music_Setup.Play_Pause();
+            }else if (cursor.Key == ConsoleKey.J) {
+                App_Music_Setup.volume -= 0.05f;
+            }else if (cursor.Key == ConsoleKey.K) {                
+                App_Music_Setup.volume += 0.05f;
             }
             
  

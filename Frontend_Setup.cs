@@ -44,7 +44,7 @@ public class Frontend_Setup {
         while (true) {
             if((env.dev & 1) == 1) {
                 App_Music.Run();
-                User_Cursor();
+                // User_Cursor();
             }else {
                 if(program_running){
                     fa.ClearCmd();
