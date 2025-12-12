@@ -45,6 +45,17 @@ public class Style_Root {
 
 
 
+    // -- START
+    public static string[] hello = { 
+        @" _          _   _       ",  
+        @"| |        | | | |      ",  
+        @"| |     _  | | | |  __  ",  
+        @"|/ \   |/  |/  |/  /  \_",  
+        @"|   |_/|__/|__/|__/\__/ "  
+    };
+
+
+
     // -- HOMESCREEN
     public static string[] file_ico = {
         @"..___________.......",

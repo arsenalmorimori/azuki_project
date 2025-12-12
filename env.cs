@@ -6,6 +6,7 @@ public class env {
     */
     
     public static string username = "mashi";
+    public static int start = 1;
     public static int dev = 0;
     public static int wallpaper = 5;
     public static int icon_layout = 1;

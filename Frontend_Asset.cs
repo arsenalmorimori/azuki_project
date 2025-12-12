@@ -72,6 +72,16 @@ public class Frontend_Asset {
         }
         
     }
+    public void Animation(string[] graphics, int line, int col, int fps,string color, string background) {
+        
+        foreach (var printline in graphics) {
+            Console.SetCursorPosition(col, line);
+            Console.Write(color + background + printline + Style_Root.RESET);
+            line++;
+            Thread.Sleep(fps);
+        }
+        
+    }
 
     public void TextBox(int line, int col, string text) {
         Console.SetCursorPosition(col, line);

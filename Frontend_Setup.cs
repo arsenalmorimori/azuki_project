@@ -1,5 +1,7 @@
 
 using System;
+using WindowsInput;
+using WindowsInput.Native;
 
 using System.Management;
 using Microsoft.VisualBasic.Devices;
@@ -28,6 +30,7 @@ public class Frontend_Setup {
     public static ConsoleKey Cursor;
     static Frontend_Asset fa = new Frontend_Asset();
     public static bool program_running = true;
+    public static InputSimulator sim = new InputSimulator();
 
 
 
@@ -41,6 +44,13 @@ public class Frontend_Setup {
 
     // -------------- METHODS --------------
     public static void Load() {
+        
+        // START
+        fa.ClearCmd();
+        sim.Keyboard.KeyPress(VirtualKeyCode.F11);
+        Load_HELLO();
+        
+        // HOMESCREEN
         while (true) {
             if((env.dev & 1) == 1) {
                 App_Music.Run();
@@ -58,6 +68,49 @@ public class Frontend_Setup {
           
         }
         
+    }
+
+    public static void Load_HELLO(){
+        Thread.Sleep(500);
+        fa.Animation(Style_Root.hello, 18,65,300,"","");
+        fa.TextBox(26,68,"Welcome " + Style_Root.MAGENTA + Style_Root.RESET + "AZUKI OSS");
+        Thread.Sleep(100);
+        fa.TextBox(26,68,"Welcome " + Style_Root.MAGENTA + "A" + Style_Root.RESET + "ZUKI OSS");
+        Thread.Sleep(100);
+        fa.TextBox(26,68,"Welcome " + Style_Root.MAGENTA + "AZ" + Style_Root.RESET + "UKI OSS");
+        Thread.Sleep(100);
+        fa.TextBox(26,68,"Welcome " + Style_Root.MAGENTA + "AZU" + Style_Root.RESET + "KI OSS");
+        Thread.Sleep(100);
+        fa.TextBox(26,68,"Welcome " + Style_Root.MAGENTA + "AZUK" + Style_Root.RESET + "I OSS");
+        Thread.Sleep(100);
+        fa.TextBox(26,68,"Welcome " + Style_Root.MAGENTA + "AZUKI " + Style_Root.RESET + "OSS");
+        Thread.Sleep(100);
+        fa.TextBox(26,68,"Welcome " + Style_Root.MAGENTA + "AZUKI O" + Style_Root.RESET + "SS");
+        Thread.Sleep(300);
+        fa.TextBox(26,68,"Welcome " + Style_Root.MAGENTA + "AZUKI OS" + Style_Root.RESET + "S");
+        Thread.Sleep(500);
+        fa.TextBox(26,68,"Welcome " + Style_Root.MAGENTA + "AZUKI OSS" + Style_Root.RESET);
+        Thread.Sleep(900);
+        fa.TextBox(38,65,"press any key to proceed...");
+        
+        Console.SetCursorPosition(0,0);
+        Cursor = Console.ReadKey().Key;
+
+        fa.ClearCmd();
+
+        fa.TextBox(20,74, "Username");
+        fa.Box(21,61,32,1,"");
+
+        fa.TextBox(33+2,71, Style_Root.MAGENTA + "    Controls   " + Style_Root.RESET);
+        fa.TextBox(34+2,71, Style_Root.MAGENTA + "[w] [a] [s] [d]" + Style_Root.RESET);
+
+        Console.SetCursorPosition(63,22);
+        string username_input = Console.ReadLine();
+        env.username = username_input;
+
+        fa.ClearCmd();
+        App_Setup.Zoom_Out(6);
+        App_Setup.LoadingBar();
     }
 
     public static void Load_Gui() {
@@ -213,10 +266,27 @@ public class Frontend_Setup {
         Cursor = Console.ReadKey().Key;
 
         if (Cursor == ConsoleKey.D) {
-            Pointer++;
-        }
-        else if (Cursor == ConsoleKey.A) {
-            Pointer--;
+            if(Pointer == 6){
+            }else{
+                Pointer++;   
+            }
+        }else if (Cursor == ConsoleKey.A) {
+            
+            if(Pointer == 0){
+            }else{
+                Pointer--;
+            }
+        }else if (Cursor == ConsoleKey.S) {
+            if(Pointer == 6){
+            }else{
+                Pointer++;   
+            }
+        }else if (Cursor == ConsoleKey.W) {
+            
+            if(Pointer == 0){
+            }else{
+                Pointer--;
+            }
         }else if (Cursor == ConsoleKey.Enter) {
             switch (Pointer) {
                 case 1:

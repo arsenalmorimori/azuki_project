@@ -95,9 +95,15 @@ class App_Music{
                     env.mp3_wallpaper++;                    
                 }
             }else if (cursor.Key == ConsoleKey.S) {
-                Pointer++;
+                if(Pointer > App_Music_Setup.playlist.Length - 1){
+                }else{
+                    Pointer++;
+                }
             }else if (cursor.Key == ConsoleKey.W) {
-                Pointer--;
+                if(Pointer < 0){
+                }else{
+                    Pointer--;
+                }
             }else if (cursor.Key == ConsoleKey.Enter) {
                 if (Pointer >= 0 && Pointer < App_Music_Setup.playlist.Length) {
                     App_Music_Setup.index_request = Pointer;
