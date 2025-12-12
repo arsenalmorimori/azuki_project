@@ -62,7 +62,7 @@ class App_Music{
         if (App_Music_Setup.play_pause == 0) {
             fa.TextBox(38,117 + 17,"◀◀      ❚❚      ▶︎▶︎");
         }else {
-            fa.TextBox(38,117 + 17,"◀◀      ▶︎      ▶︎▶︎");
+            fa.TextBox(38,117 + 17,"◀◀      ▶︎       ▶︎▶︎");
         }
         fa.TextBox(40,117+1 + 16, Style_Root.MAGENTA + "[n]   [space]   [m]" + Style_Root.RESET);
         fa.TextBox(45,111 + 15, Style_Root.MAGENTA + "[j] Vol -    [k] Vol +    [l]  Art" + Style_Root.RESET);
@@ -81,6 +81,7 @@ class App_Music{
         // LOOP SYSTEM
         while (loop_control) {
             UI();
+            
 
            // USER INPUT
             // Console.SetCursorPosition(164,49);
@@ -109,9 +110,27 @@ class App_Music{
                 App_Music_Setup.volume -= 0.05f;
             }else if (cursor.Key == ConsoleKey.K) {                
                 App_Music_Setup.volume += 0.05f;
+            }else if (cursor.Key == ConsoleKey.N) {
+                if(App_Music_Setup.current_index == 0){
+                        App_Music_Setup.index_request = App_Music_Setup.playlist.Length-1;
+                    }else{
+                        App_Music_Setup.index_request--;
+                    }          
+                Thread.Sleep(1000);
+            }else if (cursor.Key == ConsoleKey.M) {      
+                 if(App_Music_Setup.current_index == App_Music_Setup.playlist.Length-1){
+                        App_Music_Setup.index_request = 0;
+                    }else{
+                        App_Music_Setup.index_request++;    
+                    }          
+                Thread.Sleep(1000);
+            }else if(cursor.Key == ConsoleKey.X) {
+                    fa.ClearCmd();
+                    App_Setup.LoadingBar_5();
+                    App_Setup.Zoom_Out(5);
+                    break;
             }
             
- 
         }
 
     }

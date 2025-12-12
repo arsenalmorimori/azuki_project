@@ -44,7 +44,6 @@ public class Frontend_Setup {
         while (true) {
             if((env.dev & 1) == 1) {
                 App_Music.Run();
-                // User_Cursor();
             }else {
                 if(program_running){
                     fa.ClearCmd();
@@ -71,7 +70,7 @@ public class Frontend_Setup {
             col += 20;
             fa.Icon(Style_Root.thread_ico, 3, Pointer, 66+7, col);
             col += 20;
-            fa.Icon(Style_Root.file_ico, 4, Pointer, 66+7, col);
+            fa.Icon(Style_Root.music_ico, 4, Pointer, 66+7, col);
             col += 20;
             fa.Icon(Style_Root.file_ico, 5, Pointer, 66+7, col);
             col += 20;
@@ -85,7 +84,7 @@ public class Frontend_Setup {
             line += 8;
             fa.Icon(Style_Root.thread_ico, 3, Pointer, line, 5);
             line += 8;
-            fa.Icon(Style_Root.file_ico, 4, Pointer, line, 5);
+            fa.Icon(Style_Root.music_ico, 4, Pointer, line, 5);
             line += 8;
             fa.Icon(Style_Root.file_ico, 5, Pointer, line, 5);
             line += 8;
@@ -98,7 +97,7 @@ public class Frontend_Setup {
             col += 20;
             fa.Icon(Style_Root.thread_ico, 3, Pointer, 66+7, col);
             col += 20;
-            fa.Icon(Style_Root.file_ico, 4, Pointer, 66+7, col);
+            fa.Icon(Style_Root.music_ico, 4, Pointer, 66+7, col);
             col += 20;
             fa.Icon(Style_Root.file_ico, 5, Pointer, 66+7, col);
             col += 20;
@@ -209,6 +208,8 @@ public class Frontend_Setup {
     }
 
     public static void User_Cursor() {
+        // Console.SetCursorPosition(190,8);
+        Console.SetCursorPosition(299,87);
         Cursor = Console.ReadKey().Key;
 
         if (Cursor == ConsoleKey.D) {

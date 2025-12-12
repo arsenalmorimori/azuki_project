@@ -14,18 +14,15 @@ class App_Music_Setup
     private static int playing;
     public static int index_request = 0;
     public static int current_index = 0;
-    public static int play_pause = 1;
-    public static float volume = 0.05f;
-
+    public static int play_pause = 0;
+    public static float volume = 0.3f;
 
     public static void Music_Activity() {
-        while (true)
-            {
+        while (true){
                 
             if (play_pause == 1) {
                 
-                if (current_index != index_request)
-                {
+                if (current_index != index_request){
                     Stop();
                     Play();
                     current_index = index_request;
@@ -38,32 +35,37 @@ class App_Music_Setup
 
             if (audioFile != null){
                 audioFile.Volume = volume; // this can change in real-time
+                Thread.Sleep(1000);
+            }
+
+            try
+            {
+                TimeSpan buffer = TimeSpan.FromMilliseconds(500); // margin of error
+
+                if (audioFile.CurrentTime >= audioFile.TotalTime - buffer)
+                {
+                    if(current_index == playlist.Length-1){
+                        current_index = 0;
+                        index_request = 0;
+                    }else{
+                        index_request++;
+                    }
+
+                    App_Music.current_song = playlist[current_index].Substring(playlist[current_index].IndexOf(@"Debug\net9.0-windows\music") + 27, playlist[current_index].Length - (playlist[current_index].IndexOf(@"Debug\net9.0-windows\music") + 27));
+                }
+            }
+            catch{
+            }
+
                 
-                // if(audioFile.CurrentTime >= audioFile.TotalTime) {
-                //     // if (current_index == playlist.Length - 1) {
-                //     //     index_request = 0;
-                //     //     current_index = 0;
-                //     // }else {
-                //         index_request++;
-                //         current_index++;
-                //         Stop();
-                //         Play();
-                //         PlaySong(playlist[current_index]);
-                //         // App_Music.current_song = playlist[current_index].Substring(playlist[current_index].IndexOf(@"Debug\net9.0-windows\music") + 27, playlist[current_index].Length - (playlist[current_index].IndexOf(@"Debug\net9.0-windows\music") + 27));
-            
-                //     // }
-                // }
+
             }
 
-
-            Thread.Sleep(1000);
-            }
-            
     }
 
     public static void PlaySong(string file)
     {
-
+        play_pause = 1;
         try
         {
             audioFile = new AudioFileReader(file);
@@ -73,7 +75,7 @@ class App_Music_Setup
             outputDevice.Play();
 
             // Console.WriteLine("Playing: " + Path.GetFileName(file));
-            App_Music.current_song = playlist[App_Music.Pointer].Substring(playlist[App_Music.Pointer].IndexOf(@"Debug\net9.0-windows\music") + 27, playlist[App_Music.Pointer].Length - (playlist[App_Music.Pointer].IndexOf(@"Debug\net9.0-windows\music") + 27));
+            App_Music.current_song = playlist[current_index].Substring(playlist[current_index].IndexOf(@"Debug\net9.0-windows\music") + 27, playlist[current_index].Length - (playlist[current_index].IndexOf(@"Debug\net9.0-windows\music") + 27));
             
 
 
