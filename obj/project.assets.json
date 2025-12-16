@@ -2,6 +2,35 @@
   "version": 3,
   "targets": {
     "net9.0-windows7.0": {
+      "Figgle/0.6.5": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/Figgle.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/Figgle.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Figgle.Fonts/0.6.5": {
+        "type": "package",
+        "dependencies": {
+          "Figgle": "0.6.5"
+        },
+        "compile": {
+          "lib/netstandard2.0/Figgle.Fonts.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/Figgle.Fonts.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "Google.Apis/1.69.0": {
         "type": "package",
         "dependencies": {
@@ -1434,6 +1463,36 @@
     }
   },
   "libraries": {
+    "Figgle/0.6.5": {
+      "sha512": "8Z1qvgyDFvqeQB+b/qpp083N5O/1UNEVKpI2TsWD+tM7Ev388VccPysMxre6jeAy7h4m6L6LrguPGmnOh8+ZGA==",
+      "type": "package",
+      "path": "figgle/0.6.5",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "figgle.0.6.5.nupkg.sha512",
+        "figgle.nuspec",
+        "lib/netstandard2.0/Figgle.dll",
+        "lib/netstandard2.0/Figgle.xml",
+        "logo-square-256px.png"
+      ]
+    },
+    "Figgle.Fonts/0.6.5": {
+      "sha512": "AFGGUXBF/u44qOww7Zyro0pwhuq7uuZA68N/y1z6GHd+CRj6pWpGHMc7/+XyjZwgJFi3as4diEG/EULOmQAkPQ==",
+      "type": "package",
+      "path": "figgle.fonts/0.6.5",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "figgle.fonts.0.6.5.nupkg.sha512",
+        "figgle.fonts.nuspec",
+        "lib/netstandard2.0/Figgle.Fonts.dll",
+        "lib/netstandard2.0/Figgle.Fonts.xml",
+        "logo-square-256px.png"
+      ]
+    },
     "Google.Apis/1.69.0": {
       "sha512": "1TfjsXFejwIf7iWaE7A0FbnOEsk8FPlbdFAt1r+I8aSMQfLLdSVWCLdZz6TzuWVwoCGEuJUHTZ/FXdptdU3qWw==",
       "type": "package",
@@ -4569,6 +4628,8 @@
   },
   "projectFileDependencyGroups": {
     "net9.0-windows7.0": [
+      "Figgle >= 0.6.5",
+      "Figgle.Fonts >= 0.6.5",
       "Google.GenAI >= 0.6.0",
       "InputSimulatorPlus >= 1.0.7",
       "NAudio >= 2.2.1",
@@ -4628,6 +4689,14 @@
       "net9.0-windows7.0": {
         "targetAlias": "net9.0-windows",
         "dependencies": {
+          "Figgle": {
+            "target": "Package",
+            "version": "[0.6.5, )"
+          },
+          "Figgle.Fonts": {
+            "target": "Package",
+            "version": "[0.6.5, )"
+          },
           "Google.GenAI": {
             "target": "Package",
             "version": "[0.6.0, )"
@@ -4677,12 +4746,6 @@
     }
   },
   "logs": [
-    {
-      "code": "NU1900",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Error occurred while getting package vulnerability data: Unable to load the service index for source https://api.nuget.org/v3/index.json."
-    },
     {
       "code": "NU1701",
       "level": "Warning",

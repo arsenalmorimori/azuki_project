@@ -1,0 +1,259 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Nesty\\Programming\\C#\\azuki_proj\\official\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{CE04BEBD-0FEF-4014-A3A4-601B96BBEB7B}|azuki_project.csproj|c:\\users\\nesty\\programming\\c#\\azuki_proj\\official\\mazegame.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CE04BEBD-0FEF-4014-A3A4-601B96BBEB7B}|azuki_project.csproj|solutionrelative:mazegame.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CE04BEBD-0FEF-4014-A3A4-601B96BBEB7B}|azuki_project.csproj|c:\\users\\nesty\\programming\\c#\\azuki_proj\\official\\wallpaper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CE04BEBD-0FEF-4014-A3A4-601B96BBEB7B}|azuki_project.csproj|solutionrelative:wallpaper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CE04BEBD-0FEF-4014-A3A4-601B96BBEB7B}|azuki_project.csproj|c:\\users\\nesty\\programming\\c#\\azuki_proj\\official\\style_root.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CE04BEBD-0FEF-4014-A3A4-601B96BBEB7B}|azuki_project.csproj|solutionrelative:style_root.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CE04BEBD-0FEF-4014-A3A4-601B96BBEB7B}|azuki_project.csproj|c:\\users\\nesty\\programming\\c#\\azuki_proj\\official\\run.bat||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{CE04BEBD-0FEF-4014-A3A4-601B96BBEB7B}|azuki_project.csproj|solutionrelative:run.bat||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CE04BEBD-0FEF-4014-A3A4-601B96BBEB7B}|azuki_project.csproj|c:\\users\\nesty\\programming\\c#\\azuki_proj\\official\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CE04BEBD-0FEF-4014-A3A4-601B96BBEB7B}|azuki_project.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CE04BEBD-0FEF-4014-A3A4-601B96BBEB7B}|azuki_project.csproj|c:\\users\\nesty\\programming\\c#\\azuki_proj\\official\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CE04BEBD-0FEF-4014-A3A4-601B96BBEB7B}|azuki_project.csproj|solutionrelative:player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CE04BEBD-0FEF-4014-A3A4-601B96BBEB7B}|azuki_project.csproj|c:\\users\\nesty\\programming\\c#\\azuki_proj\\official\\notepad.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{CE04BEBD-0FEF-4014-A3A4-601B96BBEB7B}|azuki_project.csproj|solutionrelative:notepad.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CE04BEBD-0FEF-4014-A3A4-601B96BBEB7B}|azuki_project.csproj|c:\\users\\nesty\\programming\\c#\\azuki_proj\\official\\maze_setup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CE04BEBD-0FEF-4014-A3A4-601B96BBEB7B}|azuki_project.csproj|solutionrelative:maze_setup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CE04BEBD-0FEF-4014-A3A4-601B96BBEB7B}|azuki_project.csproj|c:\\users\\nesty\\programming\\c#\\azuki_proj\\official\\maze.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CE04BEBD-0FEF-4014-A3A4-601B96BBEB7B}|azuki_project.csproj|solutionrelative:maze.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CE04BEBD-0FEF-4014-A3A4-601B96BBEB7B}|azuki_project.csproj|c:\\users\\nesty\\programming\\c#\\azuki_proj\\official\\frontend_setup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CE04BEBD-0FEF-4014-A3A4-601B96BBEB7B}|azuki_project.csproj|solutionrelative:frontend_setup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CE04BEBD-0FEF-4014-A3A4-601B96BBEB7B}|azuki_project.csproj|c:\\users\\nesty\\programming\\c#\\azuki_proj\\official\\frontend_asset.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CE04BEBD-0FEF-4014-A3A4-601B96BBEB7B}|azuki_project.csproj|solutionrelative:frontend_asset.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CE04BEBD-0FEF-4014-A3A4-601B96BBEB7B}|azuki_project.csproj|c:\\users\\nesty\\programming\\c#\\azuki_proj\\official\\env_private.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CE04BEBD-0FEF-4014-A3A4-601B96BBEB7B}|azuki_project.csproj|solutionrelative:env_private.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CE04BEBD-0FEF-4014-A3A4-601B96BBEB7B}|azuki_project.csproj|c:\\users\\nesty\\programming\\c#\\azuki_proj\\official\\env.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CE04BEBD-0FEF-4014-A3A4-601B96BBEB7B}|azuki_project.csproj|solutionrelative:env.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 9,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{fabf9319-47eb-497e-b8f6-d9f73fba5f55}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Wallpaper.cs",
+              "DocumentMoniker": "C:\\Users\\Nesty\\Programming\\C#\\azuki_proj\\official\\Wallpaper.cs",
+              "RelativeDocumentMoniker": "Wallpaper.cs",
+              "ToolTip": "C:\\Users\\Nesty\\Programming\\C#\\azuki_proj\\official\\Wallpaper.cs",
+              "RelativeToolTip": "Wallpaper.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-16T17:59:12.532Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Style_Root.cs",
+              "DocumentMoniker": "C:\\Users\\Nesty\\Programming\\C#\\azuki_proj\\official\\Style_Root.cs",
+              "RelativeDocumentMoniker": "Style_Root.cs",
+              "ToolTip": "C:\\Users\\Nesty\\Programming\\C#\\azuki_proj\\official\\Style_Root.cs",
+              "RelativeToolTip": "Style_Root.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-16T17:59:12.492Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "RUN.bat",
+              "DocumentMoniker": "C:\\Users\\Nesty\\Programming\\C#\\azuki_proj\\official\\RUN.bat",
+              "RelativeDocumentMoniker": "RUN.bat",
+              "ToolTip": "C:\\Users\\Nesty\\Programming\\C#\\azuki_proj\\official\\RUN.bat",
+              "RelativeToolTip": "RUN.bat",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000614|",
+              "WhenOpened": "2025-12-16T17:59:12.447Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Nesty\\Programming\\C#\\azuki_proj\\official\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\Nesty\\Programming\\C#\\azuki_proj\\official\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-16T17:59:12.395Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Player.cs",
+              "DocumentMoniker": "C:\\Users\\Nesty\\Programming\\C#\\azuki_proj\\official\\Player.cs",
+              "RelativeDocumentMoniker": "Player.cs",
+              "ToolTip": "C:\\Users\\Nesty\\Programming\\C#\\azuki_proj\\official\\Player.cs",
+              "RelativeToolTip": "Player.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-16T17:59:12.316Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "notepad.json",
+              "DocumentMoniker": "C:\\Users\\Nesty\\Programming\\C#\\azuki_proj\\official\\notepad.json",
+              "RelativeDocumentMoniker": "notepad.json",
+              "ToolTip": "C:\\Users\\Nesty\\Programming\\C#\\azuki_proj\\official\\notepad.json",
+              "RelativeToolTip": "notepad.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-12-16T17:59:11.884Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Maze_Setup.cs",
+              "DocumentMoniker": "C:\\Users\\Nesty\\Programming\\C#\\azuki_proj\\official\\Maze_Setup.cs",
+              "RelativeDocumentMoniker": "Maze_Setup.cs",
+              "ToolTip": "C:\\Users\\Nesty\\Programming\\C#\\azuki_proj\\official\\Maze_Setup.cs",
+              "RelativeToolTip": "Maze_Setup.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-16T17:59:11.651Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MazeGame.cs",
+              "DocumentMoniker": "C:\\Users\\Nesty\\Programming\\C#\\azuki_proj\\official\\MazeGame.cs",
+              "RelativeDocumentMoniker": "MazeGame.cs",
+              "ToolTip": "C:\\Users\\Nesty\\Programming\\C#\\azuki_proj\\official\\MazeGame.cs",
+              "RelativeToolTip": "MazeGame.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-16T17:59:11.602Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Maze.cs",
+              "DocumentMoniker": "C:\\Users\\Nesty\\Programming\\C#\\azuki_proj\\official\\Maze.cs",
+              "RelativeDocumentMoniker": "Maze.cs",
+              "ToolTip": "C:\\Users\\Nesty\\Programming\\C#\\azuki_proj\\official\\Maze.cs",
+              "RelativeToolTip": "Maze.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-16T17:59:11.56Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Frontend_Setup.cs",
+              "DocumentMoniker": "C:\\Users\\Nesty\\Programming\\C#\\azuki_proj\\official\\Frontend_Setup.cs",
+              "RelativeDocumentMoniker": "Frontend_Setup.cs",
+              "ToolTip": "C:\\Users\\Nesty\\Programming\\C#\\azuki_proj\\official\\Frontend_Setup.cs",
+              "RelativeToolTip": "Frontend_Setup.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-16T17:59:11.52Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Frontend_Asset.cs",
+              "DocumentMoniker": "C:\\Users\\Nesty\\Programming\\C#\\azuki_proj\\official\\Frontend_Asset.cs",
+              "RelativeDocumentMoniker": "Frontend_Asset.cs",
+              "ToolTip": "C:\\Users\\Nesty\\Programming\\C#\\azuki_proj\\official\\Frontend_Asset.cs",
+              "RelativeToolTip": "Frontend_Asset.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-16T17:59:11.471Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "env_private.cs",
+              "DocumentMoniker": "C:\\Users\\Nesty\\Programming\\C#\\azuki_proj\\official\\env_private.cs",
+              "RelativeDocumentMoniker": "env_private.cs",
+              "ToolTip": "C:\\Users\\Nesty\\Programming\\C#\\azuki_proj\\official\\env_private.cs",
+              "RelativeToolTip": "env_private.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-16T17:59:11.426Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "env.cs",
+              "DocumentMoniker": "C:\\Users\\Nesty\\Programming\\C#\\azuki_proj\\official\\env.cs",
+              "RelativeDocumentMoniker": "env.cs",
+              "ToolTip": "C:\\Users\\Nesty\\Programming\\C#\\azuki_proj\\official\\env.cs",
+              "RelativeToolTip": "env.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-16T17:59:11.359Z",
+              "EditorCaption": ""
+            }
+          ]
+        },
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

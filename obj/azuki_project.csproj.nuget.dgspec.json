@@ -51,6 +51,14 @@
         "net9.0-windows7.0": {
           "targetAlias": "net9.0-windows",
           "dependencies": {
+            "Figgle": {
+              "target": "Package",
+              "version": "[0.6.5, )"
+            },
+            "Figgle.Fonts": {
+              "target": "Package",
+              "version": "[0.6.5, )"
+            },
             "Google.GenAI": {
               "target": "Package",
               "version": "[0.6.0, )"

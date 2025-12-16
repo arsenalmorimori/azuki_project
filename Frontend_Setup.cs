@@ -305,6 +305,9 @@ public class Frontend_Setup {
                 case 4:
                     App_Music.Run();
                     break;
+                case 5:
+                    Maze_Setup.Run();
+                    break;
             }
         }
     }

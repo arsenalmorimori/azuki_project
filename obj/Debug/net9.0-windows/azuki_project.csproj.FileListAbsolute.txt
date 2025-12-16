@@ -38,3 +38,5 @@ C:\Users\Nesty\Programming\C#\azuki_proj\official\bin\Debug\net9.0-windows\NAudi
 C:\Users\Nesty\Programming\C#\azuki_proj\official\bin\Debug\net9.0-windows\NAudio.Wasapi.dll
 C:\Users\Nesty\Programming\C#\azuki_proj\official\bin\Debug\net9.0-windows\NAudio.WinForms.dll
 C:\Users\Nesty\Programming\C#\azuki_proj\official\bin\Debug\net9.0-windows\NAudio.WinMM.dll
+C:\Users\Nesty\Programming\C#\azuki_proj\official\bin\Debug\net9.0-windows\Figgle.dll
+C:\Users\Nesty\Programming\C#\azuki_proj\official\bin\Debug\net9.0-windows\Figgle.Fonts.dll

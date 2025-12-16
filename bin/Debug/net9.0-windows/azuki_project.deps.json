@@ -8,6 +8,8 @@
     ".NETCoreApp,Version=v9.0": {
       "azuki_project/1.0.0": {
         "dependencies": {
+          "Figgle": "0.6.5",
+          "Figgle.Fonts": "0.6.5",
           "Google.GenAI": "0.6.0",
           "InputSimulatorPlus": "1.0.7",
           "NAudio": "2.2.1",
@@ -17,6 +19,25 @@
         },
         "runtime": {
           "azuki_project.dll": {}
+        }
+      },
+      "Figgle/0.6.5": {
+        "runtime": {
+          "lib/netstandard2.0/Figgle.dll": {
+            "assemblyVersion": "0.6.5.0",
+            "fileVersion": "0.6.5.0"
+          }
+        }
+      },
+      "Figgle.Fonts/0.6.5": {
+        "dependencies": {
+          "Figgle": "0.6.5"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Figgle.Fonts.dll": {
+            "assemblyVersion": "0.6.5.0",
+            "fileVersion": "0.6.5.0"
+          }
         }
       },
       "Google.Apis/1.69.0": {
@@ -773,6 +794,20 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "Figgle/0.6.5": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-8Z1qvgyDFvqeQB+b/qpp083N5O/1UNEVKpI2TsWD+tM7Ev388VccPysMxre6jeAy7h4m6L6LrguPGmnOh8+ZGA==",
+      "path": "figgle/0.6.5",
+      "hashPath": "figgle.0.6.5.nupkg.sha512"
+    },
+    "Figgle.Fonts/0.6.5": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-AFGGUXBF/u44qOww7Zyro0pwhuq7uuZA68N/y1z6GHd+CRj6pWpGHMc7/+XyjZwgJFi3as4diEG/EULOmQAkPQ==",
+      "path": "figgle.fonts/0.6.5",
+      "hashPath": "figgle.fonts.0.6.5.nupkg.sha512"
     },
     "Google.Apis/1.69.0": {
       "type": "package",
