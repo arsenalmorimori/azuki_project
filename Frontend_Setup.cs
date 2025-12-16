@@ -47,8 +47,12 @@ public class Frontend_Setup {
         
         // START
         fa.ClearCmd();
-        sim.Keyboard.KeyPress(VirtualKeyCode.F11);
-        Load_HELLO();
+        
+        if(env.start == 1){
+            // starting from thhe startup page if equals 1
+            sim.Keyboard.KeyPress(VirtualKeyCode.F11);
+            Load_HELLO();
+        }
         
         // HOMESCREEN
         while (true) {
