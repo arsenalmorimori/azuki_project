@@ -129,7 +129,9 @@ public class Frontend_Setup {
             col += 20;
             fa.Icon(Style_Root.music_ico, 4, Pointer, 66+7, col);
             col += 20;
-            fa.Icon(Style_Root.file_ico, 5, Pointer, 66+7, col);
+            fa.Icon(Style_Root.maze_ico, 5, Pointer, 66+7, col);
+            col += 20;
+            fa.Icon(Style_Root.cs1b_ico, 6, Pointer, 66+7, col);
             col += 20;
 
             Widget_Clock();
@@ -143,11 +145,13 @@ public class Frontend_Setup {
             line += 8;
             fa.Icon(Style_Root.music_ico, 4, Pointer, line, 5);
             line += 8;
-            fa.Icon(Style_Root.file_ico, 5, Pointer, line, 5);
+            fa.Icon(Style_Root.maze_ico, 5, Pointer, line, 5);
+            line += 8;
+            fa.Icon(Style_Root.cs1b_ico, 6, Pointer, line, 5);
             line += 8;
             Widget_Clock();
         }else if (env.icon_layout == 2) {
-            int col = 103;
+            int col = 96;
             fa.Icon(Style_Root.terminal_ico, 1, Pointer, 66+7, col);
             col += 20;
             fa.Icon(Style_Root.notepad_ico, 2, Pointer, 66+7, col);
@@ -156,7 +160,9 @@ public class Frontend_Setup {
             col += 20;
             fa.Icon(Style_Root.music_ico, 4, Pointer, 66+7, col);
             col += 20;
-            fa.Icon(Style_Root.file_ico, 5, Pointer, 66+7, col);
+            fa.Icon(Style_Root.maze_ico, 5, Pointer, 66+7, col);
+            col += 20;
+            fa.Icon(Style_Root.cs1b_ico, 6, Pointer, 66+7, col);
             col += 20;
             
             Widget_Clock();

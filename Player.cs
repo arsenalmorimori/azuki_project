@@ -22,22 +22,41 @@
         else return false; // Not a movement key
 
         // Check if the new position is a valid, open space
-        if (_maze.Map[newY, newX] == ' ' || _maze.Map[newY, newX] == 'F')
-        {
-            // Erase old position on the console
-            Console.SetCursorPosition(X, Y);
-            Console.Write(' ');
+        if (env.maze_dev == 0) {
+             if (_maze.Map[newY, newX] == ' '  || _maze.Map[newY, newX] == 'F'){
+                // Erase old position on the console
+                Console.SetCursorPosition(X, Y);
+                Console.Write(' ');
 
-            // Update player state
-            X = newX;
-            Y = newY;
+                // Update player state
+                X = newX;
+                Y = newY;
 
-            // Draw new position on the console
-            Console.SetCursorPosition(X, Y);
-            Console.Write('P');
+                // Draw new position on the console
+                Console.SetCursorPosition(X, Y);
+                Console.Write('P');
 
-            return true;
+                return true;
+            }
         }
+        else {
+            if (_maze.Map[newY, newX] == ' '|| _maze.Map[newY, newX] == '█'|| _maze.Map[newY, newX] == 'F'){
+                // Erase old position on the console
+                Console.SetCursorPosition(X, Y);
+                Console.Write(' ');
+
+                // Update player state
+                X = newX;
+                Y = newY;
+
+                // Draw new position on the console
+                Console.SetCursorPosition(X, Y);
+                Console.Write('P');
+
+                return true;
+            }
+        }
+       
 
         return false; // Collision with a wall
     }
