@@ -321,7 +321,7 @@ class App_Terminal {
             top++;
             fa.TextBox(top, 75, Style_Root.MAGENTA + "OS  :  " + Style_Root.RESET + "AZUKI 0SS");
             top++;
-            fa.TextBox(top, 75, Style_Root.MAGENTA + "OS Version  :  " + Style_Root.RESET + "azk_0.1");
+            fa.TextBox(top, 75, Style_Root.MAGENTA + "OS Version  :  " + Style_Root.RESET + "azk_1.0");
             top++;
             fa.TextBox(top, 75, Style_Root.MAGENTA + "Prog Lang  :  " + Style_Root.RESET + "csharp");
             top++;

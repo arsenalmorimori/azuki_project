@@ -42,3 +42,6 @@ AZUKI Operating System Simulation
     - terminal features : https://www.youtube.com/watch?v=KdoaiGTIBY4&t
 
 
+
+// CHECKPOINT
+    - 12/19/25 - overall program function 100% DONE!
