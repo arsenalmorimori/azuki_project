@@ -115,19 +115,21 @@ class App_Setup{
 
     public static async Task Ask(string question){
 
-        var response = await env_private.client.Models.GenerateContentAsync(
-            model: "gemini-2.0-flash",
-            contents: question + ". Answer in only one short sentence. Must not exceed to 145 characters, including spaces");
-        App_Terminal.cli.Append(Style_Root.MAGENTA + "   > " + response.Candidates[0].Content.Parts[0].Text + Style_Root.RESET +"\n");
+        // var response = await env_private.client.Models.GenerateContentAsync(
+        //     model: "gemini-2.0-flash-lite",
+        //     contents: question + ". Answer in only one short sentence. Must not exceed to 145 characters, including spaces");
+        // App_Terminal.cli.Append(Style_Root.MAGENTA + "   > " + response.Candidates[0].Content.Parts[0].Text + Style_Root.RESET +"\n");
+        App_Terminal.cli.Append(Style_Root.MAGENTA + "   > " + "Microsoft is a technology company that builds software, hardware, and cloud services like Windows, Office, and Azure."+ Style_Root.RESET +"\n\n");
         
     }
 
     public static async Task Ask_Motivation(string question){
 
-        var response = await env_private.client.Models.GenerateContentAsync(
-            model: "gemini-2.0-flash",
-            contents: question + ". Please gieve a quotation, phrase, or analogy that can help me mentally. Please dont use most common ai word like embrace, unleash, etc. Must not exceed to 145 characters, including spaces");
-        App_Terminal.cli.Append(Style_Root.MAGENTA + "   > " + response.Candidates[0].Content.Parts[0].Text + Style_Root.RESET +"\n");
+        // var response = await env_private.client.Models.GenerateContentAsync(
+        //     model: "models/gemini-pro",
+        //     contents: question + ". Please gieve a quotation, phrase, or analogy that can help me mentally. Please dont use most common ai word like embrace, unleash, etc. Must not exceed to 145 characters, including spaces");
+        // App_Terminal.cli.Append(Style_Root.MAGENTA + "   > " + response.Candidates[0].Content.Parts[0].Text + Style_Root.RESET +"\n");
+        App_Terminal.cli.Append(Style_Root.MAGENTA + "   > " + "Even when everything feels heavy, you’re still moving forward—and that quiet persistence is already strength."+ Style_Root.RESET+"\n\n");
         
     }
 

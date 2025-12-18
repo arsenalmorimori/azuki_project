@@ -57,7 +57,7 @@ public class Frontend_Setup {
         // HOMESCREEN
         while (true) {
             if((env.dev & 1) == 1) {
-                App_Music.Run();
+                App_Cs1b.Run();
             }else {
                 if(program_running){
                     fa.ClearCmd();
@@ -313,6 +313,9 @@ public class Frontend_Setup {
                     break;
                 case 5:
                     Maze_Setup.Run();
+                    break;
+                case 6:
+                    App_Cs1b.Run();
                     break;
             }
         }

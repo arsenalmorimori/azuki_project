@@ -8,9 +8,9 @@ public class env {
     public static string username = "mashi";
     public static int start = 0;
     public static int dev = 0;
-    public static int maze_dev = 1;
-    public static int wallpaper = 5;
-    public static int icon_layout = 1;
-    public static int clock_widget = -1;
+    public static int maze_dev = 0;
+    public static int wallpaper = 1;
+    public static int icon_layout = 0;
+    public static int clock_widget = 0;
     public static int mp3_wallpaper = 0;
 }

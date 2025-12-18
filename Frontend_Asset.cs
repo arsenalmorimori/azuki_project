@@ -63,6 +63,32 @@ public class Frontend_Asset {
         }
     }
     
+    public void FileIcon(string[] icon, int selector, int pointer, int line, int col, string title) {
+
+        if(pointer == selector) {
+            Console.Write(Style_Root.BLACK+Style_Root.WHITE_BG);
+            for (int a = 0 ; a < icon.Length; a++) {
+                Console.SetCursorPosition(col, line);
+                Console.Write(icon[a]);
+                if(a == 10) {
+                    Console.Write(title);     
+                }
+                line++;
+            }
+            Console.Write(Style_Root.RESET);
+        }
+        else {
+            for (int a = 0 ; a < icon.Length; a++) {
+                Console.SetCursorPosition(col, line);
+                Console.Write(icon[a]);
+                if(a == 10) {
+                Console.Write(title);    
+                }
+                line++;
+            }
+        }
+    }
+    
     public void Graphics(string[] graphics, int line, int col, string color, string background) {
         
         foreach (var printline in graphics) {
