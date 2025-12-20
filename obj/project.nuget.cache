@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "KvO6DaXB7/8=",
+  "dgSpecHash": "nvsGBlnX2to=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Nesty\\Programming\\C#\\azuki_proj\\official\\azuki_project.csproj",
+  "projectFilePath": "C:\\Users\\Nesty\\Programming\\C#\\azuki_proj\\azuki_oss_with_cs1b\\Azuki_OSS\\azuki_project.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Nesty\\.nuget\\packages\\figgle\\0.6.5\\figgle.0.6.5.nupkg.sha512",
     "C:\\Users\\Nesty\\.nuget\\packages\\figgle.fonts\\0.6.5\\figgle.fonts.0.6.5.nupkg.sha512",

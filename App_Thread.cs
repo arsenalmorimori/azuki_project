@@ -94,7 +94,7 @@
                 }else if (cursor.Key == ConsoleKey.X) {
                     end_thread = true;
                     loop_contorol = false;
-                    Thread.Sleep(2000);
+                    Thread.Sleep(1500);
                     break;
                 }else {
                     current_len = 0;

@@ -2,7 +2,7 @@ WELCOME TO
 AZUKI Operating System Simulation
 
 - This Console App project used C# and purely run in CMD Terminal 
-
+- Video Presentation - "https://www.youtube.com/watch?v=u9v3hWOOSOY"
 
 
 // Instruction
@@ -37,7 +37,10 @@ AZUKI Operating System Simulation
 
 
 
-// credits
+// Credits
+    - Bloomify Project by Anjilyn Ferrer
+    - Battleship Project by Georgie Bognalbal
+    - BeastBound Project by Eymard Ricafort
     - bios art : https://www.youtube.com/watch?v=ieFYjRxHOdk&t
     - terminal features : https://www.youtube.com/watch?v=KdoaiGTIBY4&t
 
@@ -45,3 +48,4 @@ AZUKI Operating System Simulation
 
 // CHECKPOINT
     - 12/19/25 - overall program function 100% DONE!
+    - 12/20/25 - final ror

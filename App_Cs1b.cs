@@ -119,6 +119,8 @@ class App_Cs1b{
                     Process.Start(new ProcessStartInfo("cmd.exe", "/c start cs1b_bloomify.bat") { CreateNoWindow = false });
                 } else if (Pointer == 0) {
                     Process.Start(new ProcessStartInfo("cmd.exe", "/c start cs1b_battleship.bat") { CreateNoWindow = false });
+                } else if (Pointer == 1) {
+                    Process.Start(new ProcessStartInfo("cmd.exe", "/c start cs1b_beastbound.bat") { CreateNoWindow = false });
                 }
             }else if(cursor.Key == ConsoleKey.X) {
                     fa.ClearCmd();
