@@ -1,12 +1,11 @@
-﻿
+﻿/*
+    DESCRIPTION : 
+        Class for Main Method
+*/
+
 using System;
 
 namespace azuki_project {
-
-    /*
-        DESCRIPTION : 
-            Class for Main Method
-    */
     
     public class Program {
 

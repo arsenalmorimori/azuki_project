@@ -1,11 +1,10 @@
+/*
+    DESCRIPTION : 
+        This class is for the global inventory or storage of ASCII ARTS and ASSETS variable
+*/
 
 using System;
 public class Style_Root {
-
-    /*
-        DESCRIPTION : 
-            This class is for the global inventory or storage of ASCII ARTS and ASSETS variable
-    */
 
     // -- RESET
     public static string RESET = "\u001b[0m";

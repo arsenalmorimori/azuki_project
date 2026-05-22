@@ -1,3 +1,8 @@
+/*
+    DESCRIPTION :
+        - Class for Terminal virtual pet ascii assets  
+*/
+
 public class App_Terminal_Pet {
     public static string[] raichu = {
         @"  /**\      ,",

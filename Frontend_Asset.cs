@@ -1,15 +1,15 @@
+/*
+    DESCRIPTION :
+        - Class is the collection of Methods for Assets / Elements Making
+        - The frontend in this system is inspired to Android Studio and MAUI utilizing the parameter (width, height, x, y)
+        - The elemet placements logic utilize the SetCursorPosition(), inspired to CSS Position Absolute (left, top)    
+*/
+
 using System;
 using System.Management;
 using System.Text;
 
 public class Frontend_Asset {
-
-    /*
-        DESCRIPTION :
-            - Class is the collection of Methods for Assets / Elements Making
-            - The frontend in this system is inspired to Android Studio and MAUI utilizing the parameter (width, height, x, y)
-            - The elemet placements logic utilize the SetCursorPosition(), inspired to CSS Position Absolute (left, top)    
-    */
     
     // Asset from Spectre Console Library
     // ╭─Status────────────╮

@@ -1,13 +1,11 @@
+/*
+    DESCRIPRION : 
+        Class for inventory / storage and printing of ASCII Wallaper global variavle
+*/
 using System;
 using System.Text;
 
 class Wallpaper{
-
-    /*
-        DESCRIPRION : 
-            Class for inventory / storage and printing of ASCII Wallaper global variavle
-    */
-    
     // String builder for more faster load of ASCII Art 
     public static StringBuilder cwln = new StringBuilder();
     

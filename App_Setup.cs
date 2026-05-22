@@ -1,3 +1,9 @@
+/*
+    DESCRIPTION :
+        - Class is the collection of global Methods for Application Frontend
+          such as controls, zoom, loading, and more
+*/
+
 using WindowsInput;
 using WindowsInput.Native;
 using System.Text;

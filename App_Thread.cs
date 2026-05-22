@@ -1,19 +1,18 @@
+/*
+    DESCRIPTION :
+        - Class for THREAD APPLICATION or message / forum app
+        - It use realtime database concept but using seperate Threads and HTTPS that reload every second defined
+        - User interaction will ONLY respond after a reload... be patient <3
+    
+    API USED :
+        - SUPABASE Database
+*/
 
     using System.Text;
     using System.Net.Http.Headers;
     using System.Text.Json;
     using System.Text.Json.Serialization;
     class App_Thread{
-
-        /*
-            DESCRIPTION :
-                - Class for THREAD APPLICATION or message / forum app
-                - It use realtime database concept but using seperate Threads and HTTPS that reload every second defined
-                - User interaction will ONLY respond after a reload... be patient <3
-            
-            API USED :
-                - SUPABASE Database
-        */
         
         // -------------------------- SETTING JSON VARIABLE --------------------------
         [JsonPropertyName("id")]

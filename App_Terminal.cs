@@ -1,3 +1,9 @@
+/*
+    DESCRIPTION :
+        - Class for Terminal Application
+    
+*/
+
 using System.Management;
 
 using System;

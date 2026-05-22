@@ -1,3 +1,8 @@
+/*
+    DESCRIPTION :
+        - Class for Music Application frontend
+*/
+
 using TextCopy;
 using System.Management;
 using System.Text.Json;

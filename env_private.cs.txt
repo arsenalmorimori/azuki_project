@@ -1,0 +1,13 @@
+using Google.GenAI;
+public class env_private {
+
+    /*
+        DESCRIPTION :
+            Class for the API related variable   
+    */
+
+    public static string gemini_api = "...";
+    public static string supabase_anonkey = "...";
+    public static string supabase_project = "...";
+    public static Client client = new Client(apiKey: gemini_api);
+}

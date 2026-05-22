@@ -1,3 +1,10 @@
+/*
+    DESCRIPTION :
+        - Class for Notepad Application cosisting of the whole CRUD Program
+        - It use virtual zoom to change font size, especially for viewing, writing, and editing a text
+        - This also use json for local database
+*/
+
 using TextCopy;
 using System.Management;
 using System.Text.Json;

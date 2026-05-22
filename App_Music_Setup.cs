@@ -1,3 +1,9 @@
+/*
+    DESCRIPTION :
+        - Class for Music Application backend
+        - It consist of the multi-thread logic and music player controls 
+*/
+
 using System;
 using System.IO;
 using System.Linq;

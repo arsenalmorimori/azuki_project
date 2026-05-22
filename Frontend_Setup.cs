@@ -1,3 +1,19 @@
+ /*
+    DESCRIPTION : 
+        - Setup or the Process of Loading the HOMESCREEN and process the navigation system between Apps and Homescreen
+    
+    PROCESS : 
+        - USER MODE
+            1   : Display the Wallpaper 
+            2   : Display the Taskbar
+            3   : Display the Icons
+            4   : Get User Input 
+            5.1 : Call Run() of the app if ENTER 
+            5.2 : Back to process 2 if OTHER
+        
+        - DEV MODE
+            1   : Run the called method only for faster load
+*/
 
 using System;
 using WindowsInput;
@@ -6,23 +22,6 @@ using WindowsInput.Native;
 using System.Management;
 using Microsoft.VisualBasic.Devices;
 public class Frontend_Setup {
-
-    /*
-        DESCRIPTION : 
-            - Setup or the Process of Loading the HOMESCREEN and process the navigation system between Apps and Homescreen
-        
-        PROCESS : 
-            - USER MODE
-                1   : Display the Wallpaper 
-                2   : Display the Taskbar
-                3   : Display the Icons
-                4   : Get User Input 
-                5.1 : Call Run() of the app if ENTER 
-                5.2 : Back to process 2 if OTHER
-            
-            - DEV MODE
-                1   : Run the called method only for faster load
-    */
 
 
     // -------------- VARIABLES --------------
