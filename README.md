@@ -18,7 +18,7 @@ AZUKI is a console-based operating system simulation built in C#. It replicates 
 ### Home Screen
 Customizable ASCII-based homescreen with wallpapers, widgets, taskbar, battery display, and date/time system.
 
-![Home Screen](YOUR_IMAGE_LINK_HERE)
+![Home Screen](image/desktop.png)
 
 ---
 
@@ -35,28 +35,29 @@ Commands:
 - `motivate me` → AI motivation
 - `cls` → Clear screen
 
-![Terminal](YOUR_IMAGE_LINK_HERE)
+![Terminal](image/terminal.png)
 
 ---
 
 ### Notepad Application
 Console-based notepad with CRUD operations using a local database for persistent note storage.
 
-![Notepad](YOUR_IMAGE_LINK_HERE)
+![Notepad](image/notepad.png)
+![Notepad2](image/notepad_2.png)
 
 ---
 
 ### Thread Application
 Real-time online messaging system using APIs, HTTPS, and online database connectivity.
 
-![Thread](YOUR_IMAGE_LINK_HERE)
+![Thread](image/thread.png)
 
 ---
 
 ### Music Player
 Multithreaded music player that allows background audio playback while navigating the OS.
 
-![Music Player](YOUR_IMAGE_LINK_HERE)
+![Music Player](image/music.png)
 
 ---
 
@@ -67,14 +68,15 @@ Developed by : Jaimes Jairelle Oreto
 
 
 
-![Maze Game](YOUR_IMAGE_LINK_HERE)
+![Maze Game](image/maze.png)
+![Maze Game2](image/maze_game.png)
 
 ---
 
 ### CS1B Folder
 Collection of CS1B console applications executable through batch processing inside AZUKI.
 
-![CS1B Folder](YOUR_IMAGE_LINK_HERE)
+![CS1B Folder](image/cs1b.png)
 
 ---
 
